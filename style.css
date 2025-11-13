@@ -154,7 +154,7 @@ section.show {
     display: inline-block;
     padding: 0.8rem 2rem;
     background: var(--accent-color);
-    color: var(--bg-color);
+    color: white;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
@@ -166,7 +166,7 @@ section.show {
 
 .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 191, 255, 0.3);
+    box-shadow: 0 10px 20px rgba(55, 123, 145, 0.3);
 }
 
 /* --- 3. Skills Section --- */
@@ -192,9 +192,9 @@ section.show {
 }
 
 .skill-card .icon-placeholder {
-    font-size: 1.5rem;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
+    font-size: 4rem; /* Makes icons bigger */
+    margin-bottom: 1.5rem;
+    color: var(--accent-color); /* Fallback color */
 }
 
 .skill-card h3 {
@@ -202,7 +202,81 @@ section.show {
     font-weight: 400;
 }
 
-/* --- 4. Projects Section --- */
+/* --- 3b. Skill Icon Styling --- */
+/* This uses the icon's original brand color! */
+.skill-card i {
+    color: unset; /* Resets the fallback color */
+    -webkit-text-fill-color: unset; /* Resets the fallback color */
+    background-image: none; /* Resets any gradient */
+}
+
+.skill-card .colored {
+    color: var(--accent-color); /* Default color for colored icons */
+}
+
+/* Specific Brand Colors (using the 'colored' class) */
+.devicon-c-plain.colored { color: #A8B9CC; }
+.devicon-cplusplus-plain.colored { color: #00599C; }
+.devicon-java-plain.colored { color: #f89820; }
+.devicon-python-plain.colored { color: #3776AB; }
+.devicon-numpy-original.colored { color: #4D77CF; }
+.devicon-vscode-plain.colored { color: #007ACC; }
+.devicon-github-original.colored { color: #ffffff; } /* White, as it's just a logo */
+.devicon-html5-plain.colored { color: #E34F26; }
+.devicon-css3-plain.colored { color: #1572B6; }
+.devicon-javascript-plain.colored { color: #F7DF1E; }
+.devicon-powerbi-plain.colored { color: #F2C811; }
+
+/* --- 4. Education Section --- */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.education-item {
+    background: var(--card-bg);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.education-item:hover {
+    box-shadow: 0 0 15px var(--card-border);
+    transform: translateX(5px);
+}
+
+.education-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+}
+
+.education-item .institution {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.education-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.education-meta .metric {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+
+/* --- 5. Projects Section --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -286,7 +360,7 @@ section.show {
     color: var(--bg-color);
 }
 
-/* --- NEW ONGOING WORK SECTION --- */
+/* --- 6. Ongoing Work Section --- */
 .ongoing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -332,7 +406,7 @@ section.show {
     transition: width 0.5s ease-in-out;
 }
 
-/* --- 5. Events Section --- */
+/* --- 7. Events Section --- */
 .event-item {
     background: var(--card-bg);
     padding: 1.5rem 2rem;
@@ -356,7 +430,7 @@ section.show {
     color: var(--text-muted);
 }
 
-/* --- 6. Contact Section --- */
+/* --- 8. Contact Section --- */
 #contact {
     text-align: center;
 }
@@ -372,6 +446,37 @@ section.show {
     text-decoration: underline;
     font-weight: 600;
 }
+
+/* Make the contact button/email clearly visible and fixed width */
+#contact .cta-button {
+    width: 280px; /* requested 280px style */
+    display: inline-block;
+    text-align: center;
+    text-transform: none; /* keep email case intact */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    color: white; /* Fix: Force text white */
+    text-decoration: none; /* Fix: Remove underline */
+}
+
+/* Style for the new phone number link */
+#contact .phone-link {
+    display: block;
+    margin: 1rem auto 0;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#contact .phone-link:hover {
+    color: var(--accent-color);
+    text-shadow: var(--neon-glow);
+}
+
 
 .social-links {
     margin-top: 2rem;
@@ -392,7 +497,7 @@ section.show {
     transform: scale(1.1);
 }
 
-/* --- 7. Footer --- */
+/* --- 9. Footer --- */
 .footer {
     text-align: center;
     padding: 2rem 0;
@@ -402,7 +507,7 @@ section.show {
     font-size: 0.9rem;
 }
 
-/* --- 8. Responsive Design --- */
+/* --- 10. Responsive Design --- */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
@@ -446,38 +551,19 @@ section.show {
     }
     
     .projects-grid,
-    .ongoing-grid { /* Added ongoing-grid here */
+    .ongoing-grid {
         grid-template-columns: 1fr;
     }
-}
 
-/* --- 3b. Skill Icon Styling --- */
-.skill-card .icon-placeholder {
-    font-size: 4rem; /* Makes icons bigger */
-    margin-bottom: 1.5rem;
-    color: var(--accent-color); /* Fallback color */
-}
+    /* Responsive Education Section */
+    .education-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
 
-/* This uses the icon's original brand color! */
-.skill-card i {
-    color: unset; /* Resets the fallback color */
-    -webkit-text-fill-color: unset; /* Resets the fallback color */
-    background-image: none; /* Resets any gradient */
+    .education-meta .location,
+    .education-meta .metric {
+        margin-top: 0.25rem;
+    }
 }
-
-.skill-card .colored {
-    color: var(--accent-color); /* Default color for colored icons */
-}
-
-/* Specific Brand Colors (using the 'colored' class) */
-.devicon-c-plain.colored { color: #A8B9CC; }
-.devicon-cplusplus-plain.colored { color: #00599C; }
-.devicon-java-plain.colored { color: #f89820; }
-.devicon-python-plain.colored { color: #3776AB; }
-.devicon-numpy-original.colored { color: #4D77CF; }
-.devicon-vscode-plain.colored { color: #007ACC; }
-.devicon-github-original.colored { color: #ffffff; } /* White, as it's just a logo */
-.devicon-html5-plain.colored { color: #E34F26; }
-.devicon-css3-plain.colored { color: #1572B6; }
-.devicon-javascript-plain.colored { color: #F7DF1E; }
-.devicon-powerbi-plain.colored { color: #F2C811; }
