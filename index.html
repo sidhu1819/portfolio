@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siddhartha - Personal Portfolio</title>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <title>Portfolio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +21,7 @@
             <a href="#home" class="logo">Siddhartha Reddy Medapati</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#latest-projects">Latest</a></li> <!-- Added link -->
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -38,6 +40,41 @@
             <p class="subtitle">Data Analyst</p>
             <a href="#contact" class="cta-button">Contact Me</a>
         </section>
+
+        <!-- ======== LATEST PROJECTS / GALLERY (NEW SECTION) ======== -->
+        <section id="latest-projects">
+            <div class="container">
+                <h2>Latest Project Updates</h2>
+                <div class="latest-projects-grid">
+                    
+                    <!-- Project 1 -->
+                    <div class="latest-project-card">
+                        <!-- 
+                          MODIFIED: 
+                          1. Added id="hotel-flow-image"
+                          2. Added class="clickable-image"
+                          3. Added data-alt-src="latest pics/hotel-flow-login.png" (CHANGE THIS to your 2nd image)
+                        -->
+                        <img 
+                          id="hotel-flow-image"
+                          class="clickable-image"
+                          src="latest pics/hotel flow.png" 
+                          data-alt-src="latest pics/hotel flow-1.png" 
+                          alt="HotelFlow Management System (Click to toggle view)"
+                        >
+                        <div class="latest-card-content">
+                            <h3>HotelFlow Management System</h3>
+                            <p>A full-stack hotel management system which has the dashboard of adding rooms guests bookings chech in check out and billing  the website give a data analysing platform.</p>
+                            <div class="project-links">
+                                <a href="http://hotelflow-production.up.railway.app" target="_blank">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <!-- ======================================================= -->
 
         <section id="skills">
             <div class="container">
@@ -155,9 +192,25 @@
                 <h2>My Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
+                        <img src="project pics/project 6.png" alt="Project 6 Image">
+                        <div class="card-content">
+                            <h3>HotelFlow Management System</h3>
+                            <p>A full-stack hotel management system which has the dashboard of adding rooms guests bookings chech in check out and billing  the website give a data analysing platform.</p>
+                            <div class="tech-stack">
+                                <span>Typescript</span>
+                                <span>progressSQL</span>
+                                <span>AI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://hotelflow-production.up.railway.app" target="_blank">Live Demo</a>
+                                <a href="https://github.com/sidhu1819/Hotel_Flow" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
                         <img src="project pics/project 1.png" alt="Project 1 Image">
                         <div class="card-content">
-                            <h3>Hotel management</h3>
+                            <h3>Hostel management</h3>
                             <p>A comprehensive Hostel Management System that allows students to request rooms, and hosts to manage room allotments efficiently. The system provides real-time tracking of room availability, student profiles, and request approvals, streamlining hostel operations and improving communication between students and administration.</p>
                             <div class="tech-stack">
                                 <span>MongoDB</span>
@@ -166,7 +219,7 @@
                                 <span>React</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://hostel-management-system-rnox.onrender.com/login" target="_blank">Live Demo</a>
+                                <a href="https://hostel-management-system-rnox.onrender.com" target="_blank">Live Demo</a>
                                 <a href="https://github.com/sidhu1819/hostel_management" target="_blank">GitHub</a>
                             </div>
                         </div>
@@ -231,7 +284,7 @@
                             </div>
                             <div class="project-links">
                                 <a href="https://sidhu1819.github.io/samyuktha/" target="_blank">Live Demo</a>
-                                <a href="#" target="_blank">GitHub</a>
+                                <a href="https://github.com/sidhu1819/samyuktha" target="_blank">GitHub</a>
                             </div>
                         </div>
                     </div>
@@ -336,5 +389,3 @@
 
 </body>
 </html>
-
-

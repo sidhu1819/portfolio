@@ -43,3 +43,28 @@ const observer = new IntersectionObserver((entries, observer) => {
 sectionsToAnimate.forEach(section => {
     observer.observe(section);
 });
+
+
+/* === 3. LATEST PROJECT IMAGE TOGGLE (NEW CODE) === */
+// Wait for the document to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Find the image by its ID
+    const hotelFlowImage = document.getElementById('hotel-flow-image');
+
+    // Only run if the image exists on the page
+    if (hotelFlowImage) {
+        
+        // Add a click event listener
+        hotelFlowImage.addEventListener('click', () => {
+            
+            // Get the current image source and the alternate image source
+            const currentSrc = hotelFlowImage.src;
+            const altSrc = hotelFlowImage.getAttribute('data-alt-src');
+            
+            // Swap them!
+            hotelFlowImage.src = altSrc;
+            hotelFlowImage.setAttribute('data-alt-src', currentSrc);
+        });
+    }
+});
