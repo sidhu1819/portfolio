@@ -21,14 +21,11 @@
             <a href="#home" class="logo">Siddhartha Reddy Medapati</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#latest-projects">Latest</a></li> <!-- Added link -->
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#ongoing">Ongoing</a></li>
-                <li><a href="#events">Events</a></li>
+                <li><a href="#projects">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
             <div class="hamburger">☰</div>
         </div>
     </header>
@@ -37,36 +34,37 @@
         <section id="home" class="hero">
             <img src="Profile 1.jpg" alt="Your Professional Picture" class="hero-img">
             <h1>Siddhartha Reddy Medapati</h1>
-            <p class="subtitle">Data Analyst</p>
+            <p class="subtitle">Data Analyst & Web Developer</p>
             <a href="#contact" class="cta-button">Contact Me</a>
         </section>
 
-        <!-- ======== LATEST PROJECTS / GALLERY (NEW SECTION) ======== -->
+        <!-- ======== LATEST PROJECTS / GALLERY ======== -->
         <section id="latest-projects">
             <div class="container">
                 <h2>Latest Project Updates</h2>
                 <div class="latest-projects-grid">
                     
-                    <!-- Project 1 -->
+                    <!-- LATEST FEATURED: THE FOREST HUB -->
                     <div class="latest-project-card">
                         <!-- 
-                          MODIFIED: 
-                          1. Added id="hotel-flow-image"
-                          2. Added class="clickable-image"
-                          3. Added data-alt-src="latest pics/hotel-flow-login.png" (CHANGE THIS to your 2nd image)
+                           TODO: Save a screenshot of your VR project as 'forest-hub.png' 
+                           inside your 'project pics' folder.
                         -->
                         <img 
-                          id="hotel-flow-image"
+                          id="forest-hub-image"
                           class="clickable-image"
-                          src="latest pics/hotel flow.png" 
-                          data-alt-src="latest pics/hotel flow-1.png" 
-                          alt="HotelFlow Management System (Click to toggle view)"
+                          src="project pics/forest-hub.png" 
+                          data-alt-src="project pics/forest-hub.png" 
+                          alt="The Forest Hub VR Experience"
                         >
                         <div class="latest-card-content">
-                            <h3>HotelFlow Management System</h3>
-                            <p>A full-stack hotel management system which has the dashboard of adding rooms guests bookings chech in check out and billing  the website give a data analysing platform.</p>
+                            <h3>The Forest Hub (VR Experience)</h3>
+                            <p>An immersive Virtual Reality environment designed as a digital sanctuary. Users can explore a 3D forest landscape directly in their browser. Built using WebVR technologies to provide a calming, interactive experience.</p>
                             <div class="project-links">
-                                <a href="http://hotelflow-production.up.railway.app" target="_blank">Live Demo</a>
+                                <!-- Devpost Link -->
+                                <a href="https://devpost.com/software/the-forest-hub#updates" target="_blank">View on Devpost</a>
+                                <!-- GitHub Link -->
+                                <a href="https://github.com/sidhu1819" target="_blank">Source Code</a>
                             </div>
                         </div>
                     </div>
@@ -132,8 +130,31 @@
                     </div>
                     
                     <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-powerbi-plain colored"></i></div>
+                        <div class="icon-placeholder">
+                            <img src="https://cdn.worldvectorlogo.com/logos/power-bi.svg" alt="Power BI Logo" style="width:60px; height:60px;">
+                        </div>
                         <h3>Power BI</h3>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="icon-placeholder"><i class="devicon-mysql-plain colored"></i></div>
+                        <h3>MySQL</h3>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="icon-placeholder"><i class="devicon-python-plain colored"></i></div>
+                        <h3>Pandas</h3>
+                    </div>
+
+
+                    <div class="skill-card">
+                        <div class="icon-placeholder"><i class="devicon-mysql-plain colored"></i></div>
+                        <h3>MySQL</h3>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="icon-placeholder"><i class="devicon-python-plain colored"></i></div>
+                        <h3>Pandas</h3>
                     </div>
 
                     <div class="skill-card">
@@ -159,7 +180,7 @@
                         <h3>Bachelor of Technology, Computer Science (Data Science)</h3>
                         <p class="institution">Anil Neerukonda Institute of Technology & Sciences</p>
                         <div class="education-meta">
-                            <span class="dates">2024 - 2028(ongoing)</span>
+                            <span class="dates">2024 - 2028 (ongoing)</span>
                             <span class="location">Visakhapatnam</span>
                             <span class="metric">SPA: 9.3/10</span>
                         </div>
@@ -191,14 +212,53 @@
             <div class="container">
                 <h2>My Projects</h2>
                 <div class="projects-grid">
+                    
+                    <!-- NEW: The Forest Hub (VR Project) -->
+                    <div class="project-card">
+                        <img src="project pics/forest-hub.png" alt="The Forest Hub VR Project" onerror="this.src='project pics/project 6.png'">
+                        <div class="card-content">
+                            <h3>The Forest Hub (VR Experience)</h3>
+                            <p>An immersive Virtual Reality environment designed as a digital sanctuary. Users can explore a 3D forest landscape directly in their browser.</p>
+                            <div class="tech-stack">
+                                <span>WebVR</span>
+                                <span>A-Frame</span>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://devpost.com/software/the-forest-hub#updates" target="_blank">Devpost</a>
+                                <a href="https://github.com/sidhu1819" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW: Ghandivam (Hackathon Project) -->
+                    <div class="project-card">
+                        <!-- TODO: Add 'ghandivam.png' to your project pics folder -->
+                        <img src="project pics/project 7.png" alt="Ghandivam Project" onerror="this.src='project pics/project 6.png'">
+                        <div class="card-content">
+                            <h3>Ghandivam (Hackathon Project)</h3>
+                            <p>A full-stack web solution developed during the Hogwarts 24hr Hackathon. Built to address smart education challenges under a strict deadline.</p>
+                            <div class="tech-stack">
+                                <span>HTML/CSS</span>
+                                <span>JavaScript</span>
+                                <span>GitHub</span>
+                            </div>
+                            <div class="project-links">
+                                <!-- Replace with specific repo link if available -->
+                                <a href="https://github.com/sidhu1819" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HotelFlow -->
                     <div class="project-card">
                         <img src="project pics/project 6.png" alt="Project 6 Image">
                         <div class="card-content">
                             <h3>HotelFlow Management System</h3>
-                            <p>A full-stack hotel management system which has the dashboard of adding rooms guests bookings chech in check out and billing  the website give a data analysing platform.</p>
+                            <p>A full-stack hotel management system which has the dashboard of adding rooms guests bookings chech in check out and billing  the website give a data analysing platform.</p>
                             <div class="tech-stack">
                                 <span>Typescript</span>
-                                <span>progressSQL</span>
+                                <span>PostgreSQL</span>
                                 <span>AI</span>
                             </div>
                             <div class="project-links">
@@ -207,11 +267,13 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Hostel Management -->
                     <div class="project-card">
                         <img src="project pics/project 1.png" alt="Project 1 Image">
                         <div class="card-content">
                             <h3>Hostel management</h3>
-                            <p>A comprehensive Hostel Management System that allows students to request rooms, and hosts to manage room allotments efficiently. The system provides real-time tracking of room availability, student profiles, and request approvals, streamlining hostel operations and improving communication between students and administration.</p>
+                            <p>A comprehensive Hostel Management System that allows students to request rooms, and hosts to manage room allotments efficiently. The system provides real-time tracking of room availability.</p>
                             <div class="tech-stack">
                                 <span>MongoDB</span>
                                 <span>Express</span>
@@ -224,11 +286,13 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- DigiPortal -->
                     <div class="project-card">
                         <img src="project pics/project 2.png" alt="Project 2 Image">
                         <div class="card-content">
                             <h3>DigiPortal</h3>
-                            <p>DigiPortal is a web-based application built for B.Tech students to organize and track their academic journey. It provides modules for project management, achievements, hosted programs, ongoing goals, and coursework tracking</p>
+                            <p>DigiPortal is a web-based application built for B.Tech students to organize and track their academic journey. It provides modules for project management and achievements.</p>
                             <div class="tech-stack">
                                 <span>HTML</span>
                                 <span>CSS</span>
@@ -240,27 +304,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <img src="project pics/project 3.png" alt="Project 3 Image">
-                        <div class="card-content">
-                            <h3>RuralHealthAI</h3>
-                            <p>RuralHealthAI is a prototype developed to improve healthcare accessibility in rural and remote regions using artificial intelligence and smart connectivity. The system addresses critical issues such as delayed medical attention and lack of transport facilities by offering instant AI-driven medical support.</p>
-                            <div class="tech-stack">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://sidhu1819.github.io/sihnportal/index.html" target="_blank">Live Demo</a>
-                                <a href="https://github.com/sidhu1819/sihnportal" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
+
+
+                    <!-- SARV-SIKSHA -->
                     <div class="project-card">
                         <img src="project pics/project 4.png" alt="Project 4 Image">
                         <div class="card-content">
                             <h3>SARV-SIKSHA</h3>
-                            <p>SARV-SIKSHA is a prototype for offline-first learning platform tailored for rural communities with limited internet access. It enables students, teachers, and schools to access educational materials, track progress, and manage classrooms — all without needing constant connectivity</p>
+                            <p>It was done for SIH. SARV-SIKSHA is a prototype for offline-first learning platform tailored for rural communities with limited internet access.</p>
                             <div class="tech-stack">
                                 <span>HTML</span>
                                 <span>CSS</span>
@@ -272,22 +323,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <img src="project pics/project 5.png" alt="Project 5 Image">
-                        <div class="card-content">
-                            <h3>Samyuktha</h3>
-                            <p>Samyuktha – Your Learning Space: A platform offering offline lessons, skill-based learning (electronics, mobile repair, tailoring), audio lessons in Hindi/Maithili, local learning hubs, career guidance, and fun educational games for students.</p>
-                            <div class="tech-stack">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://sidhu1819.github.io/samyuktha/" target="_blank">Live Demo</a>
-                                <a href="https://github.com/sidhu1819/samyuktha" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
+
+
                 </div>
             </div>
         </section>
@@ -299,39 +336,27 @@
                     <div class="ongoing-card">
                         <div class="card-content">
                             <h3>Building E-commerce Website</h3>
-                            <p>An online shopping platform that allows users to browse products, add items to the cart, and make secure payments. The system features product management, order tracking, and user authentication for a seamless shopping experience.</p>
+                            <p>An online shopping platform that allows users to browse products, add items to the cart, and make secure payments.</p>
                             <div class="tech-stack">
                                 <span>MERN</span>
                                 <span>GPT</span>
                             </div>
                             <div class="progress-bar-container">
-                                <div class="progress-bar" style="width: 70%;">70%</div>
+                                <div class="progress-bar" style="width: 79%;">79%</div>
                             </div>
                         </div>
                     </div>
                     <div class="ongoing-card">
                         <div class="card-content">
                             <h3>Learning MERN Full stack development</h3>
-                            <p>A full-stack web application built using the MERN stack (MongoDB, Express, React, Node.js) that enables seamless frontend–backend integration with secure APIs, responsive UI, and real-time database operations.</p>
+                            <p>A full-stack web application built using the MERN stack that enables seamless frontend–backend integration.</p>
                             <div class="tech-stack">
-                                <span></span>
-                                <span></span>
+                                <span>MongoDB</span>
+                                <span>Express/Node</span>
+                                <span>React</span>
                             </div>
                             <div class="progress-bar-container">
-                                <div class="progress-bar" style="width: 36%;">36%</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ongoing-card">
-                        <div class="card-content">
-                            <h3> Learning My Sql</h3>
-                            <p>A database-driven application built using MySQL for efficient data storage, retrieval, and management with structured queries and relational design.</p>
-                            <div class="tech-stack">
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar" style="width: 10%;">10%</div>
+                                <div class="progress-bar" style="width: 43%;">43%</div>
                             </div>
                         </div>
                     </div>
@@ -345,20 +370,18 @@
                 <div class="event-list">
                     <div class="event-item">
                         <h3>INNOQUEST</h3>
-                        <p>ideathon</p>
-                        <p>Event Organizer Student lead </p>
+                        <p>Ideathon</p>
+                        <p>Event Organizer & Student Lead</p>
                     </div>
                     <div class="event-item">
                         <h3>Samyuktha</h3>
-                        <p>AI powred Workshop by Google</p>
-                        <p>AWS cloud</p>
-                        <p>Deep Dive Workshop</p>
-                        <p>HackJam</p>
+                        <p>AI powered Workshop by Google</p>
+                        <p>AWS Cloud Deep Dive Workshop & HackJam</p>
                     </div>
                     <div class="event-item">
                         <h3>Photo-Clinch</h3>
                         <p>A creative photography showcase event</p>
-                        <p>Student Coordinator</p>
+                        <p><strong>Student Coordinator</strong> (August 19th)</p>
                     </div>
                 </div>
             </div>
@@ -372,7 +395,7 @@
                 <a href="tel:+918328182328" class="phone-link">+91 83281 82328</a>
                 
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/medapati-siddhartha-reddy-861999329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/medapati-siddhartha-reddy-861999329" target="_blank">LinkedIn</a>
                     <a href="https://github.com/sidhu1819" target="_blank">GitHub</a>
                 </div>
             </div>
