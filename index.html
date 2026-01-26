@@ -1,414 +1,881 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddhartha Reddy Medapati | Portfolio</title>
     <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
-    <title>Portfolio</title>
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glassmorphism */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #0ea5e9, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Resume Reel Styles */
+        .reel-container {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .reel-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+
+        /* BOOK OPENING ANIMATION (Flip Cards) */
+        .book-card-container {
+            perspective: 1000px;
+            height: 300px;
+        }
+        
+        .book-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 0.75rem;
+        }
+
+        .book-card-container:hover .book-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .book-card-front, .book-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .book-card-front {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+        }
+
+        .book-card-back {
+            background: linear-gradient(to bottom right, #0ea5e9, #0284c7);
+            color: white;
+            transform: rotateY(180deg);
+            border: 1px solid #0284c7;
+        }
+        
+        .book-card-inner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 100%;
+            background: rgba(0,0,0,0.05);
+            border-top-left-radius: 0.75rem;
+            border-bottom-left-radius: 0.75rem;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-gray-50 text-slate-800 antialiased overflow-x-hidden selection:bg-brand-100 selection:text-brand-900">
 
-    <header class="navbar">
-        <div class="container">
-            <a href="#home" class="logo">Siddhartha Reddy Medapati</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Work</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- NAVIGATION -->
+    <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold tracking-tight text-slate-800 hover:text-brand-600 transition-colors">
+                Siddhartha<span class="text-brand-500">.</span>
+            </a>
+            
+            <ul class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                <li><a href="#home" class="hover:text-brand-500 transition-colors">Home</a></li>
+                <li><a href="#latest-projects" class="hover:text-brand-500 transition-colors">Work</a></li>
+                <li><a href="#resume" class="hover:text-brand-500 transition-colors text-brand-600 font-bold">Resume</a></li>
+                <!-- Changed Experience to Skills -->
+                <li><a href="#skills" class="hover:text-brand-500 transition-colors">Skills</a></li>
+                <li><a href="github.html" class="text-brand-600 font-bold hover:text-brand-800 transition-colors flex items-center"><i data-lucide="book-open" class="w-4 h-4 mr-1"></i> GitHub Docs</a></li>
             </ul>
 
-            <div class="hamburger">☰</div>
+            <button id="menu-btn" class="md:hidden text-slate-800 focus:outline-none">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <ul class="flex flex-col px-6 py-4 space-y-4 font-medium text-slate-600">
+                <li><a href="#home" class="block hover:text-brand-500 mobile-link">Home</a></li>
+                <li><a href="#latest-projects" class="block hover:text-brand-500 mobile-link">Work</a></li>
+                
+                <li><a href="github.html" class="block text-white bg-slate-800 px-4 py-2 rounded-lg mobile-link flex items-center w-fit"><i data-lucide="book" class="w-4 h-4 mr-2"></i> GitHub Docs</a></li>
+                <li><a href="#resume" class="block text-white bg-brand-500 px-4 py-2 rounded-lg mobile-link flex items-center w-fit"><i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Resume</a></li>
+                
+                <!-- Changed Experience to Skills -->
+                <li><a href="#skills" class="block hover:text-brand-500 mobile-link">Skills</a></li>
+            </ul>
         </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <img src="Profile 1.jpg" alt="Your Professional Picture" class="hero-img">
-            <h1>Siddhartha Reddy Medapati</h1>
-            <p class="subtitle">Data Analyst & Web Developer</p>
-            <a href="#contact" class="cta-button">Contact Me</a>
-        </section>
+        <!-- HERO -->
+        <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-brand-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
+            <div class="absolute bottom-20 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
 
-        <!-- ======== LATEST PROJECTS / GALLERY ======== -->
-        <section id="latest-projects">
-            <div class="container">
-                <h2>Latest Project Updates</h2>
-                <div class="latest-projects-grid">
-                    
-                    <!-- LATEST FEATURED: THE FOREST HUB -->
-                    <div class="latest-project-card">
-                        <!-- 
-                           TODO: Save a screenshot of your VR project as 'forest-hub.png' 
-                           inside your 'project pics' folder.
-                        -->
-                        <img 
-                          id="forest-hub-image"
-                          class="clickable-image"
-                          src="project pics/forest-hub.png" 
-                          data-alt-src="project pics/forest-hub.png" 
-                          alt="The Forest Hub VR Experience"
-                        >
-                        <div class="latest-card-content">
-                            <h3>The Forest Hub (VR Experience)</h3>
-                            <p>An immersive Virtual Reality environment designed as a digital sanctuary. Users can explore a 3D forest landscape directly in their browser. Built using WebVR technologies to provide a calming, interactive experience.</p>
-                            <div class="project-links">
-                                <!-- Devpost Link -->
-                                <a href="https://devpost.com/software/the-forest-hub#updates" target="_blank">View on Devpost</a>
-                                <!-- GitHub Link -->
-                                <a href="https://github.com/sidhu1819" target="_blank">Source Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-        <!-- ======================================================= -->
-
-        <section id="skills">
-            <div class="container">
-                <h2>My Skillset</h2>
-                <div class="skills-grid">
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-c-plain colored"></i></div>
-                        <h3>C</h3>
-                    </div>
-                    
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-cplusplus-plain colored"></i></div>
-                        <h3>C++</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-java-plain colored"></i></div>
-                        <h3>Java</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-python-plain colored"></i></div>
-                        <h3>Python</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-java-plain-wordmark"></i></div>
-                        <h3>OOP (Java)</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-cplusplus-line"></i></div>
-                        <h3>DSA (C++)</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-numpy-original colored"></i></div>
-                        <h3>Numpy</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-html5-plain colored"></i></div>
-                        <h3>HTML5</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-css3-plain colored"></i></div>
-                        <h3>CSS3</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-javascript-plain colored"></i></div>
-                        <h3>JavaScript</h3>
-                    </div>
-                    
-                    <div class="skill-card">
-                        <div class="icon-placeholder">
-                            <img src="https://cdn.worldvectorlogo.com/logos/power-bi.svg" alt="Power BI Logo" style="width:60px; height:60px;">
-                        </div>
-                        <h3>Power BI</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-mysql-plain colored"></i></div>
-                        <h3>MySQL</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-python-plain colored"></i></div>
-                        <h3>Pandas</h3>
-                    </div>
-
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-mysql-plain colored"></i></div>
-                        <h3>MySQL</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-python-plain colored"></i></div>
-                        <h3>Pandas</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-vscode-plain colored"></i></div>
-                        <h3>VS Code</h3>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="icon-placeholder"><i class="devicon-github-original colored"></i></div>
-                        <h3>GitHub</h3>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <div class="container">
-                <h2>My Education</h2>
-                <div class="education-list">
-                    
-                    <div class="education-item">
-                        <h3>Bachelor of Technology, Computer Science (Data Science)</h3>
-                        <p class="institution">Anil Neerukonda Institute of Technology & Sciences</p>
-                        <div class="education-meta">
-                            <span class="dates">2024 - 2028 (ongoing)</span>
-                            <span class="location">Visakhapatnam</span>
-                            <span class="metric">SPA: 9.3/10</span>
-                        </div>
-                    </div>
-
-                    <div class="education-item">
-                        <h3>Intermediate A.P (10+2)</h3>
-                        <p class="institution">Sri Shiridi sai junior college</p>
-                        <div class="education-meta">
-                            <span class="dates">2022 - 2024</span>
-                            <span class="metric">Percentage: 95%</span>
-                        </div>
-                    </div>
-
-                    <div class="education-item">
-                        <h3>SSC A.P (10)</h3>
-                        <p class="institution">Sri Siddhartha School</p>
-                        <div class="education-meta">
-                            <span class="dates">2021 - 2022</span>
-                            <span class="metric">CGPA: 8.4/10</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="container">
-                <h2>My Projects</h2>
-                <div class="projects-grid">
-                    
-                    <!-- NEW: The Forest Hub (VR Project) -->
-                    <div class="project-card">
-                        <img src="project pics/forest-hub.png" alt="The Forest Hub VR Project" onerror="this.src='project pics/project 6.png'">
-                        <div class="card-content">
-                            <h3>The Forest Hub (VR Experience)</h3>
-                            <p>An immersive Virtual Reality environment designed as a digital sanctuary. Users can explore a 3D forest landscape directly in their browser.</p>
-                            <div class="tech-stack">
-                                <span>WebVR</span>
-                                <span>A-Frame</span>
-                                <span>HTML5</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://devpost.com/software/the-forest-hub#updates" target="_blank">Devpost</a>
-                                <a href="https://github.com/sidhu1819" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NEW: Ghandivam (Hackathon Project) -->
-                    <div class="project-card">
-                        <!-- TODO: Add 'ghandivam.png' to your project pics folder -->
-                        <img src="project pics/project 7.png" alt="Ghandivam Project" onerror="this.src='project pics/project 6.png'">
-                        <div class="card-content">
-                            <h3>Ghandivam (Hackathon Project)</h3>
-                            <p>A full-stack web solution developed during the Hogwarts 24hr Hackathon. Built to address smart education challenges under a strict deadline.</p>
-                            <div class="tech-stack">
-                                <span>HTML/CSS</span>
-                                <span>JavaScript</span>
-                                <span>GitHub</span>
-                            </div>
-                            <div class="project-links">
-                                <!-- Replace with specific repo link if available -->
-                                <a href="https://github.com/sidhu1819" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- HotelFlow -->
-                    <div class="project-card">
-                        <img src="project pics/project 6.png" alt="Project 6 Image">
-                        <div class="card-content">
-                            <h3>HotelFlow Management System</h3>
-                            <p>A full-stack hotel management system which has the dashboard of adding rooms guests bookings chech in check out and billing  the website give a data analysing platform.</p>
-                            <div class="tech-stack">
-                                <span>Typescript</span>
-                                <span>PostgreSQL</span>
-                                <span>AI</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://hotelflow-production.up.railway.app" target="_blank">Live Demo</a>
-                                <a href="https://github.com/sidhu1819/Hotel_Flow" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Hostel Management -->
-                    <div class="project-card">
-                        <img src="project pics/project 1.png" alt="Project 1 Image">
-                        <div class="card-content">
-                            <h3>Hostel management</h3>
-                            <p>A comprehensive Hostel Management System that allows students to request rooms, and hosts to manage room allotments efficiently. The system provides real-time tracking of room availability.</p>
-                            <div class="tech-stack">
-                                <span>MongoDB</span>
-                                <span>Express</span>
-                                <span>Node</span>
-                                <span>React</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://hostel-management-system-rnox.onrender.com" target="_blank">Live Demo</a>
-                                <a href="https://github.com/sidhu1819/hostel_management" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- DigiPortal -->
-                    <div class="project-card">
-                        <img src="project pics/project 2.png" alt="Project 2 Image">
-                        <div class="card-content">
-                            <h3>DigiPortal</h3>
-                            <p>DigiPortal is a web-based application built for B.Tech students to organize and track their academic journey. It provides modules for project management and achievements.</p>
-                            <div class="tech-stack">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://sidhu1819.github.io/digital_education/" target="_blank">Live Demo</a>
-                                <a href="https://github.com/sidhu1819/digital_education" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- SARV-SIKSHA -->
-                    <div class="project-card">
-                        <img src="project pics/project 4.png" alt="Project 4 Image">
-                        <div class="card-content">
-                            <h3>SARV-SIKSHA</h3>
-                            <p>It was done for SIH. SARV-SIKSHA is a prototype for offline-first learning platform tailored for rural communities with limited internet access.</p>
-                            <div class="tech-stack">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://sidhu1819.github.io/Student-sih-/" target="_blank">Live Demo</a>
-                                <a href="https://github.com/sidhu1819/Student-sih-" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </section>
-
-        <section id="ongoing">
-            <div class="container">
-                <h2>Ongoing Work</h2>
-                <div class="ongoing-grid">
-                    <div class="ongoing-card">
-                        <div class="card-content">
-                            <h3>Building E-commerce Website</h3>
-                            <p>An online shopping platform that allows users to browse products, add items to the cart, and make secure payments.</p>
-                            <div class="tech-stack">
-                                <span>MERN</span>
-                                <span>GPT</span>
-                            </div>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar" style="width: 79%;">79%</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ongoing-card">
-                        <div class="card-content">
-                            <h3>Learning MERN Full stack development</h3>
-                            <p>A full-stack web application built using the MERN stack that enables seamless frontend–backend integration.</p>
-                            <div class="tech-stack">
-                                <span>MongoDB</span>
-                                <span>Express/Node</span>
-                                <span>React</span>
-                            </div>
-                            <div class="progress-bar-container">
-                                <div class="progress-bar" style="width: 43%;">43%</div>
-                            </div>
-                        </div>
+            <div class="container mx-auto px-6 text-center z-10">
+                <div class="relative inline-block mb-8 reveal">
+                    <div class="w-40 h-40 md:w-52 md:h-52 rounded-full p-1 bg-gradient-to-tr from-brand-500 to-purple-500 shadow-xl overflow-hidden mx-auto">
+                        <img src="Profile 1.jpg" alt="Siddhartha" class="w-full h-full object-cover bg-white" onerror="this.src='https://ui-avatars.com/api/?name=Siddhartha+Reddy&background=0ea5e9&color=fff&size=256'">
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="events">
-            <div class="container">
-                <h2>Events & Accomplishments</h2>
-                <div class="event-list">
-                    <div class="event-item">
-                        <h3>INNOQUEST</h3>
-                        <p>Ideathon</p>
-                        <p>Event Organizer & Student Lead</p>
-                    </div>
-                    <div class="event-item">
-                        <h3>Samyuktha</h3>
-                        <p>AI powered Workshop by Google</p>
-                        <p>AWS Cloud Deep Dive Workshop & HackJam</p>
-                    </div>
-                    <div class="event-item">
-                        <h3>Photo-Clinch</h3>
-                        <p>A creative photography showcase event</p>
-                        <p><strong>Student Coordinator</strong> (August 19th)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container">
-                <h2>Get In Touch</h2>
-                <p>My inbox is always open. Feel free to reach out!</p>
-                <a href="mailto:832siddhartha@gmail.com" class="cta-button">832siddhartha@gmail.com</a>
-                <a href="tel:+918328182328" class="phone-link">+91 83281 82328</a>
                 
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/medapati-siddhartha-reddy-861999329" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/sidhu1819" target="_blank">GitHub</a>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 reveal delay-100">
+                    Hi, I'm <span class="text-gradient">Siddhartha Reddy</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-600 mb-8 font-light reveal delay-200">
+                    Data Analyst & Web Developer
+                </p>
+                
+                <div class="reveal delay-300 flex flex-col md:flex-row justify-center gap-4">
+                    <a href="#latest-projects" class="inline-flex items-center justify-center px-8 py-3 bg-brand-500 text-white rounded-full font-semibold shadow-lg hover:bg-brand-600 hover:shadow-brand-500/30 transition-all transform hover:-translate-y-1">
+                        Latest Work <i data-lucide="arrow-down" class="ml-2 w-5 h-5"></i>
+                    </a>
+                    <a href="github.html" class="inline-flex items-center justify-center px-8 py-3 bg-white text-slate-700 border border-slate-200 rounded-full font-semibold shadow-sm hover:bg-slate-50 transition-all transform hover:-translate-y-1">
+                        GitHub Docs <i data-lucide="book" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOP FEATURE: MOBILE APP (Formerly Spotlight) -->
+        <section id="latest-projects" class="py-20 bg-white relative z-10 shadow-sm">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-800">Featured Application</h2>
+                    <p class="text-slate-500 mt-2">Latest Flutter Development</p>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl overflow-hidden shadow-2xl reveal hover:shadow-3xl transition-shadow duration-300">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 overflow-hidden h-64 md:h-96 relative group">
+                            <!-- Image for Mobile App -->
+                            <img src="project pics/mobile-app.png" alt="Daily Expense Manager" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'">
+                            <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                        <div class="md:w-1/2 p-8 md:p-12 text-white">
+                            <span class="inline-block px-3 py-1 bg-brand-500 text-xs font-bold rounded-full mb-4">FLUTTER & DART</span>
+                            <h3 class="text-3xl font-bold mb-4">Daily Expense & Usage Manager</h3>
+                            <p class="text-slate-300 mb-6 leading-relaxed text-sm">
+                                Developed a Flutter-based mobile application using Dart to track daily expenses and manage mobile usage. Features include user-defined limits, separate UPI/Cash tracking, and real-time balance updates with warning notifications.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6 text-xs font-semibold text-brand-200">
+                                <span class="bg-white/10 px-2 py-1 rounded">SQLite</span>
+                                <span class="bg-white/10 px-2 py-1 rounded">Notifications</span>
+                                <span class="bg-white/10 px-2 py-1 rounded">Analytics</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="app-release.apk" download class="flex items-center text-slate-900 bg-white hover:bg-slate-100 px-6 py-2 rounded-lg transition-colors shadow-lg font-semibold">
+                                    Download APK <i data-lucide="download" class="ml-2 w-5 h-5"></i>
+                                </a>
+                                <a href="https://github.com/sidhu1819" target="_blank" class="flex items-center text-white border border-white/20 hover:bg-white/10 px-6 py-2 rounded-lg transition-colors shadow-lg">
+                                    <i class="devicon-github-original mr-2"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UPDATED DIGITAL RESUME SECTION -->
+        <section id="resume" class="py-24 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white relative overflow-hidden">
+
+            <!-- Animated Background Glow -->
+            <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+
+            <!-- Script Reel Background -->
+            <div class="absolute top-0 left-0 w-full bg-brand-900/10 py-3 border-b border-white/5">
+                <div class="reel-container">
+                    <div class="reel-content text-2xl font-bold text-white/10 uppercase tracking-widest flex items-center">
+                        <span class="mx-8">🚀 9.3/10 SPA</span><span class="mx-8">•</span>
+                        <span class="mx-8">🚀 Organizer DS & ML Hackathon</span><span class="mx-8">•</span>
+                        <span class="mx-8">🧩 350+ DSA Problems Solved</span><span class="mx-8">•</span>
+                        <span class="mx-8">💻 Full Stack Developer</span><span class="mx-8">•</span>
+                        <span class="mx-8">🎯 Innoquest Organizer</span><span class="mx-8">•</span>
+                        <span class="mx-8">📱 Flutter Enthusiast</span><span class="mx-8">•</span>
+                    </div>
+                    <div class="reel-content text-2xl font-bold text-white/10 uppercase tracking-widest flex items-center">
+                        <span class="mx-8">🚀 9.3/10 SPA</span><span class="mx-8">•</span>
+                        <span class="mx-8">🚀 Organizer DS & ML Hackathon</span><span class="mx-8">•</span>
+                        <span class="mx-8">🧩 350+ DSA Problems Solved</span><span class="mx-8">•</span>
+                        <span class="mx-8">💻 Full Stack Developer</span><span class="mx-8">•</span>
+                        <span class="mx-8">🎯 Innoquest Organizer</span><span class="mx-8">•</span>
+                        <span class="mx-8">📱 Flutter Enthusiast</span><span class="mx-8">•</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10 pt-16">
+
+                <!-- Section Header -->
+                <div class="text-center mb-20 reveal">
+                    <span class="text-brand-400 uppercase tracking-widest text-sm font-semibold">Digital Resume</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-3">
+                        Career <span class="text-gradient">Snapshot</span>
+                    </h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto mt-4">
+                        A quick yet powerful overview of my academic excellence, technical strength, and leadership journey.
+                    </p>
+                </div>
+
+                <!-- MAIN GRID -->
+                <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+                    <!-- LEFT SIDE CONTENT -->
+                    <div class="space-y-10 reveal">
+
+                        <!-- Name Card with Link -->
+                        <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-xl">
+                            <h3 class="text-3xl font-bold">Siddhartha Reddy Medapati</h3>
+                            <p class="mt-1">
+                                <!-- Data Analyst Link to GitHub Page -->
+                                <a href="github.html" class="text-brand-400 font-medium hover:text-brand-300 hover:underline transition-colors cursor-pointer flex items-center gap-1 w-fit">
+                                    Data Analyst <i data-lucide="external-link" class="w-4 h-4"></i>
+                                </a> 
+                                <span class="text-brand-400 font-medium">• Full Stack Developer</span>
+                            </p>
+                            <p class="text-slate-400 text-sm mt-3">
+                                Passionate about solving real-world problems using data, scalable systems, and clean UI.
+                            </p>
+                        </div>
+
+                        <!-- STATS -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:scale-105 transition hover:bg-white/10">
+                                <h4 class="text-3xl font-bold text-brand-400">9.3</h4>
+                                <p class="text-xs text-slate-400 mt-1">SPA</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:scale-105 transition hover:bg-white/10">
+                                <h4 class="text-3xl font-bold text-brand-400">350+</h4>
+                                <p class="text-xs text-slate-400 mt-1">DSA Problems</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:scale-105 transition hover:bg-white/10">
+                                <h4 class="text-3xl font-bold text-brand-400">5+</h4>
+                                <p class="text-xs text-slate-400 mt-1">Projects</p>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:scale-105 transition hover:bg-white/10">
+                                <h4 class="text-3xl font-bold text-brand-400">3</h4>
+                                <p class="text-xs text-slate-400 mt-1">Platforms</p>
+                            </div>
+                        </div>
+
+                        <!-- TIMELINE -->
+                        <div class="space-y-5">
+                            <h4 class="text-lg font-semibold text-brand-400 flex items-center"><i data-lucide="award" class="w-5 h-5 mr-2"></i> Career Highlights</h4>
+
+                            <div class="border-l-2 border-brand-500 pl-5 space-y-4">
+                                <div>
+                                    <h5 class="font-semibold text-white">🎓 B.Tech – CSE (Data Science)</h5>
+                                    <p class="text-sm text-slate-400">ANITS • 2024–2028 • SPA 9.3</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="font-semibold text-white">🚀 Organizer DS & ML Hackathon</h5>
+                                    <p class="text-sm text-slate-400">Technical Coordinator & ML Lead</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="font-semibold text-white">🎯 INNOQUEST Organizer</h5>
+                                    <p class="text-sm text-slate-400">Led technical & ML development</p>
+                                </div>
+
+                                <div>
+                                    <h5 class="font-semibold text-white">📱 Flutter Learner</h5>
+                                    <p class="text-sm text-slate-400">Building cross-platform apps</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <a href="sidhu_20resume.pdf" download="Siddhartha_Resume.pdf"
+                                class="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-500 rounded-xl font-bold shadow-lg shadow-brand-500/20 transition transform hover:-translate-y-1">
+                                <i data-lucide="download" class="w-5 h-5 mr-3"></i> Download Resume
+                            </a>
+
+                            <a href="#projects"
+                                class="inline-flex items-center px-8 py-4 border border-white/20 rounded-xl hover:bg-white/10 transition transform hover:-translate-y-1">
+                                View Projects
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT SIDE VISUAL CARD -->
+                    <div class="relative reveal delay-200">
+                        <div class="bg-white text-slate-900 rounded-3xl p-8 shadow-2xl rotate-2 hover:rotate-0 transition duration-500 border border-slate-200 relative z-10">
+
+                            <div class="border-b pb-4 mb-4 flex justify-between items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold">Quick Resume</h3>
+                                    <p class="text-sm text-slate-500">One-page snapshot</p>
+                                </div>
+                                <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-400">
+                                    <i data-lucide="user" class="w-5 h-5"></i>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6 text-sm">
+                                <div>
+                                    <h4 class="font-bold text-brand-600 mb-1">SKILLS</h4>
+                                    <p class="leading-relaxed">Python, C++, MERN Stack, Flutter, SQL, Power BI, NumPy, Pandas, Data Visualization</p>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-brand-600 mb-1">EXPERIENCE</h4>
+                                    <ul class="list-disc list-inside text-slate-600 space-y-1">
+                                        <li>Student Lead, INNOQUEST</li>
+                                        <li>Organizer, DS & ML Hackathon</li>
+                                        <li>Hackathon Full Stack Developer</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h4 class="font-bold text-brand-600 mb-1">INTERESTS</h4>
+                                    <p>Data Analytics, UI Engineering, Machine Learning Systems</p>
+                                </div>
+                            </div>
+
+                            <div class="absolute bottom-4 right-6 opacity-5">
+                                <i data-lucide="file-text" class="w-32 h-32"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Card Decorative Backdrop -->
+                        <div class="absolute top-4 left-4 w-full h-full bg-brand-500/20 rounded-3xl -z-0"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS (Kept for content value, linked from flow) -->
+        <section id="skills" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-800">Technical Skills</h2>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    <!-- Programming -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
+                        <i class="devicon-c-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700">C</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
+                        <i class="devicon-cplusplus-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700 block">C++</span>
+                        <span class="text-[10px] text-slate-500 font-semibold uppercase tracking-tight">DSA (Training Advanced)</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
+                        <i class="devicon-java-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700 block">Java</span>
+                        <span class="text-[10px] text-slate-500 font-semibold uppercase tracking-tight">OOPs</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
+                        <i class="devicon-python-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700 block">Python</span>
+                        <span class="text-[10px] text-slate-500 font-semibold uppercase tracking-tight">ML Training (State)</span>
+                    </div>
+
+                    <!-- Web Dev -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
+                        <i class="devicon-html5-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700">HTML5</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
+                        <i class="devicon-css3-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700">CSS3</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
+                        <i class="devicon-javascript-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700">JavaScript</span>
+                    </div>
+                    
+                    <!-- Data Science / Visualization Group -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal border-b-4 border-brand-200">
+                        <i class="devicon-numpy-original colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700">Numpy</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal border-b-4 border-brand-200">
+                        <i class="devicon-pandas-original colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700">Pandas</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal border-b-4 border-brand-200">
+                         <!-- Matplotlib Icon/Text Fallback -->
+                        <div class="h-9 w-9 mx-auto mb-3 flex items-center justify-center bg-orange-100 rounded text-orange-600 font-bold text-xs"><i data-lucide="bar-chart-2" class="w-6 h-6"></i></div>
+                        <span class="font-medium text-slate-700">Matplotlib</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal border-b-4 border-brand-200">
+                         <div class="h-9 w-9 mx-auto mb-3 flex items-center justify-center bg-yellow-400 rounded text-black font-bold text-xs">PBI</div>
+                        <span class="font-medium text-slate-700 text-sm leading-tight block">Power BI & Python Viz</span>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
+                        <i class="devicon-mysql-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700">MySQL</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
+                        <i class="devicon-github-original colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
+                        <span class="font-medium text-slate-700">GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CODING PROFILES SECTION -->
+        <section id="coding-profiles" class="py-20 bg-white border-b border-gray-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-800">Problem Solving Stats</h2>
+                    <p class="text-slate-500 mt-2">Strong foundation in Data Structures & Algorithms</p>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- CodeNinjas -->
+                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal group">
+                        <div class="w-16 h-16 mx-auto bg-orange-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="code-2" class="w-8 h-8 text-orange-600"></i>
+                        </div>
+                        <h3 class="text-4xl font-bold text-slate-800 mb-2">250+</h3>
+                        <p class="font-semibold text-slate-700">Code Ninjas</p>
+                        <p class="text-xs text-slate-500 mt-2">Problems Solved</p>
+                    </div>
+
+                    <!-- LeetCode -->
+                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal delay-100 group">
+                        <div class="w-16 h-16 mx-auto bg-yellow-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="terminal" class="w-8 h-8 text-yellow-600"></i>
+                        </div>
+                        <h3 class="text-4xl font-bold text-slate-800 mb-2">50+</h3>
+                        <p class="font-semibold text-slate-700">LeetCode</p>
+                        <p class="text-xs text-slate-500 mt-2">Problems Solved</p>
+                    </div>
+
+                    <!-- GeeksforGeeks -->
+                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal delay-200 group">
+                        <div class="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="binary" class="w-8 h-8 text-green-600"></i>
+                        </div>
+                        <h3 class="text-4xl font-bold text-slate-800 mb-2">50+</h3>
+                        <p class="font-semibold text-slate-700">GeeksforGeeks</p>
+                        <p class="text-xs text-slate-500 mt-2">Problems Solved</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-800">Experience & Roles</h2>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="max-w-3xl mx-auto space-y-8">
+                    
+                    <!-- Events / Achievements List -->
+                    <div class="pt-8 reveal">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center">
+                            <i data-lucide="trophy" class="mr-3 text-yellow-500"></i> Events & Achievements
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Event 1: Luminex -->
+                            <div class="bg-white border-l-4 border-brand-500 pl-6 py-2 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
+                                <h4 class="font-bold text-lg text-slate-800">Luminex (Organizer)</h4>
+                                <p class="text-sm text-brand-600 font-medium">Student Organizer & Technical Coordinator</p>
+                                <p class="text-slate-600 text-sm mt-1">Spearheaded the technical team. Developed a Machine Learning model and designed the official event website.</p>
+                            </div>
+
+                            <!-- Event 2: Face Attendance -->
+                            <div class="bg-white border-l-4 border-purple-500 pl-6 py-2 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
+                                <h4 class="font-bold text-lg text-slate-800">Website Development Contest</h4>
+                                <p class="text-sm text-purple-600 font-medium">Participant / Developer</p>
+                                <p class="text-slate-600 text-sm mt-1">Built a functional Face Attendance Website using advanced web technologies and computer vision integration.</p>
+                            </div>
+
+                            <!-- Event 3: Hogwarts Hackathon -->
+                            <div class="bg-white border-l-4 border-yellow-500 pl-6 py-2 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
+                                <h4 class="font-bold text-lg text-slate-800">Hogwarts Hackathon</h4>
+                                <p class="text-sm text-yellow-600 font-medium">Full Stack Developer</p>
+                                <p class="text-slate-600 text-sm mt-1">Developed a complete full-stack web solution within a 24-hour timeframe, focusing on smart education tools.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOOK ANIMATION SECTION -->
+        <section id="philosophy" class="py-20 bg-slate-50 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-800">My Coding Philosophy</h2>
+                    <p class="text-slate-500 mt-2">Hover over the cards to open the book</p>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Book Card 1: DSA Update -->
+                    <div class="book-card-container reveal">
+                        <div class="book-card-inner">
+                            <div class="book-card-front">
+                                <div class="bg-blue-100 p-4 rounded-full mb-4 text-blue-600"><i data-lucide="brain-circuit" class="w-8 h-8"></i></div>
+                                <h3 class="text-xl font-bold text-slate-800">DSA Mastery</h3>
+                                <p class="text-slate-500 mt-2 text-sm">Logic & Optimization.</p>
+                                <span class="mt-4 text-brand-500 text-xs font-bold uppercase tracking-wide">Hover to Read</span>
+                            </div>
+                            <div class="book-card-back">
+                                <h3 class="text-lg font-bold mb-2">Problem Solver</h3>
+                                <p class="text-sm leading-relaxed px-2">I have solved over 350+ problems combined on CodeNinjas, LeetCode, and GFG. I focus on writing efficient, optimized algorithms.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card 2: No Change -->
+                    <div class="book-card-container reveal delay-100">
+                        <div class="book-card-inner">
+                            <div class="book-card-front">
+                                <div class="bg-purple-100 p-4 rounded-full mb-4 text-purple-600"><i data-lucide="layers" class="w-8 h-8"></i></div>
+                                <h3 class="text-xl font-bold text-slate-800">Full Stack Vision</h3>
+                                <p class="text-slate-500 mt-2 text-sm">Connecting Front & Back ends.</p>
+                                <span class="mt-4 text-brand-500 text-xs font-bold uppercase tracking-wide">Hover to Read</span>
+                            </div>
+                            <div class="book-card-back">
+                                <h3 class="text-lg font-bold mb-2">Integration</h3>
+                                <p class="text-sm leading-relaxed px-2">Transitioning from HTML/CSS to MERN to understand the complete data lifecycle. I build systems, not just pages.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Card 3: Advanced Data Viz Update -->
+                    <div class="book-card-container reveal delay-200">
+                        <div class="book-card-inner">
+                            <div class="book-card-front">
+                                <div class="bg-cyan-100 p-4 rounded-full mb-4 text-cyan-600"><i data-lucide="bar-chart-2" class="w-8 h-8"></i></div>
+                                <h3 class="text-xl font-bold text-slate-800">Advanced Data Viz</h3>
+                                <p class="text-slate-500 mt-2 text-sm">Visualizing Insights.</p>
+                                <span class="mt-4 text-brand-500 text-xs font-bold uppercase tracking-wide">Hover to Read</span>
+                            </div>
+                            <div class="book-card-back">
+                                <h3 class="text-lg font-bold mb-2">Visual Storytelling</h3>
+                                <p class="text-sm leading-relaxed px-2">Currently focusing on Advanced Data Visualization. Mastering techniques to turn complex datasets into clear, actionable visual narratives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-800">Education</h2>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white border border-gray-100 p-6 rounded-xl shadow-sm hover:shadow-md transition-all reveal">
+                        <div class="text-brand-500 font-bold text-sm mb-2">2024 - 2028</div>
+                        <h3 class="font-bold text-lg text-slate-800">B.Tech, Computer Science</h3>
+                        <p class="text-slate-500 text-sm">ANITS, Visakhapatnam</p>
+                        <div class="mt-4 inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">SPA: 9.3/10</div>
+                    </div>
+                    
+                    <div class="bg-white border border-gray-100 p-6 rounded-xl shadow-sm hover:shadow-md transition-all reveal delay-100">
+                        <div class="text-brand-500 font-bold text-sm mb-2">2022 - 2024</div>
+                        <h3 class="font-bold text-lg text-slate-800">Intermediate (10+2)</h3>
+                        <p class="text-slate-500 text-sm">Sri Shiridi Sai Junior College</p>
+                        <div class="mt-4 inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">95%</div>
+                    </div>
+
+                    <div class="bg-white border border-gray-100 p-6 rounded-xl shadow-sm hover:shadow-md transition-all reveal delay-200">
+                        <div class="text-brand-500 font-bold text-sm mb-2">2021 - 2022</div>
+                        <h3 class="font-bold text-lg text-slate-800">SSC (10th)</h3>
+                        <p class="text-slate-500 text-sm">Sri Siddhartha School</p>
+                        <div class="mt-4 inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">CGPA: 8.4</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS GRID -->
+        <section id="projects" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-800">Selected Works</h2>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1: Face Attendance (Moved to First) -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
+                        <div class="h-48 bg-slate-200 overflow-hidden">
+                            <img src="project pics/face-attendance.png" alt="Face Attendance System" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Face Attendance System</h3>
+                            <p class="text-slate-500 text-sm mb-4">Automated attendance system using real-time face detection and recognition to reduce manual errors.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Python</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">OpenCV</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">NumPy</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/sidhu1819/face_attendance" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold flex items-center"><i class="devicon-github-original mr-1"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: Ghandivam -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group perspective-1000">
+                        <div class="h-48 bg-slate-200 overflow-hidden relative transform transition-transform duration-500 group-hover:rotate-x-2">
+                            <img src="project pics/project 7.png" alt="Ghandivam" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80'">
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Ghandivam</h3>
+                            <p class="text-slate-500 text-sm mb-4">A full-stack web solution developed during the Hogwarts 24hr Hackathon.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">JS</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">GitHub</span>
+                            </div>
+                            <a href="https://github.com/sidhu1819/ghandivam"  class="text-brand-600 hover:text-brand-800 text-sm font-semibold inline-flex items-center">
+                                Read More in Docs <i data-lucide="book-open" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3: HotelFlow (Added Back) -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
+                        <div class="h-48 bg-slate-200 overflow-hidden">
+                            <img src="project pics/project 6.png" alt="HotelFlow" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">HotelFlow</h3>
+                            <p class="text-slate-500 text-sm mb-4">Full-stack hotel system with dashboard for bookings and data analysis.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">TypeScript</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">PostgreSQL</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://hotelflow-production.up.railway.app" target="_blank" class="text-brand-600 hover:text-brand-800 text-sm font-semibold">Live</a>
+                                <a href="https://github.com/sidhu1819/Hotel_Flow" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold">Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4: Hostel Management -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
+                        <div class="h-48 bg-slate-200 overflow-hidden">
+                            <img src="project pics/project 1.png" alt="Hostel Management" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Hostel Management</h3>
+                            <p class="text-slate-500 text-sm mb-4">System for students to request rooms and hosts to manage allotments.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">MERN</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://hostel-management-system-rnox.onrender.com" target="_blank" class="text-brand-600 hover:text-brand-800 text-sm font-semibold">Live</a>
+                                <a href="https://github.com/sidhu1819/hostel_management" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold">Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5: The Forest Hub -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
+                        <div class="h-48 bg-slate-200 overflow-hidden">
+                            <img src="project pics/forest-hub.png" alt="The Forest Hub" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1448375240586-dfd8d395ea6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">The Forest Hub</h3>
+                            <p class="text-slate-500 text-sm mb-4">An immersive WebVR environment designed as a digital sanctuary.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">WebVR</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">A-Frame</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://devpost.com/software/the-forest-hub#updates" target="_blank" class="text-brand-600 hover:text-brand-800 text-sm font-semibold">Devpost</a>
+                                <a href="https://github.com/sidhu1819" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold">Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 6: Mobile App (Replaces DigiPortal) -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
+                        <div class="h-48 bg-slate-200 overflow-hidden">
+                            <img src="project pics/mobile-app.png" alt="Daily Expense Manager" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Daily Expense Manager</h3>
+                            <p class="text-slate-500 text-sm mb-4">Flutter app to track daily expenses and manage mobile usage with analytics.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Flutter</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Dart</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">SQLite</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="app-release.apk" download class="text-brand-600 hover:text-brand-800 text-sm font-semibold flex items-center">Download APK <i data-lucide="download" class="w-4 h-4 ml-1"></i></a>
+                                <a href="https://github.com/sidhu1819/money_tracker" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold">Code</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="py-20 bg-slate-900 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
+                <p class="text-slate-400 mb-8 max-w-xl mx-auto">Feel free to reach out for collaborations or just to say hi!</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
+                    <a href="mailto:832siddhartha@gmail.com" class="flex items-center px-6 py-3 bg-brand-600 rounded-lg hover:bg-brand-500 transition-colors">
+                        <i data-lucide="mail" class="mr-2 w-5 h-5"></i> 832siddhartha@gmail.com
+                    </a>
+                    <a href="tel:+918328182328" class="flex items-center px-6 py-3 border border-slate-600 rounded-lg hover:bg-slate-800 transition-colors">
+                        <i data-lucide="phone" class="mr-2 w-5 h-5"></i> +91 83281 82328
+                    </a>
+                </div>
+
+                <div class="flex justify-center gap-8 mt-8 border-t border-slate-800 pt-8 max-w-xs mx-auto">
+                    <a href="https://www.linkedin.com/in/medapati-siddhartha-reddy-861999329" target="_blank" class="text-slate-400 hover:text-brand-500 transition-all transform hover:scale-110" aria-label="LinkedIn">
+                        <i data-lucide="linkedin" class="w-8 h-8"></i>
+                    </a>
+                    <a href="https://github.com/sidhu1819" target="_blank" class="text-slate-400 hover:text-white transition-all transform hover:scale-110" aria-label="GitHub">
+                        <i data-lucide="github" class="w-8 h-8"></i>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Siddhartha Reddy Medapati. All rights reserved.</p>
-        </div>
+    <footer class="bg-slate-950 py-6 text-center text-slate-500 text-sm border-t border-slate-900">
+        <p>&copy; 2025 Siddhartha Reddy Medapati. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
+        // Animations
+        const revealOnScroll = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) reveal.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Navbar Glass
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('shadow-sm');
+            else navbar.classList.remove('shadow-sm');
+        });
+    </script>
 </body>
 </html>
