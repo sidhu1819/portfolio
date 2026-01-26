@@ -6,17 +6,14 @@
     <title>Siddhartha Reddy Medapati | Portfolio</title>
     <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Custom Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -154,7 +151,6 @@
 
 <body class="bg-gray-50 text-slate-800 antialiased overflow-x-hidden selection:bg-brand-100 selection:text-brand-900">
 
-    <!-- NAVIGATION -->
     <header class="fixed w-full top-0 z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-xl font-bold tracking-tight text-slate-800 hover:text-brand-600 transition-colors">
@@ -165,7 +161,6 @@
                 <li><a href="#home" class="hover:text-brand-500 transition-colors">Home</a></li>
                 <li><a href="#latest-projects" class="hover:text-brand-500 transition-colors">Work</a></li>
                 <li><a href="#resume" class="hover:text-brand-500 transition-colors text-brand-600 font-bold">Resume</a></li>
-                <!-- Changed Experience to Skills -->
                 <li><a href="#skills" class="hover:text-brand-500 transition-colors">Skills</a></li>
                 <li><a href="github.html" class="text-brand-600 font-bold hover:text-brand-800 transition-colors flex items-center"><i data-lucide="book-open" class="w-4 h-4 mr-1"></i> GitHub Docs</a></li>
             </ul>
@@ -183,14 +178,12 @@
                 <li><a href="github.html" class="block text-white bg-slate-800 px-4 py-2 rounded-lg mobile-link flex items-center w-fit"><i data-lucide="book" class="w-4 h-4 mr-2"></i> GitHub Docs</a></li>
                 <li><a href="#resume" class="block text-white bg-brand-500 px-4 py-2 rounded-lg mobile-link flex items-center w-fit"><i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Resume</a></li>
                 
-                <!-- Changed Experience to Skills -->
                 <li><a href="#skills" class="block hover:text-brand-500 mobile-link">Skills</a></li>
             </ul>
         </div>
     </header>
 
     <main>
-        <!-- HERO -->
         <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
             <div class="absolute top-20 left-10 w-72 h-72 bg-brand-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
             <div class="absolute bottom-20 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
@@ -220,7 +213,6 @@
             </div>
         </section>
 
-        <!-- TOP FEATURE: MOBILE APP (Formerly Spotlight) -->
         <section id="latest-projects" class="py-20 bg-white relative z-10 shadow-sm">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
@@ -232,7 +224,6 @@
                 <div class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl overflow-hidden shadow-2xl reveal hover:shadow-3xl transition-shadow duration-300">
                     <div class="flex flex-col md:flex-row items-center">
                         <div class="md:w-1/2 overflow-hidden h-64 md:h-96 relative group">
-                            <!-- Image for Mobile App -->
                             <img src="project pics/mobile-app.png" alt="Daily Expense Manager" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'">
                             <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
                         </div>
@@ -261,14 +252,11 @@
             </div>
         </section>
 
-        <!-- UPDATED DIGITAL RESUME SECTION -->
         <section id="resume" class="py-24 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white relative overflow-hidden">
 
-            <!-- Animated Background Glow -->
             <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl animate-float"></div>
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
 
-            <!-- Script Reel Background -->
             <div class="absolute top-0 left-0 w-full bg-brand-900/10 py-3 border-b border-white/5">
                 <div class="reel-container">
                     <div class="reel-content text-2xl font-bold text-white/10 uppercase tracking-widest flex items-center">
@@ -292,7 +280,6 @@
 
             <div class="container mx-auto px-6 relative z-10 pt-16">
 
-                <!-- Section Header -->
                 <div class="text-center mb-20 reveal">
                     <span class="text-brand-400 uppercase tracking-widest text-sm font-semibold">Digital Resume</span>
                     <h2 class="text-4xl md:text-5xl font-bold mt-3">
@@ -303,17 +290,13 @@
                     </p>
                 </div>
 
-                <!-- MAIN GRID -->
                 <div class="grid lg:grid-cols-2 gap-14 items-center">
 
-                    <!-- LEFT SIDE CONTENT -->
                     <div class="space-y-10 reveal">
 
-                        <!-- Name Card with Link -->
                         <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-xl">
                             <h3 class="text-3xl font-bold">Siddhartha Reddy Medapati</h3>
                             <p class="mt-1">
-                                <!-- Data Analyst Link to GitHub Page -->
                                 <a href="github.html" class="text-brand-400 font-medium hover:text-brand-300 hover:underline transition-colors cursor-pointer flex items-center gap-1 w-fit">
                                     Data Analyst <i data-lucide="external-link" class="w-4 h-4"></i>
                                 </a> 
@@ -324,7 +307,6 @@
                             </p>
                         </div>
 
-                        <!-- STATS -->
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <div class="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:scale-105 transition hover:bg-white/10">
                                 <h4 class="text-3xl font-bold text-brand-400">9.3</h4>
@@ -344,7 +326,6 @@
                             </div>
                         </div>
 
-                        <!-- TIMELINE -->
                         <div class="space-y-5">
                             <h4 class="text-lg font-semibold text-brand-400 flex items-center"><i data-lucide="award" class="w-5 h-5 mr-2"></i> Career Highlights</h4>
 
@@ -371,7 +352,6 @@
                             </div>
                         </div>
 
-                        <!-- CTA -->
                         <div class="flex flex-wrap gap-4 pt-4">
                             <a href="sidhu_20resume.pdf" download="Siddhartha_Resume.pdf"
                                 class="inline-flex items-center px-8 py-4 bg-brand-600 hover:bg-brand-500 rounded-xl font-bold shadow-lg shadow-brand-500/20 transition transform hover:-translate-y-1">
@@ -385,7 +365,6 @@
                         </div>
                     </div>
 
-                    <!-- RIGHT SIDE VISUAL CARD -->
                     <div class="relative reveal delay-200">
                         <div class="bg-white text-slate-900 rounded-3xl p-8 shadow-2xl rotate-2 hover:rotate-0 transition duration-500 border border-slate-200 relative z-10">
 
@@ -425,7 +404,6 @@
                             </div>
                         </div>
                         
-                        <!-- Card Decorative Backdrop -->
                         <div class="absolute top-4 left-4 w-full h-full bg-brand-500/20 rounded-3xl -z-0"></div>
                     </div>
 
@@ -433,7 +411,6 @@
             </div>
         </section>
 
-        <!-- SKILLS (Kept for content value, linked from flow) -->
         <section id="skills" class="py-20 bg-slate-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
@@ -442,7 +419,6 @@
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                    <!-- Programming -->
                     <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
                         <i class="devicon-c-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
                         <span class="font-medium text-slate-700">C</span>
@@ -463,7 +439,6 @@
                         <span class="text-[10px] text-slate-500 font-semibold uppercase tracking-tight">ML Training (State)</span>
                     </div>
 
-                    <!-- Web Dev -->
                     <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
                         <i class="devicon-html5-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
                         <span class="font-medium text-slate-700">HTML5</span>
@@ -477,7 +452,6 @@
                         <span class="font-medium text-slate-700">JavaScript</span>
                     </div>
                     
-                    <!-- Data Science / Visualization Group -->
                     <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal border-b-4 border-brand-200">
                         <i class="devicon-numpy-original colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
                         <span class="font-medium text-slate-700">Numpy</span>
@@ -487,8 +461,7 @@
                         <span class="font-medium text-slate-700">Pandas</span>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal border-b-4 border-brand-200">
-                         <!-- Matplotlib Icon/Text Fallback -->
-                        <div class="h-9 w-9 mx-auto mb-3 flex items-center justify-center bg-orange-100 rounded text-orange-600 font-bold text-xs"><i data-lucide="bar-chart-2" class="w-6 h-6"></i></div>
+                         <div class="h-9 w-9 mx-auto mb-3 flex items-center justify-center bg-orange-100 rounded text-orange-600 font-bold text-xs"><i data-lucide="bar-chart-2" class="w-6 h-6"></i></div>
                         <span class="font-medium text-slate-700">Matplotlib</span>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal border-b-4 border-brand-200">
@@ -496,7 +469,6 @@
                         <span class="font-medium text-slate-700 text-sm leading-tight block">Power BI & Python Viz</span>
                     </div>
 
-                    <!-- Tools -->
                     <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal">
                         <i class="devicon-mysql-plain colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
                         <span class="font-medium text-slate-700">MySQL</span>
@@ -509,7 +481,6 @@
             </div>
         </section>
 
-        <!-- CODING PROFILES SECTION -->
         <section id="coding-profiles" class="py-20 bg-white border-b border-gray-100">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
@@ -519,7 +490,6 @@
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <!-- CodeNinjas -->
                     <div class="bg-slate-50 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal group">
                         <div class="w-16 h-16 mx-auto bg-orange-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                             <i data-lucide="code-2" class="w-8 h-8 text-orange-600"></i>
@@ -529,7 +499,6 @@
                         <p class="text-xs text-slate-500 mt-2">Problems Solved</p>
                     </div>
 
-                    <!-- LeetCode -->
                     <div class="bg-slate-50 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal delay-100 group">
                         <div class="w-16 h-16 mx-auto bg-yellow-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                             <i data-lucide="terminal" class="w-8 h-8 text-yellow-600"></i>
@@ -539,7 +508,6 @@
                         <p class="text-xs text-slate-500 mt-2">Problems Solved</p>
                     </div>
 
-                    <!-- GeeksforGeeks -->
                     <div class="bg-slate-50 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal delay-200 group">
                         <div class="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                             <i data-lucide="binary" class="w-8 h-8 text-green-600"></i>
@@ -552,7 +520,6 @@
             </div>
         </section>
 
-        <!-- EXPERIENCE SECTION -->
         <section id="experience" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
@@ -562,28 +529,24 @@
 
                 <div class="max-w-3xl mx-auto space-y-8">
                     
-                    <!-- Events / Achievements List -->
                     <div class="pt-8 reveal">
                         <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center">
                             <i data-lucide="trophy" class="mr-3 text-yellow-500"></i> Events & Achievements
                         </h3>
                         
                         <div class="space-y-6">
-                            <!-- Event 1: Luminex -->
                             <div class="bg-white border-l-4 border-brand-500 pl-6 py-2 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
                                 <h4 class="font-bold text-lg text-slate-800">Luminex (Organizer)</h4>
                                 <p class="text-sm text-brand-600 font-medium">Student Organizer & Technical Coordinator</p>
                                 <p class="text-slate-600 text-sm mt-1">Spearheaded the technical team. Developed a Machine Learning model and designed the official event website.</p>
                             </div>
 
-                            <!-- Event 2: Face Attendance -->
                             <div class="bg-white border-l-4 border-purple-500 pl-6 py-2 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
                                 <h4 class="font-bold text-lg text-slate-800">Website Development Contest</h4>
                                 <p class="text-sm text-purple-600 font-medium">Participant / Developer</p>
                                 <p class="text-slate-600 text-sm mt-1">Built a functional Face Attendance Website using advanced web technologies and computer vision integration.</p>
                             </div>
 
-                            <!-- Event 3: Hogwarts Hackathon -->
                             <div class="bg-white border-l-4 border-yellow-500 pl-6 py-2 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
                                 <h4 class="font-bold text-lg text-slate-800">Hogwarts Hackathon</h4>
                                 <p class="text-sm text-yellow-600 font-medium">Full Stack Developer</p>
@@ -595,7 +558,6 @@
             </div>
         </section>
 
-        <!-- BOOK ANIMATION SECTION -->
         <section id="philosophy" class="py-20 bg-slate-50 relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
             
@@ -607,7 +569,6 @@
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Book Card 1: DSA Update -->
                     <div class="book-card-container reveal">
                         <div class="book-card-inner">
                             <div class="book-card-front">
@@ -623,7 +584,6 @@
                         </div>
                     </div>
 
-                    <!-- Book Card 2: No Change -->
                     <div class="book-card-container reveal delay-100">
                         <div class="book-card-inner">
                             <div class="book-card-front">
@@ -639,7 +599,6 @@
                         </div>
                     </div>
 
-                    <!-- Book Card 3: Advanced Data Viz Update -->
                     <div class="book-card-container reveal delay-200">
                         <div class="book-card-inner">
                             <div class="book-card-front">
@@ -658,7 +617,6 @@
             </div>
         </section>
 
-        <!-- EDUCATION SECTION -->
         <section id="education" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
@@ -691,7 +649,6 @@
             </div>
         </section>
 
-        <!-- PROJECTS GRID -->
         <section id="projects" class="py-20 bg-slate-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
@@ -700,7 +657,6 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project Card 1: Face Attendance (Moved to First) -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
                         <div class="h-48 bg-slate-200 overflow-hidden">
                             <img src="project pics/face-attendance.png" alt="Face Attendance System" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&w=800&q=80'">
@@ -719,7 +675,6 @@
                         </div>
                     </div>
 
-                    <!-- Project Card 2: Ghandivam -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group perspective-1000">
                         <div class="h-48 bg-slate-200 overflow-hidden relative transform transition-transform duration-500 group-hover:rotate-x-2">
                             <img src="project pics/project 7.png" alt="Ghandivam" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80'">
@@ -738,7 +693,6 @@
                         </div>
                     </div>
 
-                    <!-- Project Card 3: HotelFlow (Added Back) -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
                         <div class="h-48 bg-slate-200 overflow-hidden">
                             <img src="project pics/project 6.png" alt="HotelFlow" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80'">
@@ -757,7 +711,6 @@
                         </div>
                     </div>
 
-                    <!-- Project Card 4: Hostel Management -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
                         <div class="h-48 bg-slate-200 overflow-hidden">
                             <img src="project pics/project 1.png" alt="Hostel Management" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80'">
@@ -775,7 +728,6 @@
                         </div>
                     </div>
 
-                    <!-- Project Card 5: The Forest Hub -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
                         <div class="h-48 bg-slate-200 overflow-hidden">
                             <img src="project pics/forest-hub.png" alt="The Forest Hub" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1448375240586-dfd8d395ea6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'">
@@ -794,7 +746,6 @@
                         </div>
                     </div>
 
-                    <!-- Project Card 6: Mobile App (Replaces DigiPortal) -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
                         <div class="h-48 bg-slate-200 overflow-hidden">
                             <img src="project pics/mobile-app.png" alt="Daily Expense Manager" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
@@ -818,7 +769,6 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
         <section id="contact" class="py-20 bg-slate-900 text-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
@@ -878,4 +828,5 @@
         });
     </script>
 </body>
+
 </html>
