@@ -146,6 +146,12 @@
             border-top-left-radius: 0.75rem;
             border-bottom-left-radius: 0.75rem;
         }
+
+        /* Cert Preview Decoration */
+        .cert-preview-bg {
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 10px 10px;
+        }
     </style>
 </head>
 
@@ -196,10 +202,10 @@
                 </div>
                 
                 <h1 class="text-4xl md:text-6xl font-bold mb-4 reveal delay-100">
-                    Hi, I'm <span class="text-gradient">Siddhartha Reddy</span>
+                    Hi, My self  <span class="text-gradient">Siddhartha Reddy</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-slate-600 mb-8 font-light reveal delay-200">
-                    Data Analyst & Web Developer
+                    Full-Stack Developer & Data Analyst
                 </p>
                 
                 <div class="reveal delay-300 flex flex-col md:flex-row justify-center gap-4">
@@ -217,33 +223,35 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-3xl font-bold text-slate-800">Featured Application</h2>
-                    <p class="text-slate-500 mt-2">Latest Flutter Development</p>
+                    <p class="text-slate-500 mt-2">Latest Full-Stack MERN Development</p>
                     <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
                 </div>
 
                 <div class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl overflow-hidden shadow-2xl reveal hover:shadow-3xl transition-shadow duration-300">
                     <div class="flex flex-col md:flex-row items-center">
                         <div class="md:w-1/2 overflow-hidden h-64 md:h-96 relative group">
-                            <img src="project pics/mobile-app.png" alt="Daily Expense Manager" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'">
+                            <img src="project pics/event-portal.png" alt="Event Registration Portal" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'">
                             <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
                         </div>
                         <div class="md:w-1/2 p-8 md:p-12 text-white">
-                            <span class="inline-block px-3 py-1 bg-brand-500 text-xs font-bold rounded-full mb-4">FLUTTER & DART</span>
-                            <h3 class="text-3xl font-bold mb-4">Daily Expense & Usage Manager</h3>
+                            <span class="inline-block px-3 py-1 bg-brand-500 text-xs font-bold rounded-full mb-4">MERN STACK</span>
+                            <h3 class="text-3xl font-bold mb-4">Event Registration & Management Portal</h3>
                             <p class="text-slate-300 mb-6 leading-relaxed text-sm">
-                                Developed a Flutter-based mobile application using Dart to track daily expenses and manage mobile usage. Features include user-defined limits, separate UPI/Cash tracking, and real-time balance updates with warning notifications.
+                                Full-stack portal for technical workshop management. Features roll number validation for CSD students, automated lab system allocation (60 limit), admin approval workflow with Nodemailer credential delivery, and JWT-based student dashboards.
                             </p>
                             <div class="flex flex-wrap gap-2 mb-6 text-xs font-semibold text-brand-200">
-                                <span class="bg-white/10 px-2 py-1 rounded">SQLite</span>
-                                <span class="bg-white/10 px-2 py-1 rounded">Notifications</span>
-                                <span class="bg-white/10 px-2 py-1 rounded">Analytics</span>
+                                <span class="bg-white/10 px-2 py-1 rounded">MongoDB</span>
+                                <span class="bg-white/10 px-2 py-1 rounded">Express.js</span>
+                                <span class="bg-white/10 px-2 py-1 rounded">Node.js</span>
+                                <span class="bg-white/10 px-2 py-1 rounded">JWT</span>
+                                <span class="bg-white/10 px-2 py-1 rounded">Nodemailer</span>
                             </div>
                             <div class="flex gap-4">
-                                <a href="app-release.apk" download class="flex items-center text-slate-900 bg-white hover:bg-slate-100 px-6 py-2 rounded-lg transition-colors shadow-lg font-semibold">
-                                    Download APK <i data-lucide="download" class="ml-2 w-5 h-5"></i>
+                                <a href="https://github.com/sidhu1819/event-portal" target="_blank" class="flex items-center text-slate-900 bg-white hover:bg-slate-100 px-6 py-2 rounded-lg transition-colors shadow-lg font-semibold">
+                                    <i class="devicon-github-original mr-2"></i> Code <i data-lucide="external-link" class="ml-2 w-4 h-4"></i>
                                 </a>
-                                <a href="https://github.com/sidhu1819" target="_blank" class="flex items-center text-white border border-white/20 hover:bg-white/10 px-6 py-2 rounded-lg transition-colors shadow-lg">
-                                    <i class="devicon-github-original mr-2"></i> View Code
+                                <a href="https://event-portal-5ftl.onrender.com/" target="_blank" class="flex items-center text-white border border-white/20 hover:bg-white/10 px-6 py-2 rounded-lg transition-colors shadow-lg">
+                                    Live
                                 </a>
                             </div>
                         </div>
@@ -260,18 +268,18 @@
             <div class="absolute top-0 left-0 w-full bg-brand-900/10 py-3 border-b border-white/5">
                 <div class="reel-container">
                     <div class="reel-content text-2xl font-bold text-white/10 uppercase tracking-widest flex items-center">
-                        <span class="mx-8">🚀 9.3/10 SPA</span><span class="mx-8">•</span>
+                        <span class="mx-8">🚀 9.0 CGPA</span><span class="mx-8">•</span>
                         <span class="mx-8">🚀 Organizer DS & ML Hackathon</span><span class="mx-8">•</span>
-                        <span class="mx-8">🧩 350+ DSA Problems Solved</span><span class="mx-8">•</span>
-                        <span class="mx-8">💻 Full Stack Developer</span><span class="mx-8">•</span>
+                        <span class="mx-8">🧩 200+ DSA Problems Solved</span><span class="mx-8">•</span>
+                        <span class="mx-8">💻 Full Stack Developer (MERN)</span><span class="mx-8">•</span>
                         <span class="mx-8">🎯 Innoquest Organizer</span><span class="mx-8">•</span>
                         <span class="mx-8">📱 Flutter Enthusiast</span><span class="mx-8">•</span>
                     </div>
                     <div class="reel-content text-2xl font-bold text-white/10 uppercase tracking-widest flex items-center">
-                        <span class="mx-8">🚀 9.3/10 SPA</span><span class="mx-8">•</span>
+                        <span class="mx-8">🚀 9.0 CGPA</span><span class="mx-8">•</span>
                         <span class="mx-8">🚀 Organizer DS & ML Hackathon</span><span class="mx-8">•</span>
-                        <span class="mx-8">🧩 350+ DSA Problems Solved</span><span class="mx-8">•</span>
-                        <span class="mx-8">💻 Full Stack Developer</span><span class="mx-8">•</span>
+                        <span class="mx-8">🧩 200+ DSA Problems Solved</span><span class="mx-8">•</span>
+                        <span class="mx-8">💻 Full Stack Developer (MERN)</span><span class="mx-8">•</span>
                         <span class="mx-8">🎯 Innoquest Organizer</span><span class="mx-8">•</span>
                         <span class="mx-8">📱 Flutter Enthusiast</span><span class="mx-8">•</span>
                     </div>
@@ -310,7 +318,7 @@
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <div class="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:scale-105 transition hover:bg-white/10">
                                 <h4 class="text-3xl font-bold text-brand-400">9.0</h4>
-                                <p class="text-xs text-slate-400 mt-1">CGPA</p>
+                                <h4 class="text-xs text-slate-400 mt-1">CGPA</h4>
                             </div>
                             <div class="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:scale-105 transition hover:bg-white/10">
                                 <h4 class="text-3xl font-bold text-brand-400">200+</h4>
@@ -318,11 +326,11 @@
                             </div>
                             <div class="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:scale-105 transition hover:bg-white/10">
                                 <h4 class="text-3xl font-bold text-brand-400">20+</h4>
-                                <p class="text-xs text-slate-400 mt-1">Projects</p>
+                                <p class="text-xs text-slate-400 mt-1">Git Projects</p>
                             </div>
                             <div class="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:scale-105 transition hover:bg-white/10">
-                                <h4 class="text-3xl font-bold text-brand-400">3+</h4>
-                                <p class="text-xs text-slate-400 mt-1">Platforms</p>
+                                <h4 class="text-3xl font-bold text-brand-400">5+</h4>
+                                <p class="text-xs text-slate-400 mt-1">Certifications</p>
                             </div>
                         </div>
 
@@ -336,6 +344,11 @@
                                 </div>
 
                                 <div>
+                                    <h5 class="font-semibold text-white">🛠 Event Registration Portal Developer</h5>
+                                    <p class="text-sm text-slate-400">Full-stack MERN System for Campus Events</p>
+                                </div>
+
+                                <div>
                                     <h5 class="font-semibold text-white">🚀 Organizer DS & ML Hackathon</h5>
                                     <p class="text-sm text-slate-400">Technical Coordinator & ML Lead</p>
                                 </div>
@@ -343,11 +356,6 @@
                                 <div>
                                     <h5 class="font-semibold text-white">🎯 INNOQUEST Organizer</h5>
                                     <p class="text-sm text-slate-400">Led technical & ML development</p>
-                                </div>
-
-                                <div>
-                                    <h5 class="font-semibold text-white">📱 Flutter Learner</h5>
-                                    <p class="text-sm text-slate-400">Building cross-platform apps</p>
                                 </div>
                             </div>
                         </div>
@@ -381,21 +389,22 @@
                             <div class="space-y-6 text-sm">
                                 <div>
                                     <h4 class="font-bold text-brand-600 mb-1">SKILLS</h4>
-                                    <p class="leading-relaxed">Python, C++, MERN Stack, Flutter, SQL, Power BI, NumPy, Pandas, Data Visualization</p>
+                                    <p class="leading-relaxed">Python, C++, MERN Stack, Node.js, Express, MongoDB, Flutter, SQL, Power BI, NumPy, Pandas</p>
                                 </div>
 
                                 <div>
                                     <h4 class="font-bold text-brand-600 mb-1">EXPERIENCE</h4>
                                     <ul class="list-disc list-inside text-slate-600 space-y-1">
+                                        <li>Full-Stack Developer, Event Portal</li>
                                         <li>Student Lead, INNOQUEST</li>
                                         <li>Organizer, DS & ML Hackathon</li>
-                                        <li>Hackathon Full Stack Developer</li>
+                                        <li>350+ DSA Problem Solver</li>
                                     </ul>
                                 </div>
 
                                 <div>
                                     <h4 class="font-bold text-brand-600 mb-1">INTERESTS</h4>
-                                    <p>Data Analytics, UI Engineering, Machine Learning Systems</p>
+                                    <p>Full-Stack Systems, Data Analytics, Machine Learning, UI/UX Engineering</p>
                                 </div>
                             </div>
 
@@ -477,11 +486,103 @@
                         <i class="devicon-github-original colored text-4xl mb-3 block group-hover:scale-110 transition-transform"></i>
                         <span class="font-medium text-slate-700">GitHub</span>
                     </div>
+                    <!-- Vibe Coding Added -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group reveal border-b-4 border-indigo-200">
+                        <div class="h-9 w-9 mx-auto mb-3 flex items-center justify-center bg-indigo-50 rounded text-indigo-500 font-bold">
+                            <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        </div>
+                        <span class="font-medium text-slate-700">Vibe Coding</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="coding-profiles" class="py-20 bg-white border-b border-gray-100">
+        <!-- CERTIFICATION SECTION ADDED -->
+        <section id="certifications" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl font-bold text-slate-800">Certifications & Accolades</h2>
+                    <p class="text-slate-500 mt-2">Professional recognition and verified accomplishments</p>
+                    <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Certificate 1 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 group reveal">
+                        <div class="h-44 bg-slate-50 flex items-center justify-center relative overflow-hidden cert-preview-bg">
+                            <i data-lucide="award" class="w-16 h-16 text-brand-200 group-hover:text-brand-500 transition-all duration-500 group-hover:scale-110"></i>
+                            <div class="absolute inset-0 bg-brand-600/0 group-hover:bg-brand-600/5 transition-colors duration-500"></div>
+                            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="bg-white text-brand-600 px-4 py-1.5 rounded-full text-xs font-bold shadow-lg border border-brand-100 flex items-center whitespace-nowrap">
+                                    <i data-lucide="eye" class="w-3 h-3 mr-1"></i> Preview Certificate
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2 py-0.5 bg-orange-50 text-orange-600 text-[10px] font-bold rounded uppercase">Data Structures</span>
+                                <span class="px-2 py-0.5 bg-blue-50 text-blue-600 text-[10px] font-bold rounded uppercase">Algorithms</span>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg leading-tight mb-2">DSA Graphs Certificate – Coding Ninjas</h3>
+                            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Completed Data Structures Graph algorithms course focusing on advanced traversals and shortest path algorithms.</p>
+                            <a href="https://certificate.codingninjas.com/certificate/dbb491e9f1b9e90b/BadgesSamuraiCertificate" target="_blank" class="w-full inline-flex items-center justify-center px-4 py-2 bg-slate-50 text-slate-700 border border-slate-200 rounded-lg text-sm font-semibold hover:bg-brand-600 hover:text-white hover:border-brand-600 transition-all group/btn">
+                                Verify Credential <i data-lucide="external-link" class="w-4 h-4 ml-2 group-hover/btn:translate-x-0.5 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 2 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 group reveal delay-100">
+                        <div class="h-44 bg-slate-50 flex items-center justify-center relative overflow-hidden cert-preview-bg">
+                            <i data-lucide="medal" class="w-16 h-16 text-brand-200 group-hover:text-brand-500 transition-all duration-500 group-hover:scale-110"></i>
+                            <div class="absolute inset-0 bg-brand-600/0 group-hover:bg-brand-600/5 transition-colors duration-500"></div>
+                            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="bg-white text-brand-600 px-4 py-1.5 rounded-full text-xs font-bold shadow-lg border border-brand-100 flex items-center whitespace-nowrap">
+                                    <i data-lucide="eye" class="w-3 h-3 mr-1"></i> Preview Document
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2 py-0.5 bg-purple-50 text-purple-600 text-[10px] font-bold rounded uppercase">Leadership</span>
+                                <span class="px-2 py-0.5 bg-green-50 text-green-600 text-[10px] font-bold rounded uppercase">Organizer</span>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg leading-tight mb-2">Luminex DS & ML Hackathon Organizer</h3>
+                            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Organized a full-scale technical hackathon focused on Data Science, managing 100+ participants and technical judging.</p>
+                            <a href="https://drive.google.com/file/d/12OjOTTsUCLEuydzMPSR8ZcT92j192mEh/view" target="_blank" class="w-full inline-flex items-center justify-center px-4 py-2 bg-slate-50 text-slate-700 border border-slate-200 rounded-lg text-sm font-semibold hover:bg-brand-600 hover:text-white hover:border-brand-600 transition-all group/btn">
+                                View Certificate <i data-lucide="external-link" class="w-4 h-4 ml-2 group-hover/btn:translate-x-0.5 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 3 -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 group reveal delay-200">
+                        <div class="h-44 bg-slate-50 flex items-center justify-center relative overflow-hidden cert-preview-bg">
+                            <i data-lucide="package" class="w-16 h-16 text-brand-200 group-hover:text-brand-500 transition-all duration-500 group-hover:scale-110"></i>
+                            <div class="absolute inset-0 bg-brand-600/0 group-hover:bg-brand-600/5 transition-colors duration-500"></div>
+                            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="bg-white text-brand-600 px-4 py-1.5 rounded-full text-xs font-bold shadow-lg border border-brand-100 flex items-center whitespace-nowrap">
+                                    <i data-lucide="eye" class="w-3 h-3 mr-1"></i> Preview Project
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-2 py-0.5 bg-indigo-50 text-indigo-600 text-[10px] font-bold rounded uppercase">Hackathon Submission</span>
+                                <span class="px-2 py-0.5 bg-blue-50 text-blue-600 text-[10px] font-bold rounded uppercase">Innovation</span>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-lg leading-tight mb-2">Devpost Hackathon – The Forest Hub</h3>
+                            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Developed and submitted a scalable environmental tech solution at a major Devpost hackathon event.</p>
+                            <a href="https://devpost.com/software/the-forest-hub#updates" target="_blank" class="w-full inline-flex items-center justify-center px-4 py-2 bg-slate-50 text-slate-700 border border-slate-200 rounded-lg text-sm font-semibold hover:bg-brand-600 hover:text-white hover:border-brand-600 transition-all group/btn">
+                                View Submission <i data-lucide="external-link" class="w-4 h-4 ml-2 group-hover/btn:translate-x-0.5 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="coding-profiles" class="py-20 bg-slate-50 border-b border-gray-100">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-3xl font-bold text-slate-800">Problem Solving Stats</h2>
@@ -490,31 +591,31 @@
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal group">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal group">
                         <div class="w-16 h-16 mx-auto bg-orange-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                             <i data-lucide="code-2" class="w-8 h-8 text-orange-600"></i>
                         </div>
                         <h3 class="text-4xl font-bold text-slate-800 mb-2">100+</h3>
                         <p class="font-semibold text-slate-700">Code Ninjas</p>
-                        <p class="text-xs text-slate-500 mt-2">Problems Solved</p>
+                        <p class="text-xs text-slate-500 mt-2">High Performance</p>
                     </div>
 
-                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal delay-100 group">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal delay-100 group">
                         <div class="w-16 h-16 mx-auto bg-yellow-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                             <i data-lucide="terminal" class="w-8 h-8 text-yellow-600"></i>
                         </div>
                         <h3 class="text-4xl font-bold text-slate-800 mb-2">50+</h3>
                         <p class="font-semibold text-slate-700">LeetCode</p>
-                        <p class="text-xs text-slate-500 mt-2">Problems Solved</p>
+                        <p class="text-xs text-slate-500 mt-2">Consistent Solver</p>
                     </div>
 
-                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal delay-200 group">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center border border-slate-100 reveal delay-200 group">
                         <div class="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                             <i data-lucide="binary" class="w-8 h-8 text-green-600"></i>
                         </div>
                         <h3 class="text-4xl font-bold text-slate-800 mb-2">50+</h3>
                         <p class="font-semibold text-slate-700">GeeksforGeeks</p>
-                        <p class="text-xs text-slate-500 mt-2">Problems Solved</p>
+                        <p class="text-xs text-slate-500 mt-2">DSA Mastery</p>
                     </div>
                 </div>
             </div>
@@ -531,26 +632,26 @@
                     
                     <div class="pt-8 reveal">
                         <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center">
-                            <i data-lucide="trophy" class="mr-3 text-yellow-500"></i> Events & Achievements
+                            <i data-lucide="trophy" class="mr-3 text-yellow-500"></i> Projects & Leadership
                         </h3>
                         
                         <div class="space-y-6">
-                            <div class="bg-white border-l-4 border-brand-500 pl-6 py-2 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
-                                <h4 class="font-bold text-lg text-slate-800">Luminex (Organizer)</h4>
-                                <p class="text-sm text-brand-600 font-medium">Student Organizer & Technical Coordinator</p>
-                                <p class="text-slate-600 text-sm mt-1">Spearheaded the technical team. Developed a Machine Learning model and designed the official event website.</p>
+                            <div class="bg-white border-l-4 border-brand-500 pl-6 py-3 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
+                                <h4 class="font-bold text-lg text-slate-800">Full-Stack Event Portal (Developer)</h4>
+                                <p class="text-sm text-brand-600 font-medium">MERN Stack Implementation</p>
+                                <p class="text-slate-600 text-sm mt-1">Engineered a complete registration system with roll validation, resource management, and automated Nodemailer credential delivery for technical workshops.</p>
                             </div>
 
-                            <div class="bg-white border-l-4 border-purple-500 pl-6 py-2 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
-                                <h4 class="font-bold text-lg text-slate-800">Website Development Contest</h4>
-                                <p class="text-sm text-purple-600 font-medium">Participant / Developer</p>
-                                <p class="text-slate-600 text-sm mt-1">Built a functional Face Attendance Website using advanced web technologies and computer vision integration.</p>
+                            <div class="bg-white border-l-4 border-purple-500 pl-6 py-3 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
+                                <h4 class="font-bold text-lg text-slate-800">Luminex & DS/ML Hackathon (Lead)</h4>
+                                <p class="text-sm text-purple-600 font-medium">Technical Coordinator</p>
+                                <p class="text-slate-600 text-sm mt-1">Spearheaded technical teams, managed event logistics, and developed custom ML models and websites for campus-wide technical fests.</p>
                             </div>
 
-                            <div class="bg-white border-l-4 border-yellow-500 pl-6 py-2 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
-                                <h4 class="font-bold text-lg text-slate-800">Hogwarts Hackathon</h4>
+                            <div class="bg-white border-l-4 border-yellow-500 pl-6 py-3 shadow-sm rounded-r-lg hover:bg-slate-50 transition-colors">
+                                <h4 class="font-bold text-lg text-slate-800">Hogwarts Hackathon (Participant)</h4>
                                 <p class="text-sm text-yellow-600 font-medium">Full Stack Developer</p>
-                                <p class="text-slate-600 text-sm mt-1">Developed a complete full-stack web solution within a 24-hour timeframe, focusing on smart education tools.</p>
+                                <p class="text-slate-600 text-sm mt-1">Developed "Ghandivam", a functional 24hr hackathon project using advanced JS and full-stack architecture for smart education.</p>
                             </div>
                         </div>
                     </div>
@@ -564,7 +665,7 @@
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-3xl font-bold text-slate-800">My Coding Philosophy</h2>
-                    <p class="text-slate-500 mt-2">Hover over the cards to open the book</p>
+                    <p class="text-slate-500 mt-2">The core principles behind my builds</p>
                     <div class="w-16 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
                 </div>
 
@@ -589,12 +690,12 @@
                             <div class="book-card-front">
                                 <div class="bg-purple-100 p-4 rounded-full mb-4 text-purple-600"><i data-lucide="layers" class="w-8 h-8"></i></div>
                                 <h3 class="text-xl font-bold text-slate-800">Full Stack Vision</h3>
-                                <p class="text-slate-500 mt-2 text-sm">Connecting Front & Back ends.</p>
+                                <p class="text-slate-500 mt-2 text-sm">End-to-End Development.</p>
                                 <span class="mt-4 text-brand-500 text-xs font-bold uppercase tracking-wide">Hover to Read</span>
                             </div>
                             <div class="book-card-back">
                                 <h3 class="text-lg font-bold mb-2">Integration</h3>
-                                <p class="text-sm leading-relaxed px-2">Transitioning from HTML/CSS to MERN to understand the complete data lifecycle. I build systems, not just pages.</p>
+                                <p class="text-sm leading-relaxed px-2">Deep understanding of the MERN stack. I build robust backends with Node/Express and intuitive frontends with Tailwind and React.</p>
                             </div>
                         </div>
                     </div>
@@ -603,13 +704,13 @@
                         <div class="book-card-inner">
                             <div class="book-card-front">
                                 <div class="bg-cyan-100 p-4 rounded-full mb-4 text-cyan-600"><i data-lucide="bar-chart-2" class="w-8 h-8"></i></div>
-                                <h3 class="text-xl font-bold text-slate-800">Advanced Data Viz</h3>
+                                <h3 class="text-xl font-bold text-slate-800">Data & Scalability</h3>
                                 <p class="text-slate-500 mt-2 text-sm">Visualizing Insights.</p>
                                 <span class="mt-4 text-brand-500 text-xs font-bold uppercase tracking-wide">Hover to Read</span>
                             </div>
                             <div class="book-card-back">
-                                <h3 class="text-lg font-bold mb-2">Visual Storytelling</h3>
-                                <p class="text-sm leading-relaxed px-2">Currently focusing on Advanced Data Visualization. Mastering techniques to turn complex datasets into clear, actionable visual narratives.</p>
+                                <h3 class="text-lg font-bold mb-2">Data Integrity</h3>
+                                <p class="text-sm leading-relaxed px-2">Whether it's lab resource allocation or financial tracking, I ensure data is secure, validated, and accurately visualized.</p>
                             </div>
                         </div>
                     </div>
@@ -629,7 +730,7 @@
                         <div class="text-brand-500 font-bold text-sm mb-2">2024 - 2028</div>
                         <h3 class="font-bold text-lg text-slate-800">B.Tech, Computer Science</h3>
                         <p class="text-slate-500 text-sm">ANITS, Visakhapatnam</p>
-                        <div class="mt-4 inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">SPA: 9.3/10</div>
+                        <div class="mt-4 inline-block px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">CGPA: 9.0</div>
                     </div>
                     
                     <div class="bg-white border border-gray-100 p-6 rounded-xl shadow-sm hover:shadow-md transition-all reveal delay-100">
@@ -657,49 +758,34 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
+                    <!-- Project 1: Event Registration Portal -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group border-t-4 border-brand-500">
                         <div class="h-48 bg-slate-200 overflow-hidden">
-                            <img src="project pics/face-attendance.png" alt="Face Attendance System" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&w=800&q=80'">
+                            <img src="project pics/event-portal.png" alt="Event Registration" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?auto=format&fit=crop&w=800&q=80'">
                         </div>
                         <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-slate-800">Face Attendance System</h3>
-                            <p class="text-slate-500 text-sm mb-4">Automated attendance system using real-time face detection and recognition to reduce manual errors.</p>
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Event Management Portal</h3>
+                            <p class="text-slate-500 text-sm mb-4">Full-stack MERN portal for workshop registration, admin approval workflows, and automated system allocation.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Python</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">OpenCV</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">NumPy</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">MERN</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">JWT</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Nodemailer</span>
                             </div>
                             <div class="flex gap-4">
-                                <a href="https://github.com/sidhu1819/face_attendance" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold flex items-center"><i class="devicon-github-original mr-1"></i> Code</a>
+                                <a href="https://event-portal-5ftl.onrender.com/" target="_blank" class="text-brand-600 hover:text-brand-800 text-sm font-semibold">Live</a>
+                                <a href="https://github.com/sidhu1819/event-portal" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold">Code</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group perspective-1000">
-                        <div class="h-48 bg-slate-200 overflow-hidden relative transform transition-transform duration-500 group-hover:rotate-x-2">
-                            <img src="project pics/project 7.png" alt="Ghandivam" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80'">
-                            <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-slate-800">Ghandivam</h3>
-                            <p class="text-slate-500 text-sm mb-4">A full-stack web solution developed during the Hogwarts 24hr Hackathon.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">JS</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">GitHub</span>
-                            </div>
-                            <a href="https://github.com/sidhu1819/ghandivam"  class="text-brand-600 hover:text-brand-800 text-sm font-semibold inline-flex items-center">
-                                Read More in Docs <i data-lucide="book-open" class="w-4 h-4 ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
+                    <!-- Project 2: HotelFlow -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
                         <div class="h-48 bg-slate-200 overflow-hidden">
                             <img src="project pics/project 6.png" alt="HotelFlow" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80'">
                         </div>
                         <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-slate-800">HotelFlow</h3>
-                            <p class="text-slate-500 text-sm mb-4">Full-stack hotel system with dashboard for bookings and data analysis.</p>
+                            <p class="text-slate-500 text-sm mb-4">PostgreSQL powered booking dashboard for hotel resource management and occupancy tracking.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">TypeScript</span>
                                 <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">PostgreSQL</span>
@@ -711,15 +797,72 @@
                         </div>
                     </div>
 
+                    <!-- Project 3: Face Attendance -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
+                        <div class="h-48 bg-slate-200 overflow-hidden">
+                            <img src="project pics/face-attendance.png" alt="Face Attendance" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Face Attendance System</h3>
+                            <p class="text-slate-500 text-sm mb-4">Automated system using real-time face detection and recognition to eliminate manual attendance errors.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Python</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">OpenCV</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/sidhu1819/face_attendance" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold flex items-center"><i class="devicon-github-original mr-1"></i> Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Expense Manager -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
+                        <div class="h-48 bg-slate-200 overflow-hidden">
+                            <img src="project pics/mobile-app.png" alt="Expense Manager" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Daily Expense Manager</h3>
+                            <p class="text-slate-500 text-sm mb-4">Flutter app to track daily spending and manage mobile usage with detailed local SQLite analytics.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Flutter</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">SQLite</span>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="app-release.apk" download class="text-brand-600 hover:text-brand-800 text-sm font-semibold flex items-center">APK <i data-lucide="download" class="w-4 h-4 ml-1"></i></a>
+                                <a href="https://github.com/sidhu1819/money_tracker" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold">Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Ghandivam -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
+                        <div class="h-48 bg-slate-200 overflow-hidden">
+                            <img src="project pics/project 7.png" alt="Ghandivam" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-slate-800">Ghandivam</h3>
+                            <p class="text-slate-500 text-sm mb-4">Full-stack web solution developed during the Hogwarts 24hr Hackathon for education tech.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">JS</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Hackathon</span>
+                            </div>
+                            <a href="https://github.com/sidhu1819/ghandivam" class="text-brand-600 hover:text-brand-800 text-sm font-semibold inline-flex items-center">
+                                View Docs <i data-lucide="book-open" class="w-4 h-4 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Hostel Management -->
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
                         <div class="h-48 bg-slate-200 overflow-hidden">
                             <img src="project pics/project 1.png" alt="Hostel Management" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80'">
                         </div>
                         <div class="p-6">
                             <h3 class="font-bold text-xl mb-2 text-slate-800">Hostel Management</h3>
-                            <p class="text-slate-500 text-sm mb-4">System for students to request rooms and hosts to manage allotments.</p>
+                            <p class="text-slate-500 text-sm mb-4">MERN system for room requests and administrative allotment for educational institutions.</p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">MERN</span>
+                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Render</span>
                             </div>
                             <div class="flex gap-4">
                                 <a href="https://hostel-management-system-rnox.onrender.com" target="_blank" class="text-brand-600 hover:text-brand-800 text-sm font-semibold">Live</a>
@@ -727,44 +870,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
-                        <div class="h-48 bg-slate-200 overflow-hidden">
-                            <img src="project pics/forest-hub.png" alt="The Forest Hub" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1448375240586-dfd8d395ea6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-slate-800">The Forest Hub</h3>
-                            <p class="text-slate-500 text-sm mb-4">An immersive WebVR environment designed as a digital sanctuary.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">WebVR</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">A-Frame</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="https://devpost.com/software/the-forest-hub#updates" target="_blank" class="text-brand-600 hover:text-brand-800 text-sm font-semibold">Devpost</a>
-                                <a href="https://github.com/sidhu1819" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold">Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal group">
-                        <div class="h-48 bg-slate-200 overflow-hidden">
-                            <img src="project pics/mobile-app.png" alt="Daily Expense Manager" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2 text-slate-800">Daily Expense Manager</h3>
-                            <p class="text-slate-500 text-sm mb-4">Flutter app to track daily expenses and manage mobile usage with analytics.</p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Flutter</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">Dart</span>
-                                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded">SQLite</span>
-                            </div>
-                            <div class="flex gap-4">
-                                <a href="app-release.apk" download class="text-brand-600 hover:text-brand-800 text-sm font-semibold flex items-center">Download APK <i data-lucide="download" class="w-4 h-4 ml-1"></i></a>
-                                <a href="https://github.com/sidhu1819/money_tracker" target="_blank" class="text-slate-600 hover:text-slate-900 text-sm font-semibold">Code</a>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </section>
@@ -772,7 +877,7 @@
         <section id="contact" class="py-20 bg-slate-900 text-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
-                <p class="text-slate-400 mb-8 max-w-xl mx-auto">Feel free to reach out for collaborations or just to say hi!</p>
+                <p class="text-slate-400 mb-8 max-w-xl mx-auto">I'm currently looking for full-stack developer or data analyst roles. Feel free to reach out!</p>
                 <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
                     <a href="mailto:832siddhartha@gmail.com" class="flex items-center px-6 py-3 bg-brand-600 rounded-lg hover:bg-brand-500 transition-colors">
                         <i data-lucide="mail" class="mr-2 w-5 h-5"></i> 832siddhartha@gmail.com
@@ -795,7 +900,7 @@
     </main>
 
     <footer class="bg-slate-950 py-6 text-center text-slate-500 text-sm border-t border-slate-900">
-        <p>&copy; 2025 Siddhartha Reddy Medapati. All rights reserved.</p>
+        <p>&copy; 2026 Siddhartha Reddy Medapati. All rights reserved.</p>
     </footer>
 
     <script>
@@ -828,5 +933,4 @@
         });
     </script>
 </body>
-
 </html>
