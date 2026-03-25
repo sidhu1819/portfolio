@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Grimoire | Siddhartha Reddy</title>
-    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -18,9 +17,22 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    fontFamily: { 
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif']
+                    },
                     colors: {
-                        brand: { 500: '#0ea5e9', 600: '#0284c7', 900: '#0c4a6e' }
+                        brand: { 
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', 
+                            600: '#0284c7', 
+                            900: '#0c4a6e' 
+                        },
+                        grimoire: {
+                            deep: '#0f172a',
+                            accent: '#38bdf8'
+                        }
                     }
                 }
             }
@@ -28,10 +40,10 @@
     </script>
 
     <style>
-        /* 3D BOOK ANIMATION - HERO PIECE */
+        /* 3D BOOK ANIMATION */
         .book-scene {
-            width: 220px;
-            height: 300px;
+            width: 240px;
+            height: 320px;
             perspective: 1500px;
             margin: 0 auto;
         }
@@ -41,8 +53,8 @@
             width: 100%;
             height: 100%;
             transform-style: preserve-3d;
-            transform: rotateY(-15deg) rotateX(10deg);
-            transition: transform 0.8s ease-in-out;
+            transform: rotateY(-25deg) rotateX(10deg);
+            transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .book-scene:hover .book {
@@ -50,41 +62,51 @@
         }
         
         .book-scene:hover .cover {
-            transform: rotateY(-130deg);
+            transform: rotateY(-145deg);
         }
 
         .cover {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            border-radius: 4px 10px 10px 4px;
-            box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+            border-radius: 4px 12px 12px 4px;
+            box-shadow: 15px 15px 35px rgba(0,0,0,0.4);
             transform-origin: left;
-            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: transform 1s cubic-bezier(0.6, 0, 0.4, 1);
             z-index: 10;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            color: #e2e8f0;
-            padding: 20px;
-            border-left: 10px solid #0f172a;
-            border: 1px solid #334155;
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: rgba(255,255,255,0.05);
         }
 
         .page {
             position: absolute;
-            width: 95%;
+            width: 96%;
             height: 96%;
             top: 2%;
             left: 2%;
-            background: #f8fafc;
-            border-radius: 2px 8px 8px 2px;
+            background: #ffffff;
+            background-image: radial-gradient(#e5e7eb 0.5px, transparent 0.5px);
+            background-size: 15px 15px;
+            border-radius: 2px 10px 10px 2px;
             z-index: 5;
-            box-shadow: inset 3px 0px 10px rgba(0,0,0,0.1);
-            padding: 15px;
+            box-shadow: inset 5px 0px 15px rgba(0,0,0,0.1);
+            padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -97,90 +119,132 @@
             width: 100%;
             height: 100%;
             background: #1e293b;
-            border-radius: 4px 10px 10px 4px;
-            transform: translateZ(-20px);
+            border-radius: 4px 12px 12px 4px;
+            transform: translateZ(-25px);
             box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
             z-index: 1;
         }
         
         .spine {
             position: absolute;
-            width: 20px;
+            width: 25px;
             height: 100%;
             left: 0;
             top: 0;
             background: #0f172a;
-            transform: rotateY(90deg) translateZ(-10px);
+            transform: rotateY(90deg) translateZ(-12.5px);
             z-index: 0;
+            border-left: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Card Hover Effects */
+        /* Glassmorphism for Cards */
         .project-card {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .active-filter {
+            background-color: #0ea5e9;
+            color: white;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-slate-800 antialiased">
+<body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-900">
 
     <!-- Navbar -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-[100] transition-all">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="flex items-center text-slate-600 hover:text-brand-600 transition-colors font-medium">
-                <i data-lucide="arrow-left" class="w-5 h-5 mr-2"></i> Back to Home
+            <a href="index.html" class="group flex items-center text-slate-600 hover:text-brand-600 transition-all font-semibold">
+                <div class="p-1.5 rounded-lg bg-slate-100 group-hover:bg-brand-50 mr-3 transition-colors">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </div>
+                Portal Home
             </a>
-            <div class="flex items-center gap-2">
-                <i data-lucide="github" class="w-6 h-6 text-slate-800"></i>
-                <span class="font-bold text-lg tracking-tight">Project Grimoire</span>
+            <div class="flex items-center gap-3">
+                <div class="hidden sm:flex flex-col items-end">
+                    <span class="font-heading font-bold text-lg leading-tight">The Grimoire</span>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Archives v2.1</span>
+                </div>
+                <div class="h-8 w-[1px] bg-slate-200 mx-2 hidden sm:block"></div>
+                <a href="https://github.com/sidhu1819" target="_blank" class="p-2 bg-slate-900 text-white rounded-full hover:bg-slate-700 transition">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
             </div>
-            <a href="https://github.com/sidhu1819?tab=repositories" target="_blank" class="hidden md:flex text-sm font-semibold text-brand-600 bg-brand-50 px-4 py-2 rounded-full hover:bg-brand-100 transition">
-                View on GitHub
-            </a>
         </div>
     </nav>
 
     <main class="min-h-screen pb-20">
         
-        <!-- HERO with 3D BOOK -->
-        <section class="bg-white py-16 border-b border-gray-100 relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
+        <!-- HERO SECTION -->
+        <section class="bg-white py-20 relative overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
+                <svg width="100%" height="100%"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#grid)" /></svg>
+            </div>
             
             <div class="container mx-auto px-6 relative z-10">
-                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
                     
-                    <!-- Text Side -->
-                    <div class="text-center md:text-left max-w-lg">
-                        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-slate-900">The Archives</h1>
-                        <p class="text-slate-500 text-lg mb-8 leading-relaxed">
-                            A curated collection of my <strong>23 repositories</strong>. From Data Science to Full Stack Applications.
+                    <div class="text-center lg:text-left max-w-2xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-bold uppercase tracking-wider mb-6">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                            </span>
+                            Live Inventory: 26 Projects
+                        </div>
+                        <h1 class="text-5xl lg:text-7xl font-heading font-bold mb-6 text-slate-900 tracking-tight leading-[1.1]">
+                            The <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">Archives</span>
+                        </h1>
+                        <p class="text-slate-500 text-xl mb-10 leading-relaxed font-light">
+                            Welcome to the vault of digital magic. A curated collection of repositories spanning <strong>Data Science, AI, and Full Stack Development</strong>.
                         </p>
-                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                            <span class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded border border-slate-200">Python</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded border border-slate-200">Dart</span>
-                            <span class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded border border-slate-200">TypeScript</span>
+                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                            <div class="flex -space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-slate-600" title="Python"><i class="devicon-python-plain text-xl"></i></div>
+                                <div class="w-10 h-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-slate-600" title="TypeScript"><i class="devicon-typescript-plain text-xl"></i></div>
+                                <div class="w-10 h-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-slate-600" title="Dart"><i class="devicon-dart-plain text-xl"></i></div>
+                                <div class="w-10 h-10 rounded-full bg-slate-900 border-2 border-white flex items-center justify-center text-white text-xs font-bold">+5</div>
+                            </div>
+                            <button onclick="document.getElementById('explore').scrollIntoView()" class="px-8 py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all hover:shadow-xl hover:shadow-slate-200">
+                                Start Exploring
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Book Animation Side -->
-                    <div class="book-scene">
+                    <!-- 3D Book Component -->
+                    <div class="book-scene scale-90 md:scale-100">
                         <div class="book">
-                            <div class="cover border-slate-700">
-                                <i data-lucide="folder-git-2" class="w-16 h-16 mb-4 text-sky-400"></i>
-                                <h2 class="text-xl font-bold uppercase tracking-wider text-white">Project<br>Index</h2>
-                                <p class="text-xs mt-4 text-slate-400">sidhu1819</p>
+                            <div class="cover">
+                                <div class="w-16 h-16 mb-6 flex items-center justify-center bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
+                                    <i data-lucide="book-marked" class="w-8 h-8 text-brand-400"></i>
+                                </div>
+                                <h2 class="text-2xl font-heading font-bold uppercase tracking-widest text-white text-center leading-tight">Master<br>Index</h2>
+                                <div class="mt-8 pt-8 border-t border-white/10 w-full text-center">
+                                    <p class="text-[10px] text-slate-400 font-mono">ENCRYPTED // BY SIDDHARTHA</p>
+                                </div>
                             </div>
                             <div class="spine"></div>
                             <div class="page">
-                                <h3 class="font-bold text-slate-800 mb-2">23 Repositories</h3>
-                                <p class="text-xs text-slate-500 leading-relaxed">
-                                    Hover to unlock the knowledge stored within.
+                                <div class="w-12 h-1 bg-slate-200 rounded-full mb-6 mx-auto"></div>
+                                <h3 class="font-heading font-bold text-slate-800 text-lg mb-2">Inventory Log</h3>
+                                <p class="text-sm text-slate-500 mb-8 px-4">
+                                    All artifacts stored in this grimoire are open source for the community.
                                 </p>
-                                <div class="mt-8 text-brand-500">
-                                    <i data-lucide="arrow-down" class="w-6 h-6 animate-bounce mx-auto"></i>
+                                <div class="grid grid-cols-2 gap-2 w-full text-[10px] font-bold uppercase text-slate-400">
+                                    <div class="p-2 bg-slate-50 rounded">Web: 15</div>
+                                    <div class="p-2 bg-slate-50 rounded">AI/DS: 9</div>
+                                    <div class="p-2 bg-slate-50 rounded">App: 2</div>
+                                    <div class="p-2 bg-slate-50 rounded">Other: 2</div>
                                 </div>
                             </div>
                             <div class="back-cover"></div>
@@ -191,446 +255,182 @@
             </div>
         </section>
 
-        <!-- PROJECT GRID (22 Items) -->
-        <div class="container mx-auto px-6 py-16">
-            <h3 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-2">
-                <i data-lucide="layers" class="text-brand-600"></i> All Projects
-            </h3>
+        <!-- EXPLORE SECTION -->
+        <section id="explore" class="container mx-auto px-6 py-12">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full ring-2 ring-brand-500/10">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-brand-100 text-brand-700 rounded-lg"><i data-lucide="sparkles" class="w-6 h-6"></i></div>
-                        <div class="flex flex-col items-end">
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-600 mb-1">Newest</span>
-                            <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">JavaScript</span>
-                        </div>
+            <!-- SEARCH & FILTERS -->
+            <div class="sticky top-20 z-40 bg-[#f8fafc]/90 backdrop-blur-xl py-6 mb-10 border-b border-slate-200">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <!-- Search -->
+                    <div class="relative max-w-md w-full">
+                        <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5"></i>
+                        <input type="text" id="repoSearch" placeholder="Search the archives..." 
+                               class="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 outline-none transition-all shadow-sm">
                     </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Web AI Workshop Portal</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">A registration and event portal for the "Vibe Coding" workshop, featuring real-time interaction and automated registration flows.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-javascript-plain text-lg"></i>
-                            <i class="devicon-tailwindcss-plain text-lg"></i>
-                            <i class="devicon-vscode-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/event-portal" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
+                    
+                    <!-- Filters -->
+                    <div class="flex flex-wrap gap-2" id="filterContainer">
+                        <button class="filter-btn active-filter px-5 py-2 rounded-xl text-sm font-bold transition-all" data-filter="all">All</button>
+                        <button class="filter-btn px-5 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-bold transition-all hover:bg-slate-50" data-filter="web">Web Dev</button>
+                        <button class="filter-btn px-5 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-bold transition-all hover:bg-slate-50" data-filter="ai">AI & DS</button>
+                        <button class="filter-btn px-5 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-bold transition-all hover:bg-slate-50" data-filter="sih">SIH Hacks</button>
+                        <button class="filter-btn px-5 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-bold transition-all hover:bg-slate-50" data-filter="misc">Misc</button>
                     </div>
                 </div>
-
-                <!-- 1. money_tracker -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-blue-100 text-blue-700 rounded-lg"><i data-lucide="wallet" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">Dart</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">money_tracker</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">A personal finance management application built with Dart/Flutter for tracking expenses and income.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-dart-plain text-lg"></i>
-                            <i class="devicon-flutter-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/money_tracker" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 2. face_attendance -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-indigo-100 text-indigo-700 rounded-lg"><i data-lucide="scan-face" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">TypeScript</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">face_attendance</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Automated attendance system leveraging computer vision and TypeScript for modern type-safety.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-typescript-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/face_attendance" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 3. my-android-app -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-green-100 text-green-700 rounded-lg"><i data-lucide="smartphone" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">JavaScript</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">my-android-app</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">A mobile application tailored for Android devices built using JavaScript frameworks.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-javascript-plain text-lg"></i>
-                            <i class="devicon-android-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/my-android-app" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 4. FUTURE_DS_03 -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-yellow-100 text-yellow-700 rounded-lg"><i data-lucide="database" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">Python</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">FUTURE_DS_03</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Advanced data analysis and modeling tasks for predictive insights in Data Science.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-python-plain text-lg"></i>
-                            <i class="devicon-pandas-original text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/FUTURE_DS_03" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 5. FUTURE_DS_02 -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-yellow-100 text-yellow-700 rounded-lg"><i data-lucide="bar-chart" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">Python</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">FUTURE_DS_02</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Exploratory data analysis and visualization projects using Python libraries.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-python-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/FUTURE_DS_02" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 6. FUTURE_DS_01 -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-yellow-100 text-yellow-700 rounded-lg"><i data-lucide="pie-chart" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">Python</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">FUTURE_DS_01</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Foundational data science scripts and statistical analysis notebooks.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-python-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/FUTURE_DS_01" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 7. Nevermore_Hacks -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-orange-100 text-orange-700 rounded-lg"><i data-lucide="code" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">HTML</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Nevermore_Hacks</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Hackathon submission featuring rapid prototyping and creative web solutions.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-html5-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/Nevermore_Hacks" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 8. realtime-roadmap-ai -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-purple-100 text-purple-700 rounded-lg"><i data-lucide="brain-circuit" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">Python</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">realtime-roadmap-ai</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">AI-powered tool that generates learning roadmaps in real-time using Generative AI.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-python-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/realtime-roadmap-ai" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 9. portfolio -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-teal-100 text-teal-700 rounded-lg"><i data-lucide="layout" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">HTML</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">portfolio</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">My personal developer portfolio showcasing skills, projects, and contact info.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-html5-plain text-lg"></i>
-                            <i class="devicon-css3-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/portfolio" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 10. VR-project -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-rose-100 text-rose-700 rounded-lg"><i data-lucide="glasses" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">TypeScript</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">VR-project</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Immersive Virtual Reality experience built for the web using TypeScript and Three.js/A-Frame.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-typescript-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/VR-project" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 11. ghandivam -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-purple-100 text-purple-700 rounded-lg"><i data-lucide="zap" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">JavaScript</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">ghandivam</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Smart education platform gamifying learning for rural students to improve engagement.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-javascript-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/ghandivam" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 12. ghandivam-1 -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-purple-100 text-purple-700 rounded-lg"><i data-lucide="archive" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">JavaScript</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">ghandivam-1</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Initial prototype and version 1 codebase of the Ghandivam educational platform.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-javascript-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/ghandivam-1" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 13. Hotel_Flow -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-cyan-100 text-cyan-700 rounded-lg"><i data-lucide="bed" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">TypeScript</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Hotel_Flow</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Comprehensive management system for hotel bookings, guest services, and room inventory.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-typescript-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/Hotel_Flow" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 14. hostel_management -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-blue-100 text-blue-700 rounded-lg"><i data-lucide="home" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">JavaScript</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">hostel_management</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Web-based system to streamline hostel operations, resident data, and room allocation.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-javascript-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/hostel_management" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 15. digital_education -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-green-100 text-green-700 rounded-lg"><i data-lucide="graduation-cap" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">HTML</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">digital_education</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Interactive web modules and resources designed to facilitate digital learning environments.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-html5-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/digital_education" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 16. sih -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-orange-100 text-orange-700 rounded-lg"><i data-lucide="trophy" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">HTML</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">sih</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Smart India Hackathon project submission focused on innovative problem solving.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-html5-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/sih" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 17. Student-sih- -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-indigo-100 text-indigo-700 rounded-lg"><i data-lucide="users" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">HTML</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Student-sih-</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Student-centric modules and interfaces developed for the SIH competition.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-html5-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/Student-sih-" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 18. SIHsportal -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-sky-100 text-sky-700 rounded-lg"><i data-lucide="globe" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">HTML</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">SIHsportal</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">A dedicated portal interface for managing hackathon resources and submissions.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-html5-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/SIHsportal" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 19. sihnportal -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-sky-100 text-sky-700 rounded-lg"><i data-lucide="monitor" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">HTML</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">sihnportal</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Alternative portal design and structure for the Smart India Hackathon initiative.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-html5-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/sihnportal" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 20. digipro -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-red-100 text-red-700 rounded-lg"><i data-lucide="cpu" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">HTML</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">digipro</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Digital project showcase demonstrating core web development skills and prototypes.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-html5-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/digipro" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 21. samyuktha -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-pink-100 text-pink-700 rounded-lg"><i data-lucide="star" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">HTML</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">samyuktha</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Web project created for the Samyuktha event, featuring event details and schedules.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-html5-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/samyuktha" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 22. cpp-files -->
-                <div class="project-card bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col h-full">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-2 bg-slate-200 text-slate-800 rounded-lg"><i data-lucide="terminal" class="w-6 h-6"></i></div>
-                        <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-slate-600">C++</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">cpp-files</h3>
-                    <p class="text-slate-500 text-sm mb-4 flex-grow">Collection of C++ algorithms, data structures, and competitive programming practice problems.</p>
-                    <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <i class="devicon-cplusplus-plain text-lg"></i>
-                        </div>
-                        <a href="https://github.com/sidhu1819/cpp-files" target="_blank" class="flex items-center text-sm font-semibold text-brand-600 hover:text-brand-800 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4 mr-1"></i> Repository
-                        </a>
-                    </div>
-                </div>
-
             </div>
-        </div>
+            
+            <!-- GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="repoGrid">
+                <!-- REPOS WILL BE INSERTED BY JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden flex-col items-center justify-center py-20 text-center">
+                <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-6">
+                    <i data-lucide="ghost" class="w-10 h-10"></i>
+                </div>
+                <h3 class="text-2xl font-heading font-bold text-slate-800">No projects found</h3>
+                <p class="text-slate-500">Perhaps these pages are yet to be written.</p>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-white border-t border-gray-200 py-8 text-center text-slate-500 text-sm">
-        <p>Portfolio Project Archive &copy; 2026</p>
+    <footer class="bg-slate-900 py-16 text-white overflow-hidden relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-center md:text-left">
+                    <h4 class="text-2xl font-heading font-bold mb-2">The Grimoire</h4>
+                    <p class="text-slate-400 text-sm">Crafted with passion by Siddhartha Reddy</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="https://github.com/sidhu1819" class="text-slate-400 hover:text-white transition"><i data-lucide="github"></i></a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/5 text-center text-slate-500 text-xs">
+                &copy; 2026 Siddhartha Reddy. Updated based on latest GitHub sync.
+            </div>
+        </div>
     </footer>
 
     <script>
-        lucide.createIcons();
+        // PROJECT DATA INVENTORY (Updated with 26 projects)
+        const projects = [
+            { id: 1, title: "CRML", cat: "ai", lang: "Jupyter", icon: "binary", desc: "Custom Regression and Machine Learning models focused on predictive analysis and algorithmic optimization.", repo: "CRML", color: "indigo", tags: ["ML", "Research"] },
+            { id: 2, title: "web-ai", cat: "web", lang: "HTML", icon: "bot", desc: "A fork exploring web-integrated AI functionalities and description generation components.", repo: "web-ai", color: "sky", tags: ["AI", "Web"] },
+            { id: 3, title: "CFD", cat: "ai", lang: "Jupyter", icon: "waves", desc: "Computational Fluid Dynamics analysis and simulations performed using Jupyter notebooks.", repo: "CFD", color: "blue", tags: ["Physics", "Data"] },
+            { id: 4, title: "predecction_HHP", cat: "ai", lang: "Jupyter", icon: "zap-off", desc: "Household Power Prediction project using historical consumption data and time-series forecasting.", repo: "predecction_HHP", color: "yellow", tags: ["AI", "Forecasting"] },
+            { id: 5, title: "Customer Shopping Behavior", cat: "ai", lang: "Jupyter", icon: "shopping-bag", desc: "Customer behavior analysis using Python and PostgreSQL to segment customers and analyze revenue patterns.", repo: "Customer_Shopping_Behaviour-", color: "emerald", tags: ["Data", "SQL"] },
+            { id: 6, title: "Web AI Workshop Portal", cat: "web", lang: "HTML", icon: "sparkles", desc: "A registration and event portal for the 'Vibe Coding' workshop featuring real-time interaction.", repo: "event-portal", color: "indigo", tags: ["JS", "Tailwind"] },
+            { id: 7, title: "money_tracker", cat: "misc", lang: "Dart", icon: "wallet", desc: "A personal finance management application built with Flutter for tracking expenses.", repo: "money_tracker", color: "blue", tags: ["Flutter", "Dart"] },
+            { id: 8, title: "face_attendance", cat: "ai", lang: "TypeScript", icon: "scan-face", desc: "Automated attendance system leveraging computer vision and TypeScript for modern type-safety.", repo: "face_attendance", color: "sky", tags: ["OpenCV", "TS"] },
+            { id: 9, title: "realtime-roadmap-ai", cat: "ai", lang: "Python", icon: "brain-circuit", desc: "AI-powered tool that generates learning roadmaps in real-time using Generative AI.", repo: "realtime-roadmap-ai", color: "purple", tags: ["Generative AI", "Python"] },
+            { id: 10, title: "FUTURE_DS_03", cat: "ai", lang: "Python", icon: "database", desc: "Advanced data analysis and modeling tasks for predictive insights in Data Science.", repo: "FUTURE_DS_03", color: "amber", tags: ["Data Analysis", "Models"] },
+            { id: 11, title: "Hotel_Flow", cat: "web", lang: "TypeScript", icon: "bed", desc: "Comprehensive management system for hotel bookings, guest services, and inventory.", repo: "Hotel_Flow", color: "cyan", tags: ["React", "TS"] },
+            { id: 12, title: "VR-project", cat: "web", lang: "TypeScript", icon: "glasses", desc: "Immersive VR experience built for the web using Three.js / A-Frame.", repo: "VR-project", color: "rose", tags: ["ThreeJS", "3D"] },
+            { id: 13, title: "hostel_management", cat: "web", lang: "JavaScript", icon: "home", desc: "Web-based system to streamline hostel operations, resident data, and room allocation.", repo: "hostel_management", color: "blue", tags: ["NodeJS", "CRUD"] },
+            { id: 14, title: "ghandivam", cat: "web", lang: "JavaScript", icon: "zap", desc: "Smart education platform gamifying learning for rural students to improve engagement.", repo: "ghandivam", color: "purple", tags: ["GameDev", "Web"] },
+            { id: 15, title: "sih", cat: "sih", lang: "HTML", icon: "trophy", desc: "Smart India Hackathon project submission focused on innovative problem solving.", repo: "sih", color: "orange", tags: ["Hackathon", "SIH"] },
+            { id: 16, title: "Student-sih-", cat: "sih", lang: "HTML", icon: "users", desc: "Student-centric modules and interfaces developed for the SIH competition.", repo: "Student-sih-", color: "indigo", tags: ["UI/UX", "SIH"] },
+            { id: 17, title: "SIHsportal", cat: "sih", lang: "HTML", icon: "globe", desc: "A dedicated portal interface for managing hackathon resources and submissions.", repo: "SIHsportal", color: "sky", tags: ["Portal", "SIH"] },
+            { id: 18, title: "FUTURE_DS_02", cat: "ai", lang: "Python", icon: "bar-chart", desc: "Exploratory data analysis and visualization projects using Python libraries.", repo: "FUTURE_DS_02", color: "amber", tags: ["Viz", "Python"] },
+            { id: 19, title: "FUTURE_DS_01", cat: "ai", lang: "Python", icon: "pie-chart", desc: "Foundational data science scripts and statistical analysis notebooks.", repo: "FUTURE_DS_01", color: "amber", tags: ["Basics", "Stats"] },
+            { id: 20, title: "Nevermore_Hacks", cat: "web", lang: "HTML", icon: "code", desc: "Hackathon submission featuring rapid prototyping and creative web solutions.", repo: "Nevermore_Hacks", color: "orange", tags: ["Hacks", "Quick-Build"] },
+            { id: 21, title: "portfolio", cat: "web", lang: "HTML", icon: "layout", desc: "My personal developer portfolio showcasing skills, projects, and contact info.", repo: "portfolio", color: "teal", tags: ["Web", "Design"] },
+            { id: 22, title: "ghandivam-1", cat: "web", lang: "JavaScript", icon: "archive", desc: "Initial prototype and version 1 codebase of the Ghandivam educational platform.", repo: "ghandivam-1", color: "slate", tags: ["Legacy", "V1"] },
+            { id: 23, title: "digital_education", cat: "web", lang: "HTML", icon: "graduation-cap", desc: "Interactive web modules designed to facilitate digital learning environments.", repo: "digital_education", color: "green", tags: ["Edu", "Web"] },
+            { id: 24, title: "sihnportal", cat: "sih", lang: "HTML", icon: "monitor", desc: "Alternative portal design and structure for the Smart India Hackathon initiative.", repo: "sihnportal", color: "sky", tags: ["Portal", "Refined"] },
+            { id: 25, title: "digipro", cat: "misc", lang: "HTML", icon: "cpu", desc: "Digital project showcase demonstrating core web development skills and prototypes.", repo: "digipro", color: "red", tags: ["Digital", "Web"] },
+            { id: 26, title: "samyuktha", cat: "web", lang: "HTML", icon: "star", desc: "Web project created for the Samyuktha event, featuring event details.", repo: "samyuktha", color: "pink", tags: ["Event", "Live"] }
+        ];
+
+        const grid = document.getElementById('repoGrid');
+        const searchInput = document.getElementById('repoSearch');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const emptyState = document.getElementById('emptyState');
+
+        function renderProjects(filteredData) {
+            grid.innerHTML = '';
+            
+            if (filteredData.length === 0) {
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+            }
+
+            filteredData.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'project-card bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm flex flex-col h-full group';
+                
+                card.innerHTML = `
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="p-3 bg-${p.color}-50 text-${p.color}-600 rounded-2xl group-hover:rotate-12 transition-transform duration-500">
+                            <i data-lucide="${p.icon}" class="w-6 h-6"></i>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">${p.lang}</span>
+                            <div class="flex gap-1">
+                                ${p.tags.map(t => `<span class="px-2 py-0.5 bg-slate-100 text-[10px] font-bold text-slate-500 rounded">${t}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">${p.title}</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">${p.desc}</p>
+                    
+                    <div class="mt-auto pt-6 border-t border-slate-100 flex justify-between items-center">
+                        <div class="flex gap-2 text-slate-300">
+                             <div class="w-8 h-8 rounded-lg flex items-center justify-center"><i class="devicon-github-original text-lg"></i></div>
+                        </div>
+                        <a href="https://github.com/sidhu1819/${p.repo}" target="_blank" 
+                           class="flex items-center gap-2 text-xs font-bold text-slate-900 bg-slate-100 px-4 py-2 rounded-xl hover:bg-slate-900 hover:text-white transition-all">
+                            View Artifact
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            lucide.createIcons();
+        }
+
+        // Search logic
+        searchInput.addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            const filtered = projects.filter(p => 
+                p.title.toLowerCase().includes(val) || 
+                p.desc.toLowerCase().includes(val) ||
+                p.lang.toLowerCase().includes(val)
+            );
+            renderProjects(filtered);
+        });
+
+        // Filter logic
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active-filter');
+                    b.classList.add('bg-white', 'text-slate-600');
+                });
+                btn.classList.add('active-filter');
+                btn.classList.remove('bg-white', 'text-slate-600');
+
+                const filter = btn.getAttribute('data-filter');
+                if (filter === 'all') {
+                    renderProjects(projects);
+                } else {
+                    const filtered = projects.filter(p => p.cat === filter);
+                    renderProjects(filtered);
+                }
+            });
+        });
+
+        // Initial render
+        window.onload = () => {
+            renderProjects(projects);
+            lucide.createIcons();
+        };
     </script>
 </body>
 </html>
