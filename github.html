@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Grimoire | Siddhartha Reddy</title>
+    <title>Siddhartha Reddy Medapati | GitHub Engine</title>
     
+    <!-- Google Fonts & Devicons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     
+    <!-- Lucide Icons & Tailwind CSS -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: { 
-                        sans: ['Outfit', 'sans-serif'],
-                        heading: ['Space Grotesk', 'sans-serif']
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        brand: { 
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0ea5e9', 
-                            600: '#0284c7', 
-                            900: '#0c4a6e' 
+                        brand: {
+                            500: '#06b6d4', // Cyan electric
+                            600: '#0891b2',
+                            900: '#164e63',
                         },
-                        grimoire: {
-                            deep: '#0f172a',
-                            accent: '#38bdf8'
+                        neon: {
+                            cyan: '#06b6d4',
+                            purple: '#a855f7',
+                            emerald: '#10b981',
                         }
                     }
                 }
@@ -40,397 +42,1057 @@
     </script>
 
     <style>
-        /* 3D BOOK ANIMATION */
-        .book-scene {
-            width: 240px;
-            height: 320px;
-            perspective: 1500px;
-            margin: 0 auto;
+        /* Custom Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272a;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
         }
 
-        .book {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        /* Glassmorphism Navigation */
+        .glass-header {
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Ambient Cyber Grid Background */
+        .grid-cyber {
+            background-image: radial-gradient(rgba(6, 182, 212, 0.07) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Glowing Effects */
+        .neon-glow-cyan {
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
+        }
+        .neon-glow-purple {
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+        }
+
+        /* Orbit Workspace Configs */
+        .orbit-container {
+            perspective: 1600px;
             transform-style: preserve-3d;
-            transform: rotateY(-25deg) rotateX(10deg);
-            transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        .book-scene:hover .book {
-            transform: rotateY(0deg) rotateX(0deg);
-        }
-        
-        .book-scene:hover .cover {
-            transform: rotateY(-145deg);
-        }
-
-        .cover {
+        /* Card 3D Orbit Node style */
+        .orbit-node {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(145deg, #0f172a, #1e293b);
-            border-radius: 4px 12px 12px 4px;
-            box-shadow: 15px 15px 35px rgba(0,0,0,0.4);
-            transform-origin: left;
-            transition: transform 1s cubic-bezier(0.6, 0, 0.4, 1);
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 24px;
-            border: 1px solid rgba(255,255,255,0.1);
-            overflow: hidden;
+            transition: transform 0.1s ease-out, opacity 0.3s ease, filter 0.3s ease;
+            transform-style: preserve-3d;
+            backface-visibility: visible;
         }
 
-        .cover::after {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 0;
-            width: 2px;
-            height: 100%;
-            background: rgba(255,255,255,0.05);
+        /* Dynamic gas bubbling liquid representation inside the cylinder */
+        @keyframes bubble-rise {
+            0% { transform: translateY(40px) scale(0.6); opacity: 0; }
+            30% { opacity: 0.8; }
+            90% { opacity: 0.4; }
+            100% { transform: translateY(-50px) scale(1.2); opacity: 0; }
         }
 
-        .page {
-            position: absolute;
-            width: 96%;
-            height: 96%;
-            top: 2%;
-            left: 2%;
-            background: #ffffff;
-            background-image: radial-gradient(#e5e7eb 0.5px, transparent 0.5px);
-            background-size: 15px 15px;
-            border-radius: 2px 10px 10px 2px;
-            z-index: 5;
-            box-shadow: inset 5px 0px 15px rgba(0,0,0,0.1);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        .gas-bubble {
+            animation: bubble-rise 4s infinite ease-in;
         }
 
-        .back-cover {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #1e293b;
-            border-radius: 4px 12px 12px 4px;
-            transform: translateZ(-25px);
-            box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
-            z-index: 1;
+        /* Glowing Gas Cylinder Pulsate style */
+        @keyframes core-pulse {
+            0%, 100% { filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.5)); }
+            50% { filter: drop-shadow(0 0 22px rgba(6, 182, 212, 0.95)); }
         }
-        
-        .spine {
-            position: absolute;
-            width: 25px;
-            height: 100%;
-            left: 0;
-            top: 0;
-            background: #0f172a;
-            transform: rotateY(90deg) translateZ(-12.5px);
-            z-index: 0;
-            border-left: 1px solid rgba(255,255,255,0.1);
+        .canister-core-glow {
+            animation: core-pulse 4s infinite ease-in-out;
         }
 
-        /* Glassmorphism for Cards */
-        .project-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .project-card:hover {
-            transform: translateY(-8px) scale(1.02);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-
-        .active-filter {
-            background-color: #0ea5e9;
-            color: white;
-            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        /* Rotational Control Ring Graphic */
+        .radial-ring {
+            background: radial-gradient(circle, transparent 55%, rgba(6, 182, 212, 0.04) 100%);
+            border: 2px dashed rgba(6, 182, 212, 0.15);
         }
     </style>
 </head>
 
-<body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-900">
+<body class="bg-zinc-950 text-zinc-300 antialiased overflow-x-hidden font-sans selection:bg-cyan-500 selection:text-black">
 
-    <!-- Navbar -->
-    <nav class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-[100] transition-all">
+    <!-- NAVIGATION HEADER -->
+    <header class="fixed w-full top-0 z-50 glass-header transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="group flex items-center text-slate-600 hover:text-brand-600 transition-all font-semibold">
-                <div class="p-1.5 rounded-lg bg-slate-100 group-hover:bg-brand-50 mr-3 transition-colors">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                </div>
-                Portal Home
+            
+            <a href="index.html" class="text-xl font-bold tracking-wider text-white hover:opacity-90 transition-opacity">
+                SIDDHARTHA<span class="text-neon-cyan font-extrabold animate-pulse">_</span>
             </a>
-            <div class="flex items-center gap-3">
-                <div class="hidden sm:flex flex-col items-end">
-                    <span class="font-heading font-bold text-lg leading-tight">The Grimoire</span>
-                    <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Archives v2.1</span>
+            
+            <!-- Sleek Tech Nav -->
+            <nav class="hidden lg:flex space-x-7 font-mono text-xs uppercase tracking-widest items-center text-zinc-400">
+                <a href="index.html#home" class="hover:text-neon-cyan transition-colors">/home</a>
+                <a href="index.html#study-ai" class="hover:text-neon-cyan transition-colors">/studyAI</a>
+                <a href="index.html#deployments" class="hover:text-neon-cyan transition-colors">/deployments</a>
+                <span class="text-neon-cyan font-bold flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 bg-neon-cyan rounded-full animate-ping"></span>
+                    /repositories_engine
+                </span>
+                <a href="index.html#resume-overview" class="hover:text-neon-purple transition-colors text-neon-purple font-bold">/resume_profile</a>
+                
+                <!-- API Connection Indicator Badge -->
+                <div class="bg-zinc-900 border border-zinc-800 px-3 py-1.5 rounded-lg flex items-center gap-2">
+                    <span id="api-indicator-dot" class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                    <span id="api-indicator-text" class="text-[9px] font-bold text-zinc-400">API: SYNCING...</span>
                 </div>
-                <div class="h-8 w-[1px] bg-slate-200 mx-2 hidden sm:block"></div>
-                <a href="https://github.com/sidhu1819" target="_blank" class="p-2 bg-slate-900 text-white rounded-full hover:bg-slate-700 transition">
-                    <i data-lucide="github" class="w-5 h-5"></i>
+            </nav>
+
+            <div class="flex items-center gap-4 lg:hidden">
+                <a href="index.html" class="text-xs font-mono uppercase bg-zinc-900 px-3 py-1.5 rounded border border-zinc-800 text-neon-cyan flex items-center gap-1">
+                    <i data-lucide="home" class="w-3.5 h-3.5"></i> Exit Hub
                 </a>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <main class="min-h-screen pb-20">
+    <!-- MAIN ENGINE SPACE -->
+    <main class="relative min-h-screen pt-24 pb-16 grid-cyber flex flex-col justify-between overflow-hidden">
         
-        <!-- HERO SECTION -->
-        <section class="bg-white py-20 relative overflow-hidden">
-            <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-                <svg width="100%" height="100%"><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#grid)" /></svg>
-            </div>
-            
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="flex flex-col lg:flex-row items-center justify-center gap-16">
-                    
-                    <div class="text-center lg:text-left max-w-2xl">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-bold uppercase tracking-wider mb-6">
-                            <span class="relative flex h-2 w-2">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
-                            </span>
-                            Live Inventory: 26 Projects
-                        </div>
-                        <h1 class="text-5xl lg:text-7xl font-heading font-bold mb-6 text-slate-900 tracking-tight leading-[1.1]">
-                            The <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">Archives</span>
-                        </h1>
-                        <p class="text-slate-500 text-xl mb-10 leading-relaxed font-light">
-                            Welcome to the vault of digital magic. A curated collection of repositories spanning <strong>Data Science, AI, and Full Stack Development</strong>.
-                        </p>
-                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-                            <div class="flex -space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-slate-600" title="Python"><i class="devicon-python-plain text-xl"></i></div>
-                                <div class="w-10 h-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-slate-600" title="TypeScript"><i class="devicon-typescript-plain text-xl"></i></div>
-                                <div class="w-10 h-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-slate-600" title="Dart"><i class="devicon-dart-plain text-xl"></i></div>
-                                <div class="w-10 h-10 rounded-full bg-slate-900 border-2 border-white flex items-center justify-center text-white text-xs font-bold">+5</div>
-                            </div>
-                            <button onclick="document.getElementById('explore').scrollIntoView()" class="px-8 py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all hover:shadow-xl hover:shadow-slate-200">
-                                Start Exploring
-                            </button>
-                        </div>
-                    </div>
+        <!-- Background Light Streaks -->
+        <div class="absolute top-24 left-1/4 w-[400px] h-[400px] bg-brand-500/5 rounded-full mix-blend-screen filter blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-24 right-1/4 w-[350px] h-[350px] bg-neon-purple/5 rounded-full mix-blend-screen filter blur-[100px] pointer-events-none"></div>
 
-                    <!-- 3D Book Component -->
-                    <div class="book-scene scale-90 md:scale-100">
-                        <div class="book">
-                            <div class="cover">
-                                <div class="w-16 h-16 mb-6 flex items-center justify-center bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20">
-                                    <i data-lucide="book-marked" class="w-8 h-8 text-brand-400"></i>
-                                </div>
-                                <h2 class="text-2xl font-heading font-bold uppercase tracking-widest text-white text-center leading-tight">Master<br>Index</h2>
-                                <div class="mt-8 pt-8 border-t border-white/10 w-full text-center">
-                                    <p class="text-[10px] text-slate-400 font-mono">ENCRYPTED // BY SIDDHARTHA</p>
-                                </div>
-                            </div>
-                            <div class="spine"></div>
-                            <div class="page">
-                                <div class="w-12 h-1 bg-slate-200 rounded-full mb-6 mx-auto"></div>
-                                <h3 class="font-heading font-bold text-slate-800 text-lg mb-2">Inventory Log</h3>
-                                <p class="text-sm text-slate-500 mb-8 px-4">
-                                    All artifacts stored in this grimoire are open source for the community.
-                                </p>
-                                <div class="grid grid-cols-2 gap-2 w-full text-[10px] font-bold uppercase text-slate-400">
-                                    <div class="p-2 bg-slate-50 rounded">Web: 15</div>
-                                    <div class="p-2 bg-slate-50 rounded">AI/DS: 9</div>
-                                    <div class="p-2 bg-slate-50 rounded">App: 2</div>
-                                    <div class="p-2 bg-slate-50 rounded">Other: 2</div>
-                                </div>
-                            </div>
-                            <div class="back-cover"></div>
-                        </div>
-                    </div>
+        <!-- TOP HEADLINE INFO BLOCK -->
+        <div class="container mx-auto px-6 text-center z-10 pt-4">
+            <span class="bg-zinc-900/80 text-neon-cyan border border-zinc-800/80 px-4 py-1 rounded-full text-[10px] font-mono uppercase tracking-widest inline-flex items-center gap-1.5 shadow-md">
+                <i data-lucide="fuel" class="w-3.5 h-3.5 text-neon-cyan"></i> Project Gas Engine
+            </span>
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mt-3">
+                Repository <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-cyan-400 to-neon-purple">Fuel Tank</span>
+            </h1>
+            <p class="max-w-3xl text-zinc-400 text-xs md:text-sm mx-auto mt-2 font-mono">
+                Dragging Space Rotates All 27 Interactive Codebases. Central Canister Pressure Indicates Deployment Integrity. Spark a Combustion.
+            </p>
 
+            <!-- Control Switch Layout Tab & Search Bar -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6 max-w-xl mx-auto">
+                <div class="flex gap-2 shrink-0">
+                    <button id="view-orbit-btn" class="px-4 py-2 bg-neon-cyan text-black text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-1.5 shadow-lg shadow-cyan-500/15">
+                        <i data-lucide="rotate-3d" class="w-3.5 h-3.5"></i> Dual-Ring Orbit
+                    </button>
+                    <button id="view-grid-btn" class="px-4 py-2 bg-zinc-900 hover:bg-zinc-850 text-zinc-400 hover:text-white text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition-all flex items-center gap-1.5">
+                        <i data-lucide="grid-3x3" class="w-3.5 h-3.5"></i> Directory list
+                    </button>
                 </div>
-            </div>
-        </section>
-
-        <!-- EXPLORE SECTION -->
-        <section id="explore" class="container mx-auto px-6 py-12">
-            
-            <!-- SEARCH & FILTERS -->
-            <div class="sticky top-20 z-40 bg-[#f8fafc]/90 backdrop-blur-xl py-6 mb-10 border-b border-slate-200">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                    <!-- Search -->
-                    <div class="relative max-w-md w-full">
-                        <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5"></i>
-                        <input type="text" id="repoSearch" placeholder="Search the archives..." 
-                               class="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-2xl focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 outline-none transition-all shadow-sm">
-                    </div>
-                    
-                    <!-- Filters -->
-                    <div class="flex flex-wrap gap-2" id="filterContainer">
-                        <button class="filter-btn active-filter px-5 py-2 rounded-xl text-sm font-bold transition-all" data-filter="all">All</button>
-                        <button class="filter-btn px-5 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-bold transition-all hover:bg-slate-50" data-filter="web">Web Dev</button>
-                        <button class="filter-btn px-5 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-bold transition-all hover:bg-slate-50" data-filter="ai">AI & DS</button>
-                        <button class="filter-btn px-5 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-bold transition-all hover:bg-slate-50" data-filter="sih">SIH Hacks</button>
-                        <button class="filter-btn px-5 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-bold transition-all hover:bg-slate-50" data-filter="misc">Misc</button>
-                    </div>
+                <div class="relative w-full">
+                    <i data-lucide="search" class="w-4 h-4 text-zinc-500 absolute left-3 top-2.5"></i>
+                    <input type="text" id="repo-search-input" placeholder="Search across all 27 engines..." class="w-full bg-zinc-900/80 border border-zinc-800 rounded-lg py-1.5 pl-9 pr-4 text-xs font-mono text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-500/5 transition">
                 </div>
-            </div>
-            
-            <!-- GRID -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="repoGrid">
-                <!-- REPOS WILL BE INSERTED BY JS -->
-            </div>
-
-            <!-- Empty State -->
-            <div id="emptyState" class="hidden flex-col items-center justify-center py-20 text-center">
-                <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center text-slate-400 mb-6">
-                    <i data-lucide="ghost" class="w-10 h-10"></i>
-                </div>
-                <h3 class="text-2xl font-heading font-bold text-slate-800">No projects found</h3>
-                <p class="text-slate-500">Perhaps these pages are yet to be written.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-slate-900 py-16 text-white overflow-hidden relative">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="text-center md:text-left">
-                    <h4 class="text-2xl font-heading font-bold mb-2">The Grimoire</h4>
-                    <p class="text-slate-400 text-sm">Crafted with passion by Siddhartha Reddy</p>
-                </div>
-                <div class="flex gap-6">
-                    <a href="https://github.com/sidhu1819" class="text-slate-400 hover:text-white transition"><i data-lucide="github"></i></a>
-                </div>
-            </div>
-            <div class="mt-12 pt-8 border-t border-white/5 text-center text-slate-500 text-xs">
-                &copy; 2026 Siddhartha Reddy. Updated based on latest GitHub sync.
             </div>
         </div>
-    </footer>
 
-    <script>
-        // PROJECT DATA INVENTORY (Updated with 26 projects)
-        const projects = [
-            { id: 1, title: "CRML", cat: "ai", lang: "Jupyter", icon: "binary", desc: "Custom Regression and Machine Learning models focused on predictive analysis and algorithmic optimization.", repo: "CRML", color: "indigo", tags: ["ML", "Research"] },
-            { id: 2, title: "web-ai", cat: "web", lang: "HTML", icon: "bot", desc: "A fork exploring web-integrated AI functionalities and description generation components.", repo: "web-ai", color: "sky", tags: ["AI", "Web"] },
-            { id: 3, title: "CFD", cat: "ai", lang: "Jupyter", icon: "waves", desc: "Computational Fluid Dynamics analysis and simulations performed using Jupyter notebooks.", repo: "CFD", color: "blue", tags: ["Physics", "Data"] },
-            { id: 4, title: "predecction_HHP", cat: "ai", lang: "Jupyter", icon: "zap-off", desc: "Household Power Prediction project using historical consumption data and time-series forecasting.", repo: "predecction_HHP", color: "yellow", tags: ["AI", "Forecasting"] },
-            { id: 5, title: "Customer Shopping Behavior", cat: "ai", lang: "Jupyter", icon: "shopping-bag", desc: "Customer behavior analysis using Python and PostgreSQL to segment customers and analyze revenue patterns.", repo: "Customer_Shopping_Behaviour-", color: "emerald", tags: ["Data", "SQL"] },
-            { id: 6, title: "Web AI Workshop Portal", cat: "web", lang: "HTML", icon: "sparkles", desc: "A registration and event portal for the 'Vibe Coding' workshop featuring real-time interaction.", repo: "event-portal", color: "indigo", tags: ["JS", "Tailwind"] },
-            { id: 7, title: "money_tracker", cat: "misc", lang: "Dart", icon: "wallet", desc: "A personal finance management application built with Flutter for tracking expenses.", repo: "money_tracker", color: "blue", tags: ["Flutter", "Dart"] },
-            { id: 8, title: "face_attendance", cat: "ai", lang: "TypeScript", icon: "scan-face", desc: "Automated attendance system leveraging computer vision and TypeScript for modern type-safety.", repo: "face_attendance", color: "sky", tags: ["OpenCV", "TS"] },
-            { id: 9, title: "realtime-roadmap-ai", cat: "ai", lang: "Python", icon: "brain-circuit", desc: "AI-powered tool that generates learning roadmaps in real-time using Generative AI.", repo: "realtime-roadmap-ai", color: "purple", tags: ["Generative AI", "Python"] },
-            { id: 10, title: "FUTURE_DS_03", cat: "ai", lang: "Python", icon: "database", desc: "Advanced data analysis and modeling tasks for predictive insights in Data Science.", repo: "FUTURE_DS_03", color: "amber", tags: ["Data Analysis", "Models"] },
-            { id: 11, title: "Hotel_Flow", cat: "web", lang: "TypeScript", icon: "bed", desc: "Comprehensive management system for hotel bookings, guest services, and inventory.", repo: "Hotel_Flow", color: "cyan", tags: ["React", "TS"] },
-            { id: 12, title: "VR-project", cat: "web", lang: "TypeScript", icon: "glasses", desc: "Immersive VR experience built for the web using Three.js / A-Frame.", repo: "VR-project", color: "rose", tags: ["ThreeJS", "3D"] },
-            { id: 13, title: "hostel_management", cat: "web", lang: "JavaScript", icon: "home", desc: "Web-based system to streamline hostel operations, resident data, and room allocation.", repo: "hostel_management", color: "blue", tags: ["NodeJS", "CRUD"] },
-            { id: 14, title: "ghandivam", cat: "web", lang: "JavaScript", icon: "zap", desc: "Smart education platform gamifying learning for rural students to improve engagement.", repo: "ghandivam", color: "purple", tags: ["GameDev", "Web"] },
-            { id: 15, title: "sih", cat: "sih", lang: "HTML", icon: "trophy", desc: "Smart India Hackathon project submission focused on innovative problem solving.", repo: "sih", color: "orange", tags: ["Hackathon", "SIH"] },
-            { id: 16, title: "Student-sih-", cat: "sih", lang: "HTML", icon: "users", desc: "Student-centric modules and interfaces developed for the SIH competition.", repo: "Student-sih-", color: "indigo", tags: ["UI/UX", "SIH"] },
-            { id: 17, title: "SIHsportal", cat: "sih", lang: "HTML", icon: "globe", desc: "A dedicated portal interface for managing hackathon resources and submissions.", repo: "SIHsportal", color: "sky", tags: ["Portal", "SIH"] },
-            { id: 18, title: "FUTURE_DS_02", cat: "ai", lang: "Python", icon: "bar-chart", desc: "Exploratory data analysis and visualization projects using Python libraries.", repo: "FUTURE_DS_02", color: "amber", tags: ["Viz", "Python"] },
-            { id: 19, title: "FUTURE_DS_01", cat: "ai", lang: "Python", icon: "pie-chart", desc: "Foundational data science scripts and statistical analysis notebooks.", repo: "FUTURE_DS_01", color: "amber", tags: ["Basics", "Stats"] },
-            { id: 20, title: "Nevermore_Hacks", cat: "web", lang: "HTML", icon: "code", desc: "Hackathon submission featuring rapid prototyping and creative web solutions.", repo: "Nevermore_Hacks", color: "orange", tags: ["Hacks", "Quick-Build"] },
-            { id: 21, title: "portfolio", cat: "web", lang: "HTML", icon: "layout", desc: "My personal developer portfolio showcasing skills, projects, and contact info.", repo: "portfolio", color: "teal", tags: ["Web", "Design"] },
-            { id: 22, title: "ghandivam-1", cat: "web", lang: "JavaScript", icon: "archive", desc: "Initial prototype and version 1 codebase of the Ghandivam educational platform.", repo: "ghandivam-1", color: "slate", tags: ["Legacy", "V1"] },
-            { id: 23, title: "digital_education", cat: "web", lang: "HTML", icon: "graduation-cap", desc: "Interactive web modules designed to facilitate digital learning environments.", repo: "digital_education", color: "green", tags: ["Edu", "Web"] },
-            { id: 24, title: "sihnportal", cat: "sih", lang: "HTML", icon: "monitor", desc: "Alternative portal design and structure for the Smart India Hackathon initiative.", repo: "sihnportal", color: "sky", tags: ["Portal", "Refined"] },
-            { id: 25, title: "digipro", cat: "misc", lang: "HTML", icon: "cpu", desc: "Digital project showcase demonstrating core web development skills and prototypes.", repo: "digipro", color: "red", tags: ["Digital", "Web"] },
-            { id: 26, title: "samyuktha", cat: "web", lang: "HTML", icon: "star", desc: "Web project created for the Samyuktha event, featuring event details.", repo: "samyuktha", color: "pink", tags: ["Event", "Live"] }
-        ];
+        <!-- CENTRAL COMBUSTION SPACE (3D Orbit Arena or Grid) -->
+        <section class="container mx-auto px-4 py-6 flex justify-center items-center relative min-h-[560px] z-20">
 
-        const grid = document.getElementById('repoGrid');
-        const searchInput = document.getElementById('repoSearch');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const emptyState = document.getElementById('emptyState');
-
-        function renderProjects(filteredData) {
-            grid.innerHTML = '';
-            
-            if (filteredData.length === 0) {
-                emptyState.classList.remove('hidden');
-                emptyState.classList.add('flex');
-                return;
-            } else {
-                emptyState.classList.add('hidden');
-                emptyState.classList.remove('flex');
-            }
-
-            filteredData.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'project-card bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm flex flex-col h-full group';
+            <!-- 3D ORBIT VIEW CONTAINER -->
+            <div id="orbit-viewport" class="orbit-container w-full max-w-6xl h-[540px] relative flex justify-center items-center select-none cursor-grab active:cursor-grabbing">
                 
-                card.innerHTML = `
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="p-3 bg-${p.color}-50 text-${p.color}-600 rounded-2xl group-hover:rotate-12 transition-transform duration-500">
-                            <i data-lucide="${p.icon}" class="w-6 h-6"></i>
+                <!-- Rotating Ambient Guidance Ring -->
+                <div class="absolute w-[800px] h-[220px] radial-ring rounded-[50%] transform -rotate-12 pointer-events-none z-0"></div>
+                <div class="absolute w-[600px] h-[150px] radial-ring rounded-[50%] transform rotate-6 opacity-40 pointer-events-none z-0"></div>
+
+                <!-- CORE METALLIC GAS CYLINDER (Middle Centerpiece) -->
+                <div id="central-cylinder-structure" class="relative z-30 transform hover:scale-105 transition-all duration-500 flex flex-col items-center">
+                    
+                    <!-- SVG Highly Detailed Gas Cylinder Graphic -->
+                    <div class="relative w-28 h-56 md:w-32 md:h-64 filter drop-shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+                        <svg class="w-full h-full" viewBox="0 0 140 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Cylinder Metallic Outer Cap Top -->
+                            <rect x="50" y="4" width="40" height="8" rx="4" fill="#52525b" />
+                            <rect x="58" y="12" width="24" height="12" fill="#27272a" stroke="#71717a" stroke-width="2" />
+                            <circle cx="70" cy="18" r="4" fill="#a1a1aa" />
+                            
+                            <!-- Valve Controller Bracket -->
+                            <path d="M50 24 H90 V32 Q85 36 70 36 Q55 36 50 32 Z" fill="#3f3f46" stroke="#71717a" stroke-width="1.5" />
+                            <circle id="canister-valve-dial" cx="70" cy="30" r="10" fill="#a855f7" stroke="#111827" stroke-width="2" class="cursor-pointer hover:rotate-45 transition-transform duration-300" />
+                            
+                            <!-- Neck Protective Collars -->
+                            <rect x="25" y="36" width="90" height="14" rx="4" fill="#27272a" stroke="#52525b" stroke-width="2" />
+                            
+                            <!-- Cylinder Tank Body Main Vessel -->
+                            <rect x="15" y="50" width="110" height="200" rx="20" fill="url(#canisterMetallicGrad)" stroke="#52525b" stroke-width="3.5" />
+                            
+                            <!-- Transparent Core Window (Visualizing Gas Liquid Content) -->
+                            <rect x="35" y="85" width="70" height="120" rx="8" fill="#09090b" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" />
+                            
+                            <!-- Liquid Level Base Shadow -->
+                            <path d="M35 150 Q70 146 105 150 V200 H35 Z" fill="url(#coreLiquidGrad)" opacity="0.85" class="canister-core-glow" />
+                            
+                            <!-- Simulated Rising Fuel Bubble Vectors -->
+                            <circle cx="50" cy="180" r="3.5" fill="#22d3ee" class="gas-bubble" style="animation-delay: 0.2s;" />
+                            <circle cx="78" cy="165" r="5" fill="#a855f7" class="gas-bubble" style="animation-delay: 1.1s;" />
+                            <circle cx="90" cy="190" r="2.5" fill="#22d3ee" class="gas-bubble" style="animation-delay: 2.3s;" />
+                            <circle cx="62" cy="155" r="4" fill="#22d3ee" class="gas-bubble" style="animation-delay: 0.7s;" />
+                            
+                            <!-- Horizontal Protective Rib Welds -->
+                            <path d="M15 100 H125 M15 150 H125 M15 200 H125" stroke="rgba(255, 255, 255, 0.05)" stroke-width="2.5" />
+                            
+                            <!-- Technical Typography Stenciling -->
+                            <text x="70" y="80" text-anchor="middle" fill="#06b6d4" font-family="JetBrains Mono" font-size="7" font-weight="bold" letter-spacing="1">GH_ENGINE</text>
+                            <text x="70" y="222" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="JetBrains Mono" font-size="6" letter-spacing="0.5">COMPRESSED: CODES</text>
+                            
+                            <!-- High Precision Shaking Dial Gauge Frame -->
+                            <circle cx="70" cy="120" r="18" fill="#18181b" stroke="#71717a" stroke-width="1.5" />
+                            <path d="M56 120 A14 14 0 0 1 84 120" stroke="url(#gaugeRainbowGrad)" stroke-width="2" fill="none" />
+                            <!-- Gauge Pointer Pin -->
+                            <line id="gauge-pointer" x1="70" y1="120" x2="62" y2="108" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" />
+                            <circle cx="70" cy="120" r="3" fill="#ffffff" />
+
+                            <!-- Fuel Tank Bottom Metallic Foot -->
+                            <rect x="25" y="250" width="90" height="12" rx="4" fill="#3f3f46" stroke="#27272a" />
+                            
+                            <!-- Gradient Definitions -->
+                            <defs>
+                                <linearGradient id="canisterMetallicGrad" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#18181b" />
+                                    <stop offset="15%" stop-color="#27272a" />
+                                    <stop offset="50%" stop-color="#3f3f46" />
+                                    <stop offset="85%" stop-color="#27272a" />
+                                    <stop offset="100%" stop-color="#09090b" />
+                                </linearGradient>
+                                <linearGradient id="coreLiquidGrad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#06b6d4" />
+                                    <stop offset="50%" stop-color="#7e22ce" />
+                                    <stop offset="100%" stop-color="#111827" />
+                                </linearGradient>
+                                <linearGradient id="gaugeRainbowGrad" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#10b981" />
+                                    <stop offset="60%" stop-color="#f59e0b" />
+                                    <stop offset="100%" stop-color="#ef4444" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+
+                    <!-- Pressure Release Trigger Action Button -->
+                    <button id="vent-valve-trigger" class="mt-4 px-3.5 py-1.5 bg-zinc-900 hover:bg-zinc-850 hover:text-white border border-zinc-800 text-neon-cyan font-mono text-[9px] rounded-lg transition-all shadow-md flex items-center gap-1">
+                        <i data-lucide="wind" class="w-3.5 h-3.5"></i> VENT VALVES
+                    </button>
+                </div>
+
+                <!-- PROJECT CARDS FLOATING NODES (Rotated via two elliptical offset rings) -->
+                <div id="orbit-node-wrapper" class="absolute inset-0 pointer-events-none"></div>
+
+                <!-- Particle Gas Emitter Container -->
+                <div id="gas-emitter-room" class="absolute inset-0 overflow-hidden pointer-events-none z-10"></div>
+            </div>
+
+            <!-- DIRECTORY LIST VIEW CONTAINER (Hidden by default) -->
+            <div id="grid-viewport" class="hidden w-full max-w-6xl">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="fallback-grid-container">
+                    <!-- Dynamic Grid content populated via renderGridDirectory -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- BOTTOM LIVE INSPECTOR AREA -->
+        <section class="container mx-auto px-6 mb-12">
+            <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5 shadow-xl max-w-5xl mx-auto" id="inspect-panel">
+                <div id="inspect-content" class="space-y-3">
+                    <div class="flex justify-between items-center pb-2 border-b border-zinc-800/80">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="scan" class="w-4 h-4 text-neon-purple animate-pulse"></i>
+                            <span class="text-xs font-mono text-white font-bold uppercase">Active Engine Inspector</span>
                         </div>
-                        <div class="flex flex-col items-end">
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">${p.lang}</span>
-                            <div class="flex gap-1">
-                                ${p.tags.map(t => `<span class="px-2 py-0.5 bg-slate-100 text-[10px] font-bold text-slate-500 rounded">${t}</span>`).join('')}
+                        <span class="text-[9px] font-mono text-zinc-500">READY</span>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <h3 class="text-base font-bold text-zinc-300">Telemetry Sync Ready</h3>
+                        <p class="text-xs text-zinc-500 leading-relaxed max-w-2xl font-mono">
+                            Click/Tap any floating coordinate node inside the 3D orbit system above or use the directory explorer to drill deep into stack specifics, update logs, and direct source code accesses.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="inspect-actions" class="pt-3 border-t border-zinc-800/80 flex justify-between items-center hidden">
+                    <a id="inspect-github-link" href="#" target="_blank" class="text-neon-cyan text-xs font-mono hover:underline flex items-center gap-1">
+                        /launch_source_code <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                    <span id="inspect-language-badge" class="text-[9px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-400">STACK: N/A</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- THREE COMPACT DYNAMIC COCKPIT CARDS: STUDY AI, DEPLOYMENTS, RESUME -->
+        <section class="container mx-auto px-6 z-30">
+            <div class="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                
+                <!-- 1. Dedicated StudyAI Spotlight Card -->
+                <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-cyan-500/30 transition duration-300">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2.5 py-0.5 text-[9px] font-mono rounded-full font-bold uppercase">
+                                Special Spotlight
+                            </span>
+                            <span class="text-zinc-500 text-[10px] font-mono">In Progress</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white font-mono uppercase tracking-wide">StudyAI Engine</h3>
+                        <p class="text-[11px] text-zinc-400 mt-2 leading-relaxed">
+                            A web-based, AI-powered companion transforming study text, textbooks, and drafts into structured learning vectors. Employs Llama 3.3 70B via Groq with a robust local JSON fallback.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="bg-zinc-950 text-[8px] font-mono text-zinc-500 px-1.5 py-0.5 rounded">React.js</span>
+                            <span class="bg-zinc-950 text-[8px] font-mono text-zinc-500 px-1.5 py-0.5 rounded">Flask</span>
+                            <span class="bg-zinc-950 text-[8px] font-mono text-zinc-500 px-1.5 py-0.5 rounded">Llama 3.3</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-zinc-850 mt-5 flex justify-between items-center text-xs">
+                        <a href="https://github.com/sidhu1819/StudyAI" target="_blank" class="text-neon-cyan hover:underline flex items-center gap-1 font-mono text-[10px]">
+                            /review_studyai_code <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Premier Deployments Card -->
+                <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-purple-500/30 transition duration-300">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2.5 py-0.5 text-[9px] font-mono rounded-full font-bold uppercase">
+                                Live Integrations
+                            </span>
+                            <span class="text-neon-emerald text-[9px] font-mono flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 bg-neon-emerald rounded-full animate-ping"></span> Deployed
+                            </span>
+                        </div>
+                        <h3 class="text-base font-bold text-white font-mono uppercase tracking-wide">Production Deployments</h3>
+                        <p class="text-[11px] text-zinc-400 mt-2 leading-relaxed">
+                            Active live platform interfaces engineered for heavy physical workflows: Amaravathi Ice Factory DMS and VB Software Solutions consulting marketplace.
+                        </p>
+                        
+                        <div class="space-y-1.5 mt-3 text-[10px] font-mono">
+                            <a href="https://ice-factory-gray.vercel.app/" target="_blank" class="text-zinc-400 hover:text-white flex items-center gap-1">
+                                <i data-lucide="snowflake" class="w-3 h-3 text-cyan-400"></i> Ice Factory DMS <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
+                            </a>
+                            <a href="https://vbsoftwaresolutions.vercel.app/" target="_blank" class="text-zinc-400 hover:text-white flex items-center gap-1">
+                                <i data-lucide="globe" class="w-3 h-3 text-purple-400"></i> VB Software Solutions <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-zinc-850 mt-4 text-[10px] text-zinc-500 font-mono flex justify-between">
+                        <span>Status: Online</span>
+                        <span>Hosting: Vercel</span>
+                    </div>
+                </div>
+
+                <!-- 3. Resume Profile & Overlapping Experience Snapshot -->
+                <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-5 shadow-xl flex flex-col justify-between hover:border-emerald-500/30 transition duration-300">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-0.5 text-[9px] font-mono rounded-full font-bold uppercase">
+                                Experience Schema
+                            </span>
+                            <span class="text-zinc-500 text-[10px] font-mono">2026 Engine</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white font-mono uppercase tracking-wide">Concurrent Timeline</h3>
+                        <p class="text-[11px] text-zinc-400 mt-2 leading-relaxed">
+                            Operating concurrent industry data roles (Appgenesis AI/ML and Thiranex Data Analytics) alongside academic technical integrations (APSSDC/APSCHE development tracks).
+                        </p>
+                        
+                        <div class="mt-3 bg-zinc-950/60 p-2.5 rounded-lg border border-zinc-850 font-mono text-[9px] text-zinc-500 space-y-1">
+                            <div class="flex justify-between">
+                                <span>Appgenesis AI:</span>
+                                <span class="text-white">Active</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>APSSDC Track:</span>
+                                <span class="text-white">Active</span>
                             </div>
                         </div>
                     </div>
-                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">${p.title}</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">${p.desc}</p>
                     
-                    <div class="mt-auto pt-6 border-t border-slate-100 flex justify-between items-center">
-                        <div class="flex gap-2 text-slate-300">
-                             <div class="w-8 h-8 rounded-lg flex items-center justify-center"><i class="devicon-github-original text-lg"></i></div>
-                        </div>
-                        <a href="https://github.com/sidhu1819/${p.repo}" target="_blank" 
-                           class="flex items-center gap-2 text-xs font-bold text-slate-900 bg-slate-100 px-4 py-2 rounded-xl hover:bg-slate-900 hover:text-white transition-all">
-                            View Artifact
-                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                    <div class="pt-4 border-t border-zinc-850 mt-4 flex justify-between items-center">
+                        <a href="index.html#resume-overview" class="text-neon-emerald hover:underline font-mono text-[10px] flex items-center gap-1">
+                            /open_snapshot_profile <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
                         </a>
                     </div>
+                </div>
+
+            </div>
+
+            <!-- Sleek Minimal Footer backline -->
+            <div class="flex flex-col sm:flex-row justify-between items-center mt-12 pt-6 border-t border-zinc-900 text-zinc-500 text-[10px] font-mono gap-4">
+                <p>&copy; 2026 Medapati Siddhartha Reddy. Powered by Gas Harvester Portals.</p>
+                <div class="flex gap-4">
+                    <a href="index.html" class="hover:text-neon-cyan transition-colors">/home</a>
+                    <span class="text-zinc-800">|</span>
+                    <a href="index.html#resume-overview" class="hover:text-neon-purple transition-colors">/assets</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SCRIPTS CORE LOGIC INTERACTIVE OPERATIONS -->
+    <script>
+        // Exact 27 repository catalog derived from your real GitHub profile
+        const allRepositories = [
+            {
+                name: "StudyAI",
+                description: "Web-based AI study companion built with React, Python Flask, Llama 3.3 (Groq API), and Firebase supporting summaries, flashcards, quizzes, and local JSON storage fallbacks.",
+                language: "Python",
+                stars: 24,
+                forks: 8,
+                url: "https://github.com/sidhu1819/StudyAI",
+                skills: ["React", "Flask", "Llama 3.3", "Firebase"]
+            },
+            {
+                name: "thirax_internship",
+                description: "Corporate spatial data analysis, telemetry logs processing, and diagnostic notebooks developed during the Thiranex Data Analyst internship.",
+                language: "Jupyter Notebook",
+                stars: 4,
+                forks: 1,
+                url: "https://github.com/sidhu1819/thirax_internship",
+                skills: ["Jupyter", "Pandas", "Telemetry"]
+            },
+            {
+                name: "vb",
+                description: "Bespoke service marketplace software engine detailing custom digital templates, system configurations, and automated logistics scheduling grids.",
+                language: "JavaScript",
+                stars: 9,
+                forks: 2,
+                url: "https://github.com/sidhu1819/vb",
+                skills: ["Tailwind", "JavaScript", "HTML5"]
+            },
+            {
+                name: "portfolio",
+                description: "Official interactive portfolio showcasing deep-learning setups, custom full-stack fests, credentials, and overlapping internship engines.",
+                language: "HTML",
+                stars: 7,
+                forks: 1,
+                url: "https://github.com/sidhu1819/portfolio",
+                skills: ["HTML5", "CSS", "Design Tokens"]
+            },
+            {
+                name: "CRML",
+                description: "Classification, regression, and Machine Learning modeling notebooks analyzing custom business targets and structural vectors.",
+                language: "Jupyter Notebook",
+                stars: 3,
+                forks: 0,
+                url: "https://github.com/sidhu1819/CRML",
+                skills: ["Scikit-Learn", "Matplotlib", "Python"]
+            },
+            {
+                name: "web-ai",
+                description: "Forked web assistant optimizing document search operations, spatial categorization, and low-latency API coordination rules.",
+                language: "HTML",
+                stars: 2,
+                forks: 1,
+                url: "https://github.com/ramesh2546/web-ai",
+                skills: ["HTML5", "Forked-Repo", "AI UI"]
+            },
+            {
+                name: "CFD",
+                description: "Computational notebooks calculating relational structures and dataset distributions with precise algorithmic boundary evaluations.",
+                language: "Jupyter Notebook",
+                stars: 3,
+                forks: 0,
+                url: "https://github.com/sidhu1819/CFD",
+                skills: ["NumPy", "Scientific", "Python"]
+            },
+            {
+                name: "predecction_HHP",
+                description: "A machine learning predictive framework analyzing structural patterns and housing matrix variables based on model classifiers.",
+                language: "Jupyter Notebook",
+                stars: 5,
+                forks: 1,
+                url: "https://github.com/sidhu1819/predecction_HHP",
+                skills: ["Predictive Models", "Data Science", "Pandas"]
+            },
+            {
+                name: "Customer_Shopping_Behaviour-",
+                description: "Customer shopping behavior analysis utilizing Python, PostgreSQL, and Power BI to map segmented targets, sales patterns, and customer traits.",
+                language: "Jupyter Notebook",
+                stars: 8,
+                forks: 2,
+                url: "https://github.com/sidhu1819/Customer_Shopping_Behaviour-",
+                skills: ["PostgreSQL", "Power BI", "Customer Segmentation"]
+            },
+            {
+                name: "event-portal",
+                description: "MERN Stack event dashboard supporting roll verification, lab resource capping (60 limit), admin authorization workflows, and Nodemailer pipelines.",
+                language: "HTML",
+                stars: 12,
+                forks: 3,
+                url: "https://github.com/sidhu1819/event-portal",
+                skills: ["MERN", "JWT", "Nodemailer"]
+            },
+            {
+                name: "ghandivam-1",
+                description: "Interactive smart learning assistant engineered during competitive hackathons with rapid DOM processing and visual charts.",
+                language: "JavaScript",
+                stars: 4,
+                forks: 1,
+                url: "https://github.com/sidhu1819/ghandivam-1",
+                skills: ["Vanilla JS", "DOM Mechanics", "Charts"]
+            },
+            {
+                name: "FUTURE_DS_02",
+                description: "Series module 02 focused on data modeling, feature pipeline selections, and statistical inference evaluations.",
+                language: "Python",
+                stars: 2,
+                forks: 0,
+                url: "https://github.com/sidhu1819/FUTURE_DS_02",
+                skills: ["Data Models", "Feature Selection", "Python Core"]
+            },
+            {
+                name: "FUTURE_DS_01",
+                description: "Series module 01 targeting fundamental cleansing mechanics, missing variable strategies, and structural distributions.",
+                language: "Python",
+                stars: 2,
+                forks: 0,
+                url: "https://github.com/sidhu1819/FUTURE_DS_01",
+                skills: ["Data Cleaning", "Matplotlib", "Numpy"]
+            },
+            {
+                name: "money_tracker",
+                description: "Dart mobile application tracking daily transaction listings, expenses, and usage statistics with local SQLite schemas.",
+                language: "Dart",
+                stars: 10,
+                forks: 2,
+                url: "https://github.com/sidhu1819/money_tracker",
+                skills: ["Flutter", "SQLite", "Dart UI"]
+            },
+            {
+                name: "face_attendance",
+                description: "AI-driven local video stream facial detector using OpenCV and classification rules to automatically list active participants.",
+                language: "TypeScript",
+                stars: 16,
+                forks: 4,
+                url: "https://github.com/sidhu1819/face_attendance",
+                skills: ["OpenCV", "Biometrics", "TypeScript"]
+            },
+            {
+                name: "my-android-app",
+                description: "Android platform configuration housing native views, background workers, and simple local data structures.",
+                language: "JavaScript",
+                stars: 5,
+                forks: 1,
+                url: "https://github.com/sidhu1819/my-android-app",
+                skills: ["Android JS", "Work Manager", "Local Storage"]
+            },
+            {
+                name: "FUTURE_DS_03",
+                description: "Series module 03 incorporating neural network models, tuning parameters, and continuous model tests.",
+                language: "Python",
+                stars: 3,
+                forks: 0,
+                url: "https://github.com/sidhu1819/FUTURE_DS_03",
+                skills: ["Deep Learning", "TensorFlow", "Parameters"]
+            },
+            {
+                name: "Nevermore_Hacks",
+                description: "Front-end project submitted to the Nevermore Hackathon detailing team structures, metrics, and interactive maps.",
+                language: "HTML",
+                stars: 4,
+                forks: 1,
+                url: "https://github.com/sidhu1819/Nevermore_Hacks",
+                skills: ["Responsive HTML", "Hackathon Event", "Tailwind"]
+            },
+            {
+                name: "realtime-roadmap-ai",
+                description: "AI engine generating sequential learning timelines and material summaries dynamically matched to selected targets.",
+                language: "Python",
+                stars: 8,
+                forks: 2,
+                url: "https://github.com/sidhu1819/realtime-roadmap-ai",
+                skills: ["LLM Chains", "Roadmaps", "Python API"]
+            },
+            {
+                name: "VR-project",
+                description: "Spatial 3D visualization modeling geometric parameters using standard virtual scene rendering engines.",
+                language: "TypeScript",
+                stars: 6,
+                forks: 0,
+                url: "https://github.com/sidhu1819/VR-project",
+                skills: ["3D Render", "Three.js", "Virtual Reality"]
+            },
+            {
+                name: "ghandivam",
+                description: "Dynamic visual application built for active smart classrooms containing highly responsive layouts.",
+                language: "JavaScript",
+                stars: 11,
+                forks: 3,
+                url: "https://github.com/sidhu1819/ghandivam",
+                skills: ["Vanilla Engine", "Smart Classroom", "Responsive"]
+            },
+            {
+                name: "Hotel_Flow",
+                description: "Reservation manager utilizing PostgreSQL and clean Tailwind tables to update room availability parameters.",
+                language: "TypeScript",
+                stars: 10,
+                forks: 2,
+                url: "https://github.com/sidhu1819/Hotel_Flow",
+                skills: ["PostgreSQL", "Tailwind CSS", "TypeScript Backend"]
+            },
+            {
+                name: "hostel_management",
+                description: "Full-stack administrative room requested system mapping student targets onto administrative databases.",
+                language: "JavaScript",
+                stars: 14,
+                forks: 5,
+                url: "https://github.com/sidhu1819/hostel_management",
+                skills: ["MERN Stack", "Express JS", "DB Aggregates"]
+            },
+            {
+                name: "digital_education",
+                description: "Educational syllabus router housing visual study trees and dynamic material links.",
+                language: "HTML",
+                stars: 5,
+                forks: 1,
+                url: "https://github.com/sidhu1819/digital_education",
+                skills: ["Education Tech", "Static Files", "HTML UI"]
+            },
+            {
+                name: "sih",
+                description: "Smart India Hackathon concept dashboard mapping localized issues and regional solution frameworks.",
+                language: "HTML",
+                stars: 7,
+                forks: 2,
+                url: "https://github.com/sidhu1819/sih",
+                skills: ["SIH Hackathon", "Problem Solver", "Mockup UI"]
+            },
+            {
+                name: "digipro",
+                description: "Bespoke digital promotion landing platform tracking visitor interactions and marketing pipelines.",
+                language: "HTML",
+                stars: 4,
+                forks: 1,
+                url: "https://github.com/sidhu1819/digipro",
+                skills: ["Marketing Engine", "Animate CSS", "Lead Tracker"]
+            },
+            {
+                name: "samyuktha",
+                description: "Bespoke promotional web portal incorporating elegant styling rules and responsive components.",
+                language: "HTML",
+                stars: 3,
+                forks: 0,
+                url: "https://github.com/sidhu1819/samyuktha",
+                skills: ["Bespoke Layout", "Interactive UI", "CSS3"]
+            }
+        ];
+
+        let activeRepositories = [...allRepositories];
+        let currentView = 'orbit';
+
+        // 3D Orbit Coordinate Engine States
+        let angleOffset = 0;
+        let isDragging = false;
+        let startX = 0;
+        let dragMomentum = 0;
+        let autoRotateSpeed = 0.001; // Slow rotation on idle
+        const orbitRadiusX = 420; // Horizontal elliptical width radius
+        const orbitRadiusY = 130; // Vertical elliptical height radius
+        const tiltAngle = -0.15; // Elliptical skew in radians
+
+        // Document DOM elements binding
+        const orbitViewport = document.getElementById('orbit-viewport');
+        const orbitNodeWrapper = document.getElementById('orbit-node-wrapper');
+        const fallbackGridContainer = document.getElementById('fallback-grid-container');
+        const gridViewport = document.getElementById('grid-viewport');
+        const viewOrbitBtn = document.getElementById('view-orbit-btn');
+        const viewGridBtn = document.getElementById('view-grid-btn');
+        const repoSearchInput = document.getElementById('repo-search-input');
+        const gaugePointer = document.getElementById('gauge-pointer');
+        const ventValveTrigger = document.getElementById('vent-valve-trigger');
+        const gasEmitterRoom = document.getElementById('gas-emitter-room');
+        const inspectPanel = document.getElementById('inspect-panel');
+        const inspectContent = document.getElementById('inspect-content');
+        const inspectActions = document.getElementById('inspect-actions');
+        const inspectGithubLink = document.getElementById('inspect-github-link');
+        const inspectLanguageBadge = document.getElementById('inspect-language-badge');
+        const apiIndicatorDot = document.getElementById('api-indicator-dot');
+        const apiIndicatorText = document.getElementById('api-indicator-text');
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. ASYNCHRONOUS GITHUB LIVE API SYNCHRONIZER
+        async function fetchGitHubData() {
+            try {
+                const response = await fetch('https://api.github.com/users/sidhu1819/repos?sort=updated&per_page=100');
+                if (!response.ok) throw new Error('API limit reached');
+                
+                const liveRepos = await response.json();
+                
+                // Cross-reference fallback objects to update live attributes
+                activeRepositories.forEach(fallbackRepo => {
+                    const matchedLive = liveRepos.find(r => r.name.toLowerCase() === fallbackRepo.name.toLowerCase());
+                    if (matchedLive) {
+                        fallbackRepo.stars = matchedLive.stargazers_count || fallbackRepo.stars;
+                        fallbackRepo.forks = matchedLive.forks_count || fallbackRepo.forks;
+                        if (matchedLive.description) {
+                            fallbackRepo.description = matchedLive.description;
+                        }
+                    }
+                });
+
+                // Set Status indicator to green
+                apiIndicatorDot.className = "w-2 h-2 rounded-full bg-emerald-500";
+                apiIndicatorText.innerText = "API: SYNCED LIVE";
+            } catch (err) {
+                console.warn("Using offline fallback parameters context:", err);
+                apiIndicatorDot.className = "w-2 h-2 rounded-full bg-cyan-500 animate-pulse";
+                apiIndicatorText.innerText = "API: LOCAL BACKUP";
+            }
+            updateGauges();
+            renderOrbitNodes();
+            renderGridDirectory();
+        }
+
+        // Sweeps physical dial pointer matching the quantity of indexed projects
+        function updateGauges() {
+            const angle = (activeRepositories.length / 30) * 180 - 90; // Mapping to gauge semicircle
+            gaugePointer.style.transform = `rotate(${angle}deg)`;
+            gaugePointer.style.transformOrigin = "70px 120px";
+        }
+
+        // 2. 3D MATHEMATICAL CODES DUAL-RING ORBIT RENDERER
+        function renderOrbitNodes() {
+            orbitNodeWrapper.innerHTML = '';
+            if (activeRepositories.length === 0) return;
+
+            activeRepositories.forEach((repo, index) => {
+                // Distribute items alternate between Ring 1 (Inner) and Ring 2 (Outer) to avoid overlapping
+                const isInnerRing = index % 2 === 0;
+                const ringRadiusMultiplier = isInnerRing ? 0.75 : 1.15;
+                const offsetAngle = isInnerRing ? 0 : Math.PI / 10; // offset outer ring so they look aligned and structured
+
+                const stepAngle = (Math.PI * 2) / Math.ceil(activeRepositories.length / 2);
+                const itemIndexInRing = Math.floor(index / 2);
+                const theta = angleOffset + (itemIndexInRing * stepAngle) + offsetAngle;
+
+                // Math Trigonometry to generate the 3D Elliptical coordinate bounds
+                const rawX = Math.cos(theta) * orbitRadiusX * ringRadiusMultiplier;
+                const rawY = Math.sin(theta) * orbitRadiusY * ringRadiusMultiplier;
+
+                // Adjust spatial position using skew angle
+                const transformedX = rawX;
+                const transformedY = rawY * Math.cos(tiltAngle) - Math.sin(tiltAngle) * rawX * 0.15;
+
+                // Calculate Z coordinate range [-1 to +1] for realistic 3D depth and scale layers
+                const zVal = Math.sin(theta); 
+                const scaleVal = ((zVal + 1) / 2) * 0.35 + 0.55; // Scale range 0.55x to 0.9x
+                const opacityVal = ((zVal + 1) / 2) * 0.65 + 0.35; // Opacity range 35% to 100%
+                
+                // Construct the node elements wrapper
+                const node = document.createElement('div');
+                node.className = "orbit-node pointer-events-auto cursor-pointer";
+                
+                // Determine CSS stacking index based on spatial coordinate depths
+                const computedZIndex = Math.round((zVal + 1) * 100);
+                node.style.zIndex = computedZIndex;
+                
+                // Transform matrix containing scale parameter translations
+                node.style.transform = `translate3d(calc(-50% + ${transformedX}px), calc(-50% + ${transformedY}px), 0px) scale(${scaleVal})`;
+                node.style.opacity = opacityVal;
+
+                // Apply blur matrix filters on distant nodes behind the central canister
+                if (zVal < -0.1) {
+                    node.style.filter = `blur(${Math.abs(zVal) * 2}px)`;
+                } else {
+                    node.style.filter = "none";
+                }
+
+                // Color node border depending on ring or special repo (StudyAI has neon-cyan accent)
+                const borderClass = repo.name === "StudyAI" 
+                    ? "border-cyan-500/80 shadow-cyan-500/25 animate-pulse scale-105 ring-1 ring-cyan-500/20" 
+                    : "border-zinc-800/80 hover:border-cyan-500/50";
+
+                const pillClass = repo.name === "StudyAI"
+                    ? "text-cyan-400 bg-cyan-500/20 font-bold animate-pulse"
+                    : "text-zinc-400 bg-zinc-800/50";
+
+                // Node card inner glass template structure
+                node.innerHTML = `
+                    <div class="w-[150px] md:w-[170px] bg-zinc-900/95 border ${borderClass} p-2.5 rounded-xl shadow-2xl transition-all duration-300">
+                        <div class="flex justify-between items-center gap-1">
+                            <span class="text-[8px] font-mono px-1.5 py-0.5 rounded uppercase max-w-[90px] truncate ${pillClass}">${repo.language}</span>
+                            <div class="flex items-center gap-1 text-zinc-500 text-[9px]">
+                                <i data-lucide="star" class="w-2.5 h-2.5 text-amber-500 fill-amber-500"></i> ${repo.stars}
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-white text-[10px] md:text-[11px] mt-1.5 truncate font-mono">${repo.name}</h3>
+                        <p class="text-[9px] text-zinc-400 mt-0.5 line-clamp-1 leading-normal font-sans">${repo.description}</p>
+                    </div>
                 `;
-                grid.appendChild(card);
+
+                // Interactive target selection on click/tap
+                node.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    inspectTargetRepo(repo);
+                });
+
+                orbitNodeWrapper.appendChild(node);
             });
+
+            // Re-bind Lucide Vector Icons inside nodes
             lucide.createIcons();
         }
 
-        // Search logic
-        searchInput.addEventListener('input', (e) => {
-            const val = e.target.value.toLowerCase();
-            const filtered = projects.filter(p => 
-                p.title.toLowerCase().includes(val) || 
-                p.desc.toLowerCase().includes(val) ||
-                p.lang.toLowerCase().includes(val)
-            );
-            renderProjects(filtered);
-        });
+        // Dynamic scanner inspector display update
+        function inspectTargetRepo(repo) {
+            inspectPanel.classList.add('scale-[0.98]', 'bg-zinc-850/80');
+            setTimeout(() => {
+                inspectPanel.classList.remove('scale-[0.98]', 'bg-zinc-850/80');
+            }, 150);
 
-        // Filter logic
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('active-filter');
-                    b.classList.add('bg-white', 'text-slate-600');
-                });
-                btn.classList.add('active-filter');
-                btn.classList.remove('bg-white', 'text-slate-600');
+            // Populate the technical logs details panel
+            inspectContent.innerHTML = `
+                <div class="flex justify-between items-center pb-2 border-b border-zinc-800/80">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-neon-emerald"></i>
+                        <span class="text-xs font-mono text-neon-cyan font-bold uppercase">// Project Telemetry: ${repo.name}</span>
+                    </div>
+                    <span class="text-[9px] font-mono text-zinc-500">ACTIVE LOGS</span>
+                </div>
+                
+                <div class="space-y-2">
+                    <h3 class="text-base font-bold text-white font-mono">${repo.name}</h3>
+                    <p class="text-xs text-zinc-400 leading-relaxed font-sans">${repo.description}</p>
+                    
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        ${repo.skills ? repo.skills.map(skill => `<span class="bg-zinc-950 text-zinc-300 border border-zinc-800 px-2 py-0.5 rounded text-[9px] font-mono">${skill}</span>`).join('') : ''}
+                        <span class="bg-zinc-950 text-cyan-400 border border-cyan-500/20 px-2 py-0.5 rounded text-[9px] font-mono flex items-center gap-1">
+                            <i data-lucide="git-fork" class="w-3 h-3 text-cyan-400"></i> Forks: ${repo.forks}
+                        </span>
+                    </div>
+                </div>
+            `;
 
-                const filter = btn.getAttribute('data-filter');
-                if (filter === 'all') {
-                    renderProjects(projects);
-                } else {
-                    const filtered = projects.filter(p => p.cat === filter);
-                    renderProjects(filtered);
-                }
-            });
-        });
+            // Enable action footer navigation links
+            inspectGithubLink.href = repo.url;
+            inspectLanguageBadge.innerText = `STACK: ${repo.language}`;
+            inspectActions.classList.remove('hidden');
 
-        // Initial render
-        window.onload = () => {
-            renderProjects(projects);
             lucide.createIcons();
-        };
+        }
+
+        // 3. SECURE PHYSICAL GAS PRESSURE VENT VENTING CHAMBER
+        function triggerGasVentingVent() {
+            const dial = document.getElementById('canister-valve-dial');
+            dial.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+            // Render 15-20 glowing absolute-floating gas particles
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                const isCyan = Math.random() > 0.5;
+                const particleSize = Math.random() * 8 + 4;
+                
+                particle.className = "absolute rounded-full pointer-events-none";
+                particle.style.width = `${particleSize}px`;
+                particle.style.height = `${particleSize}px`;
+                
+                if (isCyan) {
+                    particle.style.background = "radial-gradient(circle, #22d3ee 0%, rgba(6,182,212,0.1) 100%)";
+                    particle.style.boxShadow = "0 0 10px #06b6d4, 0 0 20px rgba(6,182,212,0.3)";
+                } else {
+                    particle.style.background = "radial-gradient(circle, #c084fc 0%, rgba(168,85,247,0.1) 100%)";
+                    particle.style.boxShadow = "0 0 10px #a855f7, 0 0 20px rgba(168,85,247,0.3)";
+                }
+
+                // Position spawn coordinate points over the Top Canister vent neck
+                const spawnX = orbitViewport.offsetWidth / 2 + (Math.random() * 30 - 15);
+                const spawnY = orbitViewport.offsetHeight / 2 - 80 + (Math.random() * 20 - 10);
+                
+                particle.style.left = `${spawnX}px`;
+                particle.style.top = `${spawnY}px`;
+                particle.style.opacity = "1";
+                particle.style.transition = "all 2s cubic-bezier(0.1, 0.8, 0.3, 1)";
+
+                gasEmitterRoom.appendChild(particle);
+
+                // Math vectors computation for pressure dispersal trajectory
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = Math.random() * 150 + 80;
+                const destX = spawnX + Math.cos(angle) * velocity;
+                const destY = spawnY + Math.sin(angle) * velocity - 120; // Rising convection bias
+
+                setTimeout(() => {
+                    particle.style.transform = `translate3d(${destX - spawnX}px, ${destY - spawnY}px, 0px) scale(0.2)`;
+                    particle.style.opacity = "0";
+                }, 50);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 2050);
+            }
+
+            // Needle pointer shake matching pressure vent
+            gaugePointer.style.transform = `rotate(${Math.random() * 45 - 90}deg)`;
+            setTimeout(() => {
+                updateGauges();
+            }, 1200);
+        }
+
+        // 4. OFFLINE DIRECTORY LIST DIRECTORY GENERATOR
+        function renderGridDirectory() {
+            fallbackGridContainer.innerHTML = '';
+            
+            activeRepositories.forEach(repo => {
+                const card = document.createElement('div');
+                card.className = "bg-zinc-900/60 border border-zinc-800 p-5 rounded-2xl flex flex-col justify-between hover:border-cyan-500/40 hover:shadow-xl hover:shadow-cyan-500/5 transition duration-300";
+                
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] font-mono px-2.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 uppercase tracking-wider">${repo.language}</span>
+                            <div class="flex items-center gap-1.5 text-[10px] text-zinc-500">
+                                <i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-amber-500"></i> ${repo.stars}
+                                <i data-lucide="git-fork" class="w-3.5 h-3.5 text-zinc-500 ml-1.5"></i> ${repo.forks}
+                            </div>
+                        </div>
+                        <h3 class="text-base font-bold text-white font-mono uppercase tracking-wide truncate">${repo.name}</h3>
+                        <p class="text-xs text-zinc-400 leading-relaxed font-sans line-clamp-3">${repo.description}</p>
+                        
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            ${repo.skills ? repo.skills.map(s => `<span class="bg-zinc-950 px-2 py-0.5 rounded border border-zinc-850/60 text-[9px] font-mono text-zinc-400">${s}</span>`).join('') : ''}
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-zinc-850 mt-5 flex justify-between items-center">
+                        <a href="${repo.url}" target="_blank" class="text-neon-cyan hover:underline font-mono text-[11px] flex items-center gap-1">
+                            /open_repository <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                        <button class="inspect-dir-btn text-[10px] font-mono text-zinc-500 hover:text-white" data-repo-name="${repo.name}">
+                            /inspect_data
+                        </button>
+                    </div>
+                `;
+
+                card.querySelector('.inspect-dir-btn').addEventListener('click', () => {
+                    inspectTargetRepo(repo);
+                });
+
+                fallbackGridContainer.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        // 5. SECURE PHYSICS ROTATION DRAG EVENT LISTENER HANDLERS
+        function handleDragMove(deltaX) {
+            angleOffset += deltaX * 0.005; // Control physical mapping scale
+            dragMomentum = deltaX * 0.005;
+            renderOrbitNodes();
+        }
+
+        orbitViewport.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            dragMomentum = 0;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.clientX - startX;
+            startX = e.clientX;
+            handleDragMove(deltaX);
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        orbitViewport.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            dragMomentum = 0;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.touches[0].clientX - startX;
+            startX = e.touches[0].clientX;
+            handleDragMove(deltaX);
+        });
+
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Search engine logic
+        repoSearchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            if (query === "") {
+                activeRepositories = [...allRepositories];
+            } else {
+                activeRepositories = allRepositories.filter(r => 
+                    r.name.toLowerCase().includes(query) || 
+                    r.description.toLowerCase().includes(query) || 
+                    r.language.toLowerCase().includes(query)
+                );
+            }
+            updateGauges();
+            renderOrbitNodes();
+            renderGridDirectory();
+        });
+
+        // 6. ROTATIONAL PHYSICS LOOP (Calculates inertial drag decay)
+        function physicsTickLoop() {
+            if (!isDragging) {
+                // Decelerate rotation rate using simulated atmospheric drag
+                angleOffset += dragMomentum + autoRotateSpeed;
+                dragMomentum *= 0.95; // 5% decay per cycle
+                
+                if (currentView === 'orbit') {
+                    renderOrbitNodes();
+                }
+            }
+            requestAnimationFrame(physicsTickLoop);
+        }
+
+        // 7. LAYOUT CONTROLLER INTERACTION CONTROLLER
+        function toggleViewMode(view) {
+            currentView = view;
+            if (view === 'orbit') {
+                orbitViewport.classList.remove('hidden');
+                gridViewport.classList.add('hidden');
+                
+                viewOrbitBtn.className = "px-4 py-2 bg-neon-cyan text-black text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-1.5 shadow-lg shadow-cyan-500/15";
+                viewGridBtn.className = "px-4 py-2 bg-zinc-900 hover:bg-zinc-850 text-zinc-400 hover:text-white text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition-all flex items-center gap-1.5";
+            } else {
+                orbitViewport.classList.add('hidden');
+                gridViewport.classList.remove('hidden');
+                
+                viewGridBtn.className = "px-4 py-2 bg-neon-cyan text-black text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-1.5 shadow-lg shadow-cyan-500/15";
+                viewOrbitBtn.className = "px-4 py-2 bg-zinc-900 hover:bg-zinc-850 text-zinc-400 hover:text-white text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition-all flex items-center gap-1.5";
+            }
+        }
+
+        viewOrbitBtn.addEventListener('click', () => toggleViewMode('orbit'));
+        viewGridBtn.addEventListener('click', () => toggleViewMode('grid'));
+        ventValveTrigger.addEventListener('click', triggerGasVentingVent);
+
+        // Run primary engine tasks once the window loads completely
+        window.onload = function () {
+            fetchGitHubData();
+            
+            // Auto inspect the spotlight project StudyAI on init
+            const spotlightRepo = allRepositories.find(r => r.name === "StudyAI") || allRepositories[0];
+            inspectTargetRepo(spotlightRepo);
+
+            // Fire up inert rotational physics clock loop
+            physicsTickLoop();
+        }
     </script>
 </body>
 </html>
