@@ -42,6 +42,18 @@
     </script>
 
     <style>
+        /* Particles Canvas Background Style */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            background-color: #09090b; /* Zinc 950 Dark Base Background */
+            pointer-events: none;
+        }
+
         /* Custom Scrollbar styling */
         ::-webkit-scrollbar {
             width: 6px;
@@ -123,9 +135,11 @@
     </style>
 </head>
 
-<body class="bg-zinc-950 text-zinc-300 antialiased overflow-x-hidden font-sans selection:bg-cyan-500 selection:text-black">
+<body class="bg-zinc-950 text-zinc-300 antialiased overflow-x-hidden font-sans selection:bg-cyan-500 selection:text-black relative">
 
-    <!-- NAVIGATION HEADER -->
+    <!-- Active Particles.js Container Base -->
+    <div id="particles-js"></div>
+
     <header class="fixed w-full top-0 z-50 glass-header transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             
@@ -139,7 +153,10 @@
                 <a href="index.html#study-ai" class="hover:text-neon-cyan transition-colors">/studyAI</a>
                 <a href="index.html#deployments" class="hover:text-neon-cyan transition-colors">/deployments</a>
                 <span class="text-neon-cyan font-bold flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 bg-neon-cyan rounded-full animate-ping"></span>
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-cyan"></span>
+                    </span>
                     /repositories_engine
                 </span>
                 <a href="index.html#resume-overview" class="hover:text-neon-purple transition-colors text-neon-purple font-bold">/resume_profile</a>
@@ -159,8 +176,7 @@
         </div>
     </header>
 
-    <!-- MAIN ENGINE SPACE -->
-    <main class="relative min-h-screen pt-24 pb-16 grid-cyber flex flex-col justify-between overflow-hidden">
+    <main class="relative min-h-screen pt-24 pb-16 grid-cyber flex flex-col justify-between overflow-hidden z-10 pointer-events-auto">
         
         <!-- Background Light Streaks -->
         <div class="absolute top-24 left-1/4 w-[400px] h-[400px] bg-brand-500/5 rounded-full mix-blend-screen filter blur-[120px] pointer-events-none"></div>
@@ -184,7 +200,7 @@
                     <button id="view-orbit-btn" class="px-4 py-2 bg-neon-cyan text-black text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-1.5 shadow-lg shadow-cyan-500/15">
                         <i data-lucide="rotate-3d" class="w-3.5 h-3.5"></i> Dual-Ring Orbit
                     </button>
-                    <button id="view-grid-btn" class="px-4 py-2 bg-zinc-900 hover:bg-zinc-850 text-zinc-400 hover:text-white text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition-all flex items-center gap-1.5">
+                    <button id="view-grid-btn" class="px-4 py-2 bg-zinc-900/80 hover:bg-zinc-850 text-zinc-400 hover:text-white text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition-all flex items-center gap-1.5">
                         <i data-lucide="grid-3x3" class="w-3.5 h-3.5"></i> Directory list
                     </button>
                 </div>
@@ -195,7 +211,6 @@
             </div>
         </div>
 
-        <!-- CENTRAL COMBUSTION SPACE (3D Orbit Arena or Grid) -->
         <section class="container mx-auto px-4 py-6 flex justify-center items-center relative min-h-[560px] z-20">
 
             <!-- 3D ORBIT VIEW CONTAINER -->
@@ -211,7 +226,7 @@
                     <!-- SVG Highly Detailed Gas Cylinder Graphic -->
                     <div class="relative w-28 h-56 md:w-32 md:h-64 filter drop-shadow-[0_0_20px_rgba(6,182,212,0.15)]">
                         <svg class="w-full h-full" viewBox="0 0 140 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Cylinder Metallic Outer Cap Top -->
+                            <!-- Cylinder Outer Cap Top -->
                             <rect x="50" y="4" width="40" height="8" rx="4" fill="#52525b" />
                             <rect x="58" y="12" width="24" height="12" fill="#27272a" stroke="#71717a" stroke-width="2" />
                             <circle cx="70" cy="18" r="4" fill="#a1a1aa" />
@@ -252,7 +267,7 @@
                             <line id="gauge-pointer" x1="70" y1="120" x2="62" y2="108" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" />
                             <circle cx="70" cy="120" r="3" fill="#ffffff" />
 
-                            <!-- Fuel Tank Bottom Metallic Foot -->
+                            <!-- Fuel Tank Bottom Foot -->
                             <rect x="25" y="250" width="90" height="12" rx="4" fill="#3f3f46" stroke="#27272a" />
                             
                             <!-- Gradient Definitions -->
@@ -279,7 +294,7 @@
                     </div>
 
                     <!-- Pressure Release Trigger Action Button -->
-                    <button id="vent-valve-trigger" class="mt-4 px-3.5 py-1.5 bg-zinc-900 hover:bg-zinc-850 hover:text-white border border-zinc-800 text-neon-cyan font-mono text-[9px] rounded-lg transition-all shadow-md flex items-center gap-1">
+                    <button id="vent-valve-trigger" class="mt-4 px-3.5 py-1.5 bg-zinc-900/80 hover:bg-zinc-850 hover:text-white border border-zinc-800 text-neon-cyan font-mono text-[9px] rounded-lg transition-all shadow-md flex items-center gap-1">
                         <i data-lucide="wind" class="w-3.5 h-3.5"></i> VENT VALVES
                     </button>
                 </div>
@@ -348,9 +363,9 @@
                         </p>
                         
                         <div class="flex flex-wrap gap-1.5 mt-3">
-                            <span class="bg-zinc-950 text-[8px] font-mono text-zinc-500 px-1.5 py-0.5 rounded">React.js</span>
-                            <span class="bg-zinc-950 text-[8px] font-mono text-zinc-500 px-1.5 py-0.5 rounded">Flask</span>
-                            <span class="bg-zinc-950 text-[8px] font-mono text-zinc-500 px-1.5 py-0.5 rounded">Llama 3.3</span>
+                            <span class="bg-zinc-950/80 text-[8px] font-mono text-zinc-500 px-1.5 py-0.5 rounded">React.js</span>
+                            <span class="bg-zinc-950/80 text-[8px] font-mono text-zinc-500 px-1.5 py-0.5 rounded">Flask</span>
+                            <span class="bg-zinc-950/80 text-[8px] font-mono text-zinc-500 px-1.5 py-0.5 rounded">Llama 3.3</span>
                         </div>
                     </div>
                     
@@ -379,10 +394,10 @@
                         
                         <div class="space-y-1.5 mt-3 text-[10px] font-mono">
                             <a href="https://ice-factory-gray.vercel.app/" target="_blank" class="text-zinc-400 hover:text-white flex items-center gap-1">
-                                <i data-lucide="snowflake" class="w-3 h-3 text-cyan-400"></i> Ice Factory DMS <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
+                                <i data-lucide="snowflake" class="w-3.5 h-3.5 text-cyan-400"></i> Ice Factory DMS <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
                             </a>
                             <a href="https://vbsoftwaresolutions.vercel.app/" target="_blank" class="text-zinc-400 hover:text-white flex items-center gap-1">
-                                <i data-lucide="globe" class="w-3 h-3 text-purple-400"></i> VB Software Solutions <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
+                                <i data-lucide="globe" class="w-3.5 h-3.5 text-purple-400"></i> VB Software Solutions <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
                             </a>
                         </div>
                     </div>
@@ -407,7 +422,7 @@
                             Operating concurrent industry data roles (Appgenesis AI/ML and Thiranex Data Analytics) alongside academic technical integrations (APSSDC/APSCHE development tracks).
                         </p>
                         
-                        <div class="mt-3 bg-zinc-950/60 p-2.5 rounded-lg border border-zinc-850 font-mono text-[9px] text-zinc-500 space-y-1">
+                        <div class="mt-3 bg-zinc-950/60 p-2.5 rounded-lg border border-zinc-850/60 font-mono text-[9px] text-zinc-500 space-y-1">
                             <div class="flex justify-between">
                                 <span>Appgenesis AI:</span>
                                 <span class="text-white">Active</span>
@@ -440,6 +455,9 @@
         </section>
 
     </main>
+
+    <!-- Particles.js Engine Script Loader -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <!-- SCRIPTS CORE LOGIC INTERACTIVE OPERATIONS -->
     <script>
@@ -623,72 +641,105 @@
                 stars: 6,
                 forks: 0,
                 url: "https://github.com/sidhu1819/VR-project",
-                skills: ["3D Render", "Three.js", "Virtual Reality"]
+                stroke: "none",
+                style: "animation-delay: 1.5s;"
             },
             {
-                name: "ghandivam",
-                description: "Dynamic visual application built for active smart classrooms containing highly responsive layouts.",
-                language: "JavaScript",
-                stars: 11,
-                forks: 3,
-                url: "https://github.com/sidhu1819/ghandivam",
-                skills: ["Vanilla Engine", "Smart Classroom", "Responsive"]
-            },
-            {
-                name: "Hotel_Flow",
-                description: "Reservation manager utilizing PostgreSQL and clean Tailwind tables to update room availability parameters.",
-                language: "TypeScript",
-                stars: 10,
-                forks: 2,
-                url: "https://github.com/sidhu1819/Hotel_Flow",
-                skills: ["PostgreSQL", "Tailwind CSS", "TypeScript Backend"]
-            },
-            {
-                name: "hostel_management",
-                description: "Full-stack administrative room requested system mapping student targets onto administrative databases.",
-                language: "JavaScript",
-                stars: 14,
-                forks: 5,
-                url: "https://github.com/sidhu1819/hostel_management",
-                skills: ["MERN Stack", "Express JS", "DB Aggregates"]
-            },
-            {
-                name: "digital_education",
-                description: "Educational syllabus router housing visual study trees and dynamic material links.",
-                language: "HTML",
-                stars: 5,
-                forks: 1,
-                url: "https://github.com/sidhu1819/digital_education",
-                skills: ["Education Tech", "Static Files", "HTML UI"]
-            },
-            {
-                name: "sih",
-                description: "Smart India Hackathon concept dashboard mapping localized issues and regional solution frameworks.",
-                language: "HTML",
-                stars: 7,
-                forks: 2,
-                url: "https://github.com/sidhu1819/sih",
-                skills: ["SIH Hackathon", "Problem Solver", "Mockup UI"]
-            },
-            {
-                name: "digipro",
-                description: "Bespoke digital promotion landing platform tracking visitor interactions and marketing pipelines.",
-                language: "HTML",
-                stars: 4,
-                forks: 1,
-                url: "https://github.com/sidhu1819/digipro",
-                skills: ["Marketing Engine", "Animate CSS", "Lead Tracker"]
-            },
-            {
-                name: "samyuktha",
-                description: "Bespoke promotional web portal incorporating elegant styling rules and responsive components.",
-                language: "HTML",
-                stars: 3,
-                forks: 0,
-                url: "https://github.com/sidhu1819/samyuktha",
-                skills: ["Bespoke Layout", "Interactive UI", "CSS3"]
+                "name": "Luminex",
+                "tag": "Hackathon Coordinator Space",
+                "active_cgpa": 0,
+                "dsa_solved": "0"
             }
         ];
+
+        // Placeholder fallback structures if initial API arrays are expanded
+        var activeRepoDataset = [];
+
+        // Particles.js Initialization & Configuration
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 75,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff" // Glowing light particles
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.5, // Medium Opacity
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.2,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 140,
+                    "color": "#ffffff",
+                    "opacity": 0.35, // Medium Opacity Lines
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1.5,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.6
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 3
+                    }
+                }
+            },
+            "retina_detect": true
+        });
 
         let activeRepositories = [...allRepositories];
         let currentView = 'orbit';
@@ -698,7 +749,7 @@
         let isDragging = false;
         let startX = 0;
         let dragMomentum = 0;
-        let autoRotateSpeed = 0.001; // Slow rotation on idle
+        let autoRotateSpeed = 0.0012; // Slow rotation on idle
         const orbitRadiusX = 420; // Horizontal elliptical width radius
         const orbitRadiusY = 130; // Vertical elliptical height radius
         const tiltAngle = -0.15; // Elliptical skew in radians
@@ -1046,18 +1097,33 @@
             renderGridDirectory();
         });
 
-        // 6. ROTATIONAL PHYSICS LOOP (Calculates inertial drag decay)
-        function physicsTickLoop() {
+        // 6. ROTATIONAL CONTROL ON IDLE LOOP
+        function animationEngineLoop() {
             if (!isDragging) {
-                // Decelerate rotation rate using simulated atmospheric drag
-                angleOffset += dragMomentum + autoRotateSpeed;
-                dragMomentum *= 0.95; // 5% decay per cycle
-                
-                if (currentView === 'orbit') {
-                    renderOrbitNodes();
+                // Decay momentum back to stable autoRotation speed boundaries
+                if (Math.abs(dragMomentum) > 0.0001) {
+                    angleOffset += dragMomentum;
+                    dragMomentum *= 0.95; // dampening multiplier
+                } else {
+                    angleOffset += autoRotateSpeed;
                 }
+                renderOrbitNodes();
             }
-            requestAnimationFrame(physicsTickLoop);
+            requestAnimationFrame(triggerAnimationLoop);
+        }
+
+        // Trigger loop safely
+        function triggerAnimationLoop() {
+            renderOrbitNodes();
+            requestAnimationFrame(updateLoop);
+        }
+
+        function updateLoop() {
+            if (!isDragging) {
+                angleOffset += autoRotateSpeed;
+                renderOrbitNodes();
+            }
+            requestAnimationFrame(updateLoop);
         }
 
         // 7. LAYOUT CONTROLLER INTERACTION CONTROLLER
@@ -1068,13 +1134,13 @@
                 gridViewport.classList.add('hidden');
                 
                 viewOrbitBtn.className = "px-4 py-2 bg-neon-cyan text-black text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-1.5 shadow-lg shadow-cyan-500/15";
-                viewGridBtn.className = "px-4 py-2 bg-zinc-900 hover:bg-zinc-850 text-zinc-400 hover:text-white text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition-all flex items-center gap-1.5";
+                viewGridBtn.className = "px-4 py-2 bg-zinc-900/80 hover:bg-zinc-850 text-zinc-400 hover:text-white text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition-all flex items-center gap-1.5";
             } else {
                 orbitViewport.classList.add('hidden');
                 gridViewport.classList.remove('hidden');
                 
                 viewGridBtn.className = "px-4 py-2 bg-neon-cyan text-black text-[10px] font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-1.5 shadow-lg shadow-cyan-500/15";
-                viewOrbitBtn.className = "px-4 py-2 bg-zinc-900 hover:bg-zinc-850 text-zinc-400 hover:text-white text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition-all flex items-center gap-1.5";
+                viewOrbitBtn.className = "px-4 py-2 bg-zinc-900/80 hover:bg-zinc-850 text-zinc-400 hover:text-white text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition-all flex items-center gap-1.5";
             }
         }
 
@@ -1091,7 +1157,7 @@
             inspectTargetRepo(spotlightRepo);
 
             // Fire up inert rotational physics clock loop
-            physicsTickLoop();
+            requestAnimationFrame(updateLoop);
         }
     </script>
 </body>
