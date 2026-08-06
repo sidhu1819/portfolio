@@ -145,8 +145,8 @@
             border-radius: 1rem;
         }
         .phi-card-front {
-            background: rgba(24, 24, 27, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(24, 24, 27, 0.6);
+            border: 1px solid rgba(39, 39, 42, 0.8);
         }
         .phi-card-back {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -216,7 +216,7 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-cyan"></span>
                     </span>
-                    /studyAI
+                    /spotlight
                 </a>
                 <a href="#deployments" class="hover:text-neon-cyan transition-colors">/deployments</a>
                 <a href="github.html" class="hover:text-neon-cyan transition-colors text-cyan-400 font-bold flex items-center gap-1">/projects</a>
@@ -257,7 +257,7 @@
         </div>
     </header>
 
-    <!-- Main Content Layer shifted to higher Z-index so it sits cleanly over particles -->
+    <!-- Main Content Layer -->
     <main class="relative pt-20 z-10 pointer-events-auto">
         
         <!-- INTUITIVE HERO SECTION -->
@@ -294,7 +294,7 @@
                         
                         <!-- CTA Command Actions -->
                         <div class="reveal delay-300 flex flex-col sm:flex-row items-center gap-4 pt-2">
-                            <a href="https://github.com/sidhu1819/StudyAI" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 bg-neon-cyan hover:bg-cyan-400 text-black rounded-xl font-bold shadow-lg shadow-cyan-500/10 transition-all transform hover:-translate-y-0.5 gap-2">
+                            <a href="#study-ai" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 bg-neon-cyan hover:bg-cyan-400 text-black rounded-xl font-bold shadow-lg shadow-cyan-500/10 transition-all transform hover:-translate-y-0.5 gap-2">
                                 Explore Spotlight AI <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                             </a>
                             <a href="github.html" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 bg-zinc-900/80 border border-zinc-800 text-zinc-300 rounded-xl font-bold shadow-sm hover:bg-zinc-800/50 transition-all transform hover:-translate-y-0.5">
@@ -362,60 +362,60 @@
                 <div class="rolling-ball-purple"></div>
             </div>
         </section>
-
-        <!-- SPOTLIGHT: STUDYAI COMPANION -->
+        <!-- SPOTLIGHT: AI-DRIVEN FINANCIAL MARKET ANALYZER -->
         <section id="study-ai" class="py-24 bg-zinc-900/20 relative border-b border-zinc-900/40">
             <div class="container mx-auto px-6">
                 <div class="max-w-3xl mx-auto text-center mb-16 reveal">
                     <span class="px-4 py-1 bg-zinc-900/80 text-neon-cyan border border-zinc-800 uppercase tracking-widest text-xs font-bold rounded-full">Spotlight Launch</span>
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-4 leading-tight">StudyAI Companion</h2>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-4 leading-tight">AI-Driven Financial Market Analyzer</h2>
                     <p class="text-zinc-400 mt-3 text-sm max-w-xl mx-auto">
-                        A dynamic, AI-powered study portal designed to automatically transform academic notes, worksheets, and books into structured learning formats.
+                        An agent-based financial analysis intelligence engine designed to process real-time market data, perform portfolio sentiment reasoning, and simulate trading strategies.
                     </p>
                 </div>
 
-                <div class="bg-zinc-900/70 border border-zinc-800/80 rounded-3xl p-6 md:p-12 shadow-2xl reveal">
+                <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-6 md:p-12 shadow-2xl reveal">
                     <div class="grid lg:grid-cols-12 gap-8 items-center">
                         
                         <!-- Details on Left -->
                         <div class="lg:col-span-7 space-y-6">
                             <div class="flex flex-wrap gap-1.5">
-                                <span class="bg-zinc-800/80 text-zinc-300 text-[10px] font-mono px-3 py-1 rounded border border-zinc-700/60">React.js</span>
-                                <span class="bg-zinc-800/80 text-zinc-300 text-[10px] font-mono px-3 py-1 rounded border border-zinc-700/60">Python Flask</span>
-                                <span class="bg-zinc-800/80 text-zinc-300 text-[10px] font-mono px-3 py-1 rounded border border-zinc-700/60">Firebase Datastore</span>
-                                <span class="bg-zinc-850/80 text-neon-cyan text-[10px] font-mono px-3 py-1 rounded border border-cyan-500/25 font-bold">Llama 3.3 70B Versatile (Groq)</span>
+                                <span class="bg-zinc-800/80 text-zinc-300 text-[10px] font-mono px-3 py-1 rounded border border-zinc-700/60">Python</span>
+                                <span class="bg-zinc-800/80 text-zinc-300 text-[10px] font-mono px-3 py-1 rounded border border-zinc-700/60">AI Agents</span>
+                                <span class="bg-zinc-800/80 text-zinc-300 text-[10px] font-mono px-3 py-1 rounded border border-zinc-700/60">Financial APIs</span>
+                                <span class="bg-zinc-850/80 text-neon-cyan text-[10px] font-mono px-3 py-1 rounded border border-cyan-500/25 font-bold">Autonomous Agentic Reasoning</span>
                             </div>
                             
                             <h3 class="text-2xl md:text-3xl font-bold text-white tracking-tight leading-snug">
-                                Interactive Notes Transformer & Intelligent Quiz Generator
+                                Real-Time Financial Intelligence & Agentic Strategy Simulator
                             </h3>
                             
-                            <p class="text-zinc-400 text-xs md:text-sm leading-relaxed">
-                                Developed as a premium academic workflow optimizer. Students can upload standard documentation files, textbooks, and drafts to instantaneously produce clean, concise summaries, flashcard review decks, adaptive multi-tier quizzes, and continuous learning timetables. Features seamless local database fallbacks if live networks drop out.
-                            </p>
+                            <ul class="text-zinc-400 text-xs md:text-sm leading-relaxed space-y-3 list-disc list-inside">
+                                <li>Built an AI-driven financial analysis system to process market data, analyze portfolio sentiment, identify market trends, and generate risk alerts.</li>
+                                <li>Implemented agent-based workflows for financial data retrieval, analytical reasoning, trading strategy simulation, and automated market insights.</li>
+                            </ul>
                             
                             <!-- Key Technical Benefits -->
-                            <div class="grid sm:grid-cols-2 gap-4 text-xs text-zinc-400">
+                            <div class="grid sm:grid-cols-2 gap-4 text-xs text-zinc-400 pt-2">
                                 <div class="flex items-center gap-2">
                                     <i data-lucide="check" class="w-4 h-4 text-neon-cyan shrink-0"></i>
-                                    <span>Real-time adaptive flashcards.</span>
+                                    <span>Market trend & risk alert generation.</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <i data-lucide="check" class="w-4 h-4 text-neon-cyan shrink-0"></i>
-                                    <span>Weakness tracking metrics dashboard.</span>
+                                    <span>Portfolio sentiment analysis workflows.</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <i data-lucide="check" class="w-4 h-4 text-neon-cyan shrink-0"></i>
-                                    <span>Local JSON fallback local database.</span>
+                                    <span>Trading strategy simulation engine.</span>
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <i data-lucide="check" class="w-4 h-4 text-neon-cyan shrink-0"></i>
-                                    <span>Direct PDF scheduling exports.</span>
+                                    <span>Automated market insights generation.</span>
                                 </div>
                             </div>
 
                             <div class="flex flex-wrap gap-4 pt-2">
-                                <a href="https://github.com/sidhu1819/StudyAI" target="_blank" class="inline-flex items-center justify-center px-5 py-2.5 bg-neon-cyan hover:bg-cyan-400 text-black text-xs font-bold rounded-xl transition shadow-md gap-1.5">
+                                <a href="github.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-neon-cyan hover:bg-cyan-400 text-black text-xs font-bold rounded-xl transition shadow-md gap-1.5">
                                     View Repository Documentation <i data-lucide="book-open" class="w-4 h-4"></i>
                                 </a>
                             </div>
@@ -431,16 +431,16 @@
                                 
                                 <div class="space-y-2.5 font-mono text-[10px] text-zinc-400">
                                     <div class="p-3 bg-zinc-900/50 rounded border border-zinc-800/60">
-                                        <p class="text-neon-cyan font-bold">// Model Architecture</p>
-                                        <p class="text-zinc-500">Groq Engine Cloud Endpoint Routing</p>
+                                        <p class="text-neon-cyan font-bold">// Agentic Workflows</p>
+                                        <p class="text-zinc-500">Financial Data Retrieval & Reasoning</p>
                                     </div>
                                     <div class="p-3 bg-zinc-900/50 rounded border border-zinc-800/60">
-                                        <p class="text-neon-purple font-bold">// Realtime Syncer</p>
-                                        <p class="text-zinc-500">Active Firebase Observers & State Hooks</p>
+                                        <p class="text-neon-purple font-bold">// Market Telemetry</p>
+                                        <p class="text-zinc-500">Realtime Financial API Pipeline Streams</p>
                                     </div>
                                     <div class="p-3 bg-zinc-900/50 rounded border border-zinc-800/60">
-                                        <p class="text-neon-emerald font-bold">// Data Isolation</p>
-                                        <p class="text-zinc-500">Local Schema Backups on Disconnection</p>
+                                        <p class="text-neon-emerald font-bold">// Risk Engine</p>
+                                        <p class="text-zinc-500">Automated Risk Alerts & Sentiment Scoring</p>
                                     </div>
                                 </div>
                             </div>
@@ -451,22 +451,54 @@
             </div>
         </section>
 
-        <!-- REAL WORLD DEPLOYMENTS -->
+        <!-- REAL WORLD DEPLOYMENTS & FEATURED PROJECTS -->
         <section id="deployments" class="py-24 bg-transparent border-b border-zinc-900/40">
             <div class="container mx-auto px-6">
                 <div class="max-w-3xl mx-auto text-center mb-16 reveal">
                     <span class="px-4 py-1 bg-zinc-900/85 text-neon-purple border border-zinc-800 uppercase tracking-widest text-xs font-bold rounded-full">Primary Executions</span>
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-4 leading-tight">Featured Live Deployments</h2>
-                    <p class="text-zinc-400 mt-2 text-sm">Review the primary production systems created to handle heavy usage demands.</p>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-4 leading-tight">Featured Projects & Live Systems</h2>
+                    <p class="text-zinc-400 mt-2 text-sm">Review production systems and working AI architectures created to handle heavy usage demands.</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     
-                    <!-- Amaravathi Ice Factory DMS -->
-                    <div class="bg-zinc-900/60 rounded-2xl border border-zinc-800/80 p-6 md:p-8 shadow-2xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal">
+                    <!-- AI-Driven Financial Market Analyzer -->
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-6 shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal">
                         <div class="space-y-4">
                             <div class="flex justify-between items-start">
-                                <span class="bg-emerald-500/10 text-neon-emerald border border-emerald-500/20 px-3 py-1 text-[10px] font-mono rounded uppercase">Community Initiative</span>
+                                <span class="bg-cyan-500/10 text-neon-cyan border border-cyan-500/20 px-3 py-1 text-[10px] font-mono rounded uppercase font-bold">Working Project</span>
+                                <a href="github.html" class="text-zinc-500 hover:text-white transition-colors" aria-label="Visit Project">
+                                    <i data-lucide="trending-up" class="w-4 h-4 text-neon-cyan"></i>
+                                </a>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold text-white">AI-Driven Financial Market Analyzer</h3>
+                            
+                            <ul class="text-zinc-400 text-xs md:text-sm leading-relaxed space-y-2 list-disc list-inside">
+                                <li>Built an AI-driven financial analysis system to process market data, analyze portfolio sentiment, identify market trends, and generate risk alerts.</li>
+                                <li>Implemented agent-based workflows for financial data retrieval, analytical reasoning, trading strategy simulation, and automated market insights.</li>
+                            </ul>
+                            
+                            <div class="flex flex-wrap gap-2 pt-2 text-[10px] font-mono text-zinc-500">
+                                <span class="bg-zinc-800/80 px-2.5 py-1 rounded">Python</span>
+                                <span class="bg-zinc-800/80 px-2.5 py-1 rounded">AI Agents</span>
+                                <span class="bg-zinc-800/80 px-2.5 py-1 rounded">Financial APIs</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-6 border-t border-zinc-800/80 mt-6 flex justify-between items-center text-xs">
+                            <a href="github.html" class="text-neon-cyan hover:underline flex items-center gap-1 font-mono">
+                                View System Docs <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                            </a>
+                            <a href="github.html" class="text-zinc-500 hover:text-white font-mono">/docs</a>
+                        </div>
+                    </div>
+
+                    <!-- Amaravathi Ice Factory DMS -->
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-6 shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal delay-100">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-start">
+                                <span class="bg-emerald-500/10 text-neon-emerald border border-emerald-500/20 px-3 py-1 text-[10px] font-mono rounded uppercase font-bold">Community Initiative</span>
                                 <a href="https://ice-factory-gray.vercel.app/" target="_blank" class="text-zinc-500 hover:text-white transition-colors" aria-label="Visit Site">
                                     <i data-lucide="external-link" class="w-4 h-4"></i>
                                 </a>
@@ -493,10 +525,10 @@
                     </div>
 
                     <!-- VB Software Solutions -->
-                    <div class="bg-zinc-900/60 rounded-2xl border border-zinc-800/80 p-6 md:p-8 shadow-2xl hover:border-neon-purple/40 transition duration-300 flex flex-col justify-between reveal delay-100">
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-6 shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal delay-200">
                         <div class="space-y-4">
                             <div class="flex justify-between items-start">
-                                <span class="bg-purple-500/10 text-neon-purple border border-purple-500/20 px-3 py-1 text-[10px] font-mono rounded uppercase">Freelance Portal</span>
+                                <span class="bg-purple-500/10 text-neon-purple border border-purple-500/20 px-3 py-1 text-[10px] font-mono rounded uppercase font-bold">Freelance Portal</span>
                                 <a href="https://vbsoftwaresolutions.vercel.app/" target="_blank" class="text-zinc-500 hover:text-white transition-colors" aria-label="Visit Site">
                                     <i data-lucide="external-link" class="w-4 h-4"></i>
                                 </a>
@@ -526,7 +558,7 @@
             </div>
         </section>
 
-        <!-- NEW INTERACTIVE PROJECTS HUB & RESUME HUB SECTION -->
+        <!-- INTERACTIVE PROJECTS HUB & RESUME HUB SECTION -->
         <section id="resume-overview" class="py-24 bg-zinc-900/10 border-b border-zinc-900/40 relative">
             <div class="container mx-auto px-6">
                 <div class="max-w-3xl mx-auto text-center mb-16 reveal">
@@ -538,7 +570,7 @@
                 <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
                     
                     <!-- Codebase Documentation Router (Projects) -->
-                    <div class="bg-zinc-950/70 border border-zinc-800 rounded-3xl p-8 flex flex-col justify-between shadow-xl hover:border-zinc-700 transition duration-300 reveal">
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-6 shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal">
                         <div class="space-y-6">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center text-neon-cyan">
@@ -554,7 +586,7 @@
                                 Every single project built, including experimental vibe coding notebooks, database clusters, algorithmic solutions, and production portals is cataloged inside my customized documentation index. Navigate there to review source codes and visual deployment readmes.
                             </p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800/60 font-mono text-[10px] space-y-2">
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-800/60 font-mono text-[10px] space-y-2">
                                 <div class="flex justify-between text-zinc-500">
                                     <span>Total Indexed Repositories:</span>
                                     <span class="text-neon-cyan font-bold">20+</span>
@@ -570,7 +602,7 @@
                             </div>
                         </div>
 
-                        <div class="pt-8 mt-6 border-t border-zinc-900/60">
+                        <div class="pt-8 mt-6 border-t border-zinc-800/80">
                             <a href="github.html" class="w-full inline-flex items-center justify-center px-6 py-3.5 bg-zinc-900/80 border border-zinc-800 text-white font-bold rounded-xl text-xs hover:bg-zinc-800 transition duration-300 gap-2">
                                 <i data-lucide="book-open" class="w-4 h-4 text-neon-cyan"></i> Go to GitHub Projects Page
                             </a>
@@ -578,7 +610,7 @@
                     </div>
 
                     <!-- Profile Interests & Resume Download Hub -->
-                    <div class="bg-zinc-950/70 border border-zinc-800 rounded-3xl p-8 flex flex-col justify-between shadow-xl hover:border-zinc-700 transition duration-300 reveal delay-100">
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-6 shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal delay-100">
                         <div class="space-y-6">
                             <div class="flex items-center gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-neon-purple/10 flex items-center justify-center text-neon-purple">
@@ -598,15 +630,15 @@
                             <div class="space-y-3">
                                 <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">Extra Areas of Interest:</span>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="bg-zinc-900/80 text-zinc-300 border border-zinc-800/60 text-[9px] font-mono px-2.5 py-1 rounded">High-Frequency Vibe Coding</span>
-                                    <span class="bg-zinc-900/80 text-zinc-300 border border-zinc-800/60 text-[9px] font-mono px-2.5 py-1 rounded">ML Data Modeling</span>
-                                    <span class="bg-zinc-900/80 text-zinc-300 border border-zinc-800/60 text-[9px] font-mono px-2.5 py-1 rounded">Spatial DB Design</span>
-                                    <span class="bg-zinc-900/80 text-zinc-300 border border-zinc-800/60 text-[9px] font-mono px-2.5 py-1 rounded">Generative UI Systems</span>
+                                    <span class="bg-zinc-950/80 text-zinc-300 border border-zinc-800/60 text-[9px] font-mono px-2.5 py-1 rounded">High-Frequency Vibe Coding</span>
+                                    <span class="bg-zinc-950/80 text-zinc-300 border border-zinc-800/60 text-[9px] font-mono px-2.5 py-1 rounded">ML Data Modeling</span>
+                                    <span class="bg-zinc-950/80 text-zinc-300 border border-zinc-800/60 text-[9px] font-mono px-2.5 py-1 rounded">Spatial DB Design</span>
+                                    <span class="bg-zinc-950/80 text-zinc-300 border border-zinc-800/60 text-[9px] font-mono px-2.5 py-1 rounded">Generative UI Systems</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="pt-8 mt-6 border-t border-zinc-900/60">
+                        <div class="pt-8 mt-6 border-t border-zinc-800/80">
                             <!-- Download Trigger button -->
                             <a href="sidhu_resume.pdf" download="Siddhartha_Resume.pdf" class="w-full inline-flex items-center justify-center px-6 py-3.5 bg-neon-cyan hover:bg-cyan-400 text-black font-bold rounded-xl text-xs transition duration-300 gap-2 shadow-lg shadow-cyan-500/10">
                                 <i data-lucide="download" class="w-4 h-4"></i> Download PDF Resume Snapshot
@@ -645,7 +677,7 @@
                 </div>
 
                 <!-- Overlap Visual Indicator Banner -->
-                <div class="max-w-5xl mx-auto mb-12 bg-zinc-900/80 border border-zinc-800 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 reveal">
+                <div class="max-w-5xl mx-auto mb-12 bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 reveal">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-xl bg-neon-cyan/10 flex items-center justify-center text-neon-cyan animate-pulse">
                             <i data-lucide="layers" class="w-5 h-5"></i>
@@ -674,7 +706,7 @@
                         <div class="space-y-8 relative pl-6 border-l-2 border-dashed border-neon-purple/30">
                             
                             <!-- Appgenesis Card -->
-                            <div class="relative bg-zinc-950/60 border border-zinc-850 p-6 rounded-2xl shadow-xl hover:border-neon-purple/60 transition duration-300 group">
+                            <div class="relative bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 group">
                                 <div class="absolute -left-[32px] top-6 w-3 h-3 rounded-full bg-neon-purple ring-4 ring-zinc-950"></div>
                                 
                                 <div class="flex justify-between items-start gap-2 flex-wrap mb-3">
@@ -690,14 +722,14 @@
                                     Integrating deep learning layouts, training models for spatial prediction pipelines, optimizing neural weight operations, and handling complex dataset analytics.
                                 </p>
                                 <div class="flex flex-wrap gap-2 text-[9px] font-mono text-zinc-500">
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Scikit-learn</span>
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Neural Nets</span>
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Dataset Operations</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Scikit-learn</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Neural Nets</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Dataset Operations</span>
                                 </div>
                             </div>
 
                             <!-- Thiranex Card -->
-                            <div class="relative bg-zinc-950/60 border border-zinc-850 p-6 rounded-2xl shadow-xl hover:border-neon-purple/60 transition duration-300 group">
+                            <div class="relative bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 group">
                                 <div class="absolute -left-[32px] top-6 w-3 h-3 rounded-full bg-neon-purple ring-4 ring-zinc-950"></div>
                                 
                                 <div class="flex justify-between items-start gap-2 flex-wrap mb-3">
@@ -713,9 +745,9 @@
                                     Managed detailed logging, engineered telemetry data visual screens, adjusted state configurations, and processed continuous database logs.
                                 </p>
                                 <div class="flex flex-wrap gap-2 text-[9px] font-mono text-zinc-500">
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Data Analytics</span>
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Telemetry Screens</span>
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Log Schemas</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Data Analytics</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Telemetry Screens</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Log Schemas</span>
                                 </div>
                             </div>
 
@@ -733,7 +765,7 @@
                         <div class="space-y-8 relative pl-6 border-l-2 border-dashed border-neon-cyan/30">
 
                             <!-- APSSDC / APSCHE Card -->
-                            <div class="relative bg-zinc-950/60 border border-zinc-850 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/60 transition duration-300 group">
+                            <div class="relative bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 group">
                                 <div class="absolute -left-[32px] top-6 w-3 h-3 rounded-full bg-neon-cyan ring-4 ring-zinc-950"></div>
                                 
                                 <div class="flex justify-between items-start gap-2 flex-wrap mb-3">
@@ -749,14 +781,14 @@
                                     Building automated educational indices, designing regional registries, implementing full-stack schemas, and running responsive database layouts.
                                 </p>
                                 <div class="flex flex-wrap gap-2 text-[9px] font-mono text-zinc-500">
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Vibe Coding</span>
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">MERN Stack</span>
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">State Analytics</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Vibe Coding</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">MERN Stack</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">State Analytics</span>
                                 </div>
                             </div>
 
                             <!-- IBM Card -->
-                            <div class="relative bg-zinc-950/60 border border-zinc-850 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/60 transition duration-300 group">
+                            <div class="relative bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 group">
                                 <div class="absolute -left-[32px] top-6 w-3 h-3 rounded-full bg-neon-cyan ring-4 ring-zinc-950"></div>
                                 
                                 <div class="flex justify-between items-start gap-2 flex-wrap mb-3">
@@ -772,14 +804,14 @@
                                     Evaluated structured classification paradigms, evaluated cloud deep learning integrations, compiled pipeline architectures, and analyzed cognitive API responses.
                                 </p>
                                 <div class="flex flex-wrap gap-2 text-[9px] font-mono text-zinc-500">
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Cloud Computing</span>
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Deep Learning</span>
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Cognitive Systems</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Cloud Computing</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Deep Learning</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Cognitive Systems</span>
                                 </div>
                             </div>
 
                             <!-- Amaravathi Ice Factory CSP Card -->
-                            <div class="relative bg-zinc-950/60 border border-zinc-850 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/60 transition duration-300 group">
+                            <div class="relative bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 group">
                                 <div class="absolute -left-[32px] top-6 w-3 h-3 rounded-full bg-neon-cyan ring-4 ring-zinc-950"></div>
                                 
                                 <div class="flex justify-between items-start gap-2 flex-wrap mb-3">
@@ -795,9 +827,9 @@
                                     Conducted site requirements studies and built the operational DMS, removing transaction ledger speed constraints and cataloging real-time cold-chain block sales.
                                 </p>
                                 <div class="flex flex-wrap gap-2 text-[9px] font-mono text-zinc-500">
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Field Operations</span>
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Sales Ledger</span>
-                                    <span class="bg-zinc-900/60 px-2 py-0.5 rounded">Inventory Syncer</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Field Operations</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Sales Ledger</span>
+                                    <span class="bg-zinc-950/60 px-2 py-0.5 rounded border border-zinc-800/40">Inventory Syncer</span>
                                 </div>
                             </div>
 
@@ -814,12 +846,13 @@
                 <div class="max-w-3xl mx-auto text-center mb-12 reveal">
                     <span class="px-4 py-1 bg-zinc-900/80 text-neon-cyan border border-zinc-800 uppercase tracking-widest text-xs font-bold rounded-full">Engineering Capability</span>
                     <h2 class="text-3xl md:text-5xl font-extrabold text-white mt-4 leading-tight">Technical Stack</h2>
-                    <p class="text-zinc-400 mt-2 text-sm">Interactive skill map with specialized ML analytical suites</p>
+                    <p class="text-zinc-400 mt-2 text-sm">Interactive skill map with specialized CS & ML analytical suites</p>
                 </div>
 
                 <!-- Skill Matrix Category Filter Tabs -->
-                <div class="flex flex-wrap justify-center gap-2 mb-10 max-w-2xl mx-auto reveal">
+                <div class="flex flex-wrap justify-center gap-2 mb-10 max-w-3xl mx-auto reveal">
                     <button class="skill-tab-btn active px-4 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition bg-white text-black" onclick="filterSkills('all', this)">All</button>
+                    <button class="skill-tab-btn px-4 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition bg-zinc-900/50 text-zinc-400" onclick="filterSkills('cs-fundamentals', this)">CS Fundamentals</button>
                     <button class="skill-tab-btn px-4 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition bg-zinc-900/50 text-zinc-400" onclick="filterSkills('languages', this)">Languages</button>
                     <button class="skill-tab-btn px-4 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition bg-zinc-900/50 text-zinc-400" onclick="filterSkills('frontend', this)">Frontend</button>
                     <button class="skill-tab-btn px-4 py-2 text-[10px] font-bold uppercase tracking-wider rounded-lg border border-zinc-800 transition bg-zinc-900/50 text-zinc-400" onclick="filterSkills('backend', this)">Backend</button>
@@ -831,8 +864,49 @@
                 <!-- Skills Dynamic Grid -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto" id="skills-grid">
                     
+                    <!-- CS Fundamentals Section -->
+                    <div class="skill-item cs-fundamentals bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="binary" class="w-6 h-6 text-neon-cyan"></i>
+                            <h4 class="font-bold text-white text-sm">Data Structures & Algorithms</h4>
+                        </div>
+                        <p class="text-[9px] text-neon-cyan font-mono uppercase bg-cyan-500/10 px-2 py-0.5 rounded w-fit font-bold">200+ Mastered DSA</p>
+                    </div>
+
+                    <div class="skill-item cs-fundamentals bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="boxes" class="w-6 h-6 text-neon-purple"></i>
+                            <h4 class="font-bold text-white text-sm">Object-Oriented Programming (OOP)</h4>
+                        </div>
+                        <p class="text-[9px] text-zinc-500 font-mono uppercase">Architectural Principles</p>
+                    </div>
+
+                    <div class="skill-item cs-fundamentals bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="terminal" class="w-6 h-6 text-neon-emerald"></i>
+                            <h4 class="font-bold text-white text-sm">Operating Systems</h4>
+                        </div>
+                        <p class="text-[9px] text-zinc-500 font-mono uppercase">Process & Memory Control</p>
+                    </div>
+
+                    <div class="skill-item cs-fundamentals bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="network" class="w-6 h-6 text-amber-400"></i>
+                            <h4 class="font-bold text-white text-sm">Computer Networks</h4>
+                        </div>
+                        <p class="text-[9px] text-zinc-500 font-mono uppercase">Protocols & Socket Comm</p>
+                    </div>
+
+                    <div class="skill-item cs-fundamentals bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="git-branch" class="w-6 h-6 text-rose-400"></i>
+                            <h4 class="font-bold text-white text-sm">SDLC</h4>
+                        </div>
+                        <p class="text-[9px] text-zinc-500 font-mono uppercase">Agile Lifecycle Systems</p>
+                    </div>
+
                     <!-- Languages -->
-                    <div class="skill-item languages bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item languages bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-cplusplus-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">C++</h4>
@@ -840,7 +914,7 @@
                         <p class="text-[9px] text-neon-cyan font-mono uppercase bg-cyan-500/10 px-2 py-0.5 rounded w-fit">200+ Mastered DSA</p>
                     </div>
                     
-                    <div class="skill-item languages bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item languages bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-python-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">Python</h4>
@@ -848,7 +922,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Standard Computing Core</p>
                     </div>
 
-                    <div class="skill-item languages bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item languages bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-c-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">C Language</h4>
@@ -856,7 +930,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Low-level Architectures</p>
                     </div>
 
-                    <div class="skill-item languages bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item languages bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-java-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">Java</h4>
@@ -864,7 +938,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">OOP Logic Layouts</p>
                     </div>
 
-                    <div class="skill-item languages bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item languages bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-javascript-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">JavaScript</h4>
@@ -872,7 +946,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Dynamic Client Execution</p>
                     </div>
 
-                    <div class="skill-item languages bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item languages bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-postgresql-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">SQL</h4>
@@ -881,7 +955,7 @@
                     </div>
 
                     <!-- Frontend -->
-                    <div class="skill-item frontend bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item frontend bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-react-original colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">React</h4>
@@ -889,7 +963,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Structured UI Rendering</p>
                     </div>
 
-                    <div class="skill-item frontend bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item frontend bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-html5-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">HTML5</h4>
@@ -897,7 +971,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Semantic Structures</p>
                     </div>
 
-                    <div class="skill-item frontend bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item frontend bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-css3-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">CSS3</h4>
@@ -905,7 +979,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Visual Layout & Animation</p>
                     </div>
 
-                    <div class="skill-item frontend bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item frontend bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-tailwindcss-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">Tailwind CSS</h4>
@@ -914,7 +988,7 @@
                     </div>
 
                     <!-- Backend -->
-                    <div class="skill-item backend bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item backend bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-nodejs-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">Node.js</h4>
@@ -922,7 +996,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">High-concurrency logic</p>
                     </div>
 
-                    <div class="skill-item backend bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item backend bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-express-original colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">Express.js</h4>
@@ -930,7 +1004,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">REST endpoint middleware</p>
                     </div>
 
-                    <div class="skill-item backend bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item backend bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-fastapi-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">FastAPI</h4>
@@ -939,7 +1013,7 @@
                     </div>
 
                     <!-- Databases -->
-                    <div class="skill-item databases bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item databases bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-mysql-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">MySQL</h4>
@@ -947,7 +1021,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Relational Schema Structures</p>
                     </div>
 
-                    <div class="skill-item databases bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item databases bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-mongodb-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">MongoDB</h4>
@@ -955,7 +1029,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">BSON document systems</p>
                     </div>
 
-                    <div class="skill-item databases bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item databases bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-postgresql-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">PostgreSQL</h4>
@@ -963,8 +1037,8 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Advanced storage backends</p>
                     </div>
 
-                    <!-- ML / DS (with Seaborn & Matplotlib included) -->
-                    <div class="skill-item mlds bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <!-- ML / DS -->
+                    <div class="skill-item mlds bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-python-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">Scikit-learn</h4>
@@ -972,7 +1046,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Predictive Classifications</p>
                     </div>
 
-                    <div class="skill-item mlds bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item mlds bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-pandas-original colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">Pandas</h4>
@@ -980,7 +1054,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Data Matrix Manipulations</p>
                     </div>
 
-                    <div class="skill-item mlds bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item mlds bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-numpy-original colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">NumPy</h4>
@@ -988,7 +1062,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Multi-dimensional Arrays</p>
                     </div>
 
-                    <div class="skill-item mlds bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item mlds bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-opencv-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">OpenCV</h4>
@@ -996,7 +1070,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Spatial Image Boundaries</p>
                     </div>
 
-                    <div class="skill-item mlds bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item mlds bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i data-lucide="binary" class="w-6 h-6 text-neon-purple"></i>
                             <h4 class="font-bold text-white text-sm">TF-IDF</h4>
@@ -1004,8 +1078,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Vectorized Term Frequencies</p>
                     </div>
 
-                    <!-- Seaborn and Matplotlib -->
-                    <div class="skill-item mlds bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item mlds bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i data-lucide="line-chart" class="w-6 h-6 text-neon-cyan animate-pulse"></i>
                             <h4 class="font-bold text-white text-sm">Seaborn</h4>
@@ -1013,7 +1086,7 @@
                         <p class="text-[9px] text-neon-cyan font-mono uppercase bg-cyan-500/10 px-2 py-0.5 rounded w-fit">Statistical Visuals</p>
                     </div>
 
-                    <div class="skill-item mlds bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item mlds bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i data-lucide="area-chart" class="w-6 h-6 text-neon-emerald"></i>
                             <h4 class="font-bold text-white text-sm">Matplotlib</h4>
@@ -1022,7 +1095,7 @@
                     </div>
 
                     <!-- Tools -->
-                    <div class="skill-item tools bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item tools bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-git-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">Git & GitHub</h4>
@@ -1030,7 +1103,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Collaborative Branchings</p>
                     </div>
 
-                    <div class="skill-item tools bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item tools bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i data-lucide="bar-chart-2" class="w-6 h-6 text-amber-500"></i>
                             <h4 class="font-bold text-white text-sm">Power BI</h4>
@@ -1038,7 +1111,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Business Metrics Desktops</p>
                     </div>
 
-                    <div class="skill-item tools bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item tools bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i data-lucide="server" class="w-6 h-6 text-blue-500"></i>
                             <h4 class="font-bold text-white text-sm">REST APIs</h4>
@@ -1046,7 +1119,7 @@
                         <p class="text-[9px] text-zinc-500 font-mono uppercase">Inter-service protocols</p>
                     </div>
 
-                    <div class="skill-item tools bg-zinc-900/50 border border-zinc-800 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-lg hover:border-zinc-700">
+                    <div class="skill-item tools bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl space-y-3 transition duration-300 hover:shadow-xl hover:border-neon-cyan/40">
                         <div class="flex items-center gap-3">
                             <i class="devicon-vscode-plain colored text-2xl"></i>
                             <h4 class="font-bold text-white text-sm">VS Code</h4>
@@ -1074,9 +1147,9 @@
                         <div class="relative border-l-2 border-zinc-800/80 pl-6 space-y-8 ml-2">
                             
                             <!-- B.Tech CSE -->
-                            <div class="relative bg-zinc-900/60 border border-zinc-850 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition">
+                            <div class="relative bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300">
                                 <div class="absolute -left-[31px] top-7 w-2.5 h-2.5 rounded-full bg-neon-cyan ring-4 ring-zinc-950"></div>
-                                <span class="text-neon-cyan text-[10px] font-mono uppercase">2024 - 2028</span>
+                                <span class="text-neon-cyan text-[10px] font-mono uppercase font-bold">2024 - 2028</span>
                                 <h3 class="text-lg font-bold text-white mt-1">B.Tech, Computer Science</h3>
                                 <p class="text-zinc-400 text-xs">ANITS, Visakhapatnam</p>
                                 <span class="inline-block mt-3 bg-cyan-500/10 border border-cyan-500/20 text-neon-cyan px-3 py-1 text-xs font-bold rounded-full">
@@ -1085,9 +1158,9 @@
                             </div>
 
                             <!-- Intermediate (10+2) -->
-                            <div class="relative bg-zinc-900/60 border border-zinc-850 p-6 rounded-2xl shadow-xl hover:border-neon-purple/40 transition">
+                            <div class="relative bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300">
                                 <div class="absolute -left-[31px] top-7 w-2.5 h-2.5 rounded-full bg-neon-purple ring-4 ring-zinc-950"></div>
-                                <span class="text-neon-purple text-[10px] font-mono uppercase">2022 - 2024</span>
+                                <span class="text-neon-purple text-[10px] font-mono uppercase font-bold">2022 - 2024</span>
                                 <h3 class="text-lg font-bold text-white mt-1">Intermediate (10+2)</h3>
                                 <p class="text-zinc-400 text-xs">Sri Shiridi Sai Junior College</p>
                                 <span class="inline-block mt-3 bg-purple-500/10 border border-purple-500/20 text-neon-purple px-3 py-1 text-xs font-bold rounded-full">
@@ -1096,9 +1169,9 @@
                             </div>
 
                             <!-- SSC (10th) -->
-                            <div class="relative bg-zinc-900/60 border border-zinc-850 p-6 rounded-2xl shadow-xl hover:border-neon-emerald/40 transition">
+                            <div class="relative bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300">
                                 <div class="absolute -left-[31px] top-7 w-2.5 h-2.5 rounded-full bg-neon-emerald ring-4 ring-zinc-950"></div>
-                                <span class="text-neon-emerald text-[10px] font-mono uppercase">2021 - 2022</span>
+                                <span class="text-neon-emerald text-[10px] font-mono uppercase font-bold">2021 - 2022</span>
                                 <h3 class="text-lg font-bold text-white mt-1">SSC (10th Grade)</h3>
                                 <p class="text-zinc-400 text-xs">Sri Siddhartha School</p>
                                 <span class="inline-block mt-3 bg-emerald-500/10 border border-emerald-500/20 text-neon-emerald px-3 py-1 text-xs font-bold rounded-full">
@@ -1185,7 +1258,7 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     
                     <!-- Salesforce Agentblazer -->
-                    <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between hover:border-zinc-700 transition duration-300 reveal">
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal">
                         <div class="space-y-4">
                             <div class="flex justify-between items-center">
                                 <span class="bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2.5 py-0.5 rounded text-[9px] font-mono uppercase">Salesforce</span>
@@ -1196,14 +1269,14 @@
                                 Completed verified Cloud Workflow configurations and Agentforce deployment modules.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-zinc-850 mt-6 flex justify-between items-center text-[10px] font-mono">
+                        <div class="pt-4 border-t border-zinc-800/80 mt-6 flex justify-between items-center text-[10px] font-mono">
                             <a href="github.html" class="text-zinc-400 hover:text-white">/docs</a>
                             <span class="text-blue-400 uppercase tracking-wider">Verified Profile</span>
                         </div>
                     </div>
 
                     <!-- Credly Badge -->
-                    <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between hover:border-zinc-700 transition duration-300 reveal delay-100">
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal delay-100">
                         <div class="space-y-4">
                             <div class="flex justify-between items-center">
                                 <span class="bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2.5 py-0.5 rounded text-[9px] font-mono uppercase">Credly Badge</span>
@@ -1214,14 +1287,14 @@
                                 Verified cloud platforms competence issued securely through Credly ecosystem credentials.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-zinc-850 mt-6 flex justify-between items-center text-[10px] font-mono">
+                        <div class="pt-4 border-t border-zinc-800/80 mt-6 flex justify-between items-center text-[10px] font-mono">
                             <span class="text-zinc-500">Credly Ecosystem</span>
                             <span class="text-indigo-400 uppercase tracking-wider">Secured</span>
                         </div>
                     </div>
 
                     <!-- Coding Ninjas DSA -->
-                    <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between hover:border-zinc-700 transition duration-300 reveal delay-200">
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal delay-200">
                         <div class="space-y-4">
                             <div class="flex justify-between items-center">
                                 <span class="bg-orange-500/10 text-orange-400 border border-orange-500/20 px-2.5 py-0.5 rounded text-[9px] font-mono uppercase">Coding Ninjas</span>
@@ -1232,7 +1305,7 @@
                                 Mastered graph models, short paths traversals, and topological sorting algorithms.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-zinc-850 mt-6 flex justify-between items-center text-[10px] font-mono">
+                        <div class="pt-4 border-t border-zinc-800/80 mt-6 flex justify-between items-center text-[10px] font-mono">
                             <a href="https://certificate.codingninjas.com/certificate/dbb491e9f1b9e90b/BadgesSamuraiCertificate" target="_blank" class="text-orange-400 hover:underline flex items-center gap-1">
                                 Verify Cert <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                             </a>
@@ -1240,7 +1313,7 @@
                     </div>
 
                     <!-- Luminex DS & ML Coordinator -->
-                    <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between hover:border-zinc-700 transition duration-300 reveal">
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal">
                         <div class="space-y-4">
                             <div class="flex justify-between items-center">
                                 <span class="bg-purple-500/10 text-neon-purple border border-purple-500/20 px-2.5 py-0.5 rounded text-[9px] font-mono uppercase">Organizer</span>
@@ -1251,7 +1324,7 @@
                                 Coordinated campus computing platforms and dataset architectures during the state-wide hackathon.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-zinc-850 mt-6 flex justify-between items-center text-[10px] font-mono">
+                        <div class="pt-4 border-t border-zinc-800/80 mt-6 flex justify-between items-center text-[10px] font-mono">
                             <a href="https://drive.google.com/file/d/12OjOTTsUCLEuydzMPSR8ZcT92j192mEh/view" target="_blank" class="text-neon-purple hover:underline flex items-center gap-1">
                                 View Certificate <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                             </a>
@@ -1259,7 +1332,7 @@
                     </div>
 
                     <!-- INNOQUEST Ideation Leader -->
-                    <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between hover:border-zinc-700 transition duration-300 reveal delay-100">
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal delay-100">
                         <div class="space-y-4">
                             <div class="flex justify-between items-center">
                                 <span class="bg-emerald-500/10 text-neon-emerald border border-emerald-500/20 px-2.5 py-0.5 rounded text-[9px] font-mono uppercase">Ideation Lead</span>
@@ -1270,14 +1343,14 @@
                                 Managed layout plans, score computation metrics, and analyzed team project entries.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-zinc-850 mt-6 flex justify-between items-center text-[10px] font-mono text-zinc-500">
+                        <div class="pt-4 border-t border-zinc-800/80 mt-6 flex justify-between items-center text-[10px] font-mono text-zinc-500">
                             <span>ANITS Campus</span>
                             <span class="text-neon-emerald uppercase">Credential</span>
                         </div>
                     </div>
 
                     <!-- The Forest Hub -->
-                    <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between hover:border-zinc-700 transition duration-300 reveal delay-200">
+                    <div class="bg-zinc-900/60 border border-zinc-800/80 p-6 rounded-2xl shadow-xl hover:border-neon-cyan/40 transition duration-300 flex flex-col justify-between reveal delay-200">
                         <div class="space-y-4">
                             <div class="flex justify-between items-center">
                                 <span class="bg-rose-500/10 text-rose-400 border border-rose-500/20 px-2.5 py-0.5 rounded text-[9px] font-mono uppercase">Devpost Hack</span>
@@ -1288,7 +1361,7 @@
                                 Devpost hackathon layout structuring spatial forest indexes and monitoring climate graphs.
                             </p>
                         </div>
-                        <div class="pt-4 border-t border-zinc-850 mt-6 flex justify-between items-center text-[10px] font-mono">
+                        <div class="pt-4 border-t border-zinc-800/80 mt-6 flex justify-between items-center text-[10px] font-mono">
                             <a href="https://devpost.com/software/the-forest-hub#updates" target="_blank" class="text-rose-400 hover:underline flex items-center gap-1">
                                 View Submission <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                             </a>
@@ -1368,7 +1441,7 @@
                     }
                 },
                 "color": {
-                    "value": "#ffffff" // Light particles
+                    "value": "#ffffff"
                 },
                 "shape": {
                     "type": "circle",
@@ -1378,7 +1451,7 @@
                     }
                 },
                 "opacity": {
-                    "value": 0.5, // Medium Opacity
+                    "value": 0.5,
                     "random": true,
                     "anim": {
                         "enable": true,
@@ -1400,8 +1473,8 @@
                 "line_linked": {
                     "enable": true,
                     "distance": 150,
-                    "color": "#ffffff", // Light networking lines
-                    "opacity": 0.35, // Medium Opacity Lines
+                    "color": "#ffffff",
+                    "opacity": 0.35,
                     "width": 1
                 },
                 "move": {
@@ -1471,7 +1544,7 @@
             });
         };
         window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Force run on load
+        revealOnScroll();
 
         // Navbar Scroll Boxshadow style update
         const navbar = document.getElementById('navbar');
